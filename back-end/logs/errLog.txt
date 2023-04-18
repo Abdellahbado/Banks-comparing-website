@@ -1,0 +1,16 @@
+20230328	12:49:48	ec56290a-39f1-4736-b0a6-b57341efd35d	Error: Can't set headers after they are sent.
+20230328	16:39:10	c7bfb804-f620-44d8-8bc0-2bd9e0072b5d	Error: Cannot set headers after they are sent to the client
+20230328	16:39:14	51e878ac-a29b-4ee0-8d69-0cb10103b0b0	Error: Cannot set headers after they are sent to the client
+20230328	17:02:44	0161c0bd-15b9-46ce-ada1-e7317c97510f	TypeError: object is not iterable (cannot read property Symbol(Symbol.iterator))
+20230328	17:27:50	31b30531-95bc-485c-a9c2-d9fb83a1c742	TypeError: Banques.getData is not a function
+20230328	17:49:25	87890be0-2e65-47f8-a92a-3e6ff2706297	TypeError: Banques.getBanques is not a function
+20230328	20:00:10	4a3f82f7-ddcc-4201-b989-ad20acf626a3	TypeError: object is not iterable (cannot read property Symbol(Symbol.iterator))
+20230328	20:04:57	547bad8f-d379-472e-88ba-533f4f96edce	Error: Unknown column 'id' in 'where clause'
+20230328	20:05:58	0fd37a18-b81b-4fe0-8172-9b7ce4d6340c	Error: Unknown column 'id' in 'where clause'
+20230417	00:53:01	8ccbb9ce-0d4d-4492-858b-ec68d08d0370	Error: Not allowed by CORS
+20230417	18:27:42	68e2dbc5-a88a-4ee3-bd1f-2c2697014e04	Error: Unknown column 'prestations.frais' in 'order clause'
+20230418	01:13:01	c7b28c25-5991-4291-89ab-bbef35e8a77d	Error: Unknown column 'undefined' in 'where clause'
+20230418	01:16:22	f4950df7-3826-4093-a4fd-d11a306abf0f	Error: Unknown column 'undefined' in 'where clause'
+20230418	09:18:48	ea240560-9395-45aa-ab79-5938ca05e210	Error: Unknown column 'undefined' in 'where clause'
+20230418	09:28:17	4fe35fbf-15cc-4da0-b5d7-04e8807c0638	Error: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'WHERE prestations.pres_id=2
+                   )' at line 5
