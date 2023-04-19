@@ -20,8 +20,8 @@ app.use(express.json());
 //serve static files
 app.use('/', express.static(path.join(__dirname, '/public')));
 // routes
-app.use('/', require('./routes/root'));
-app.use('/register', require('./routes/register'));
+app.use('/', require('./routes/api/root'));
+app.use('/register', require('./routes/api/register'));
 ///////////////////////app.use('/auth', require('./routes/auth'));
 app.use("/aceuil",require("./routes/api/aceuil"));
 app.use("/comparer",require("./routes/api/Comparer"));

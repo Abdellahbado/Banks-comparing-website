@@ -1,6 +1,6 @@
 const express = require("express");
 const router = express.Router();
-const aceuilController = require("../../controller/aceuilController");
+const aceuilController = require("../../../front-end/controller/aceuilController");
 
 // GET ROUTER FOR GIVINNG THE BANKS DATA TO HOME PAGE
 router.route("/")

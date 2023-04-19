@@ -1,6 +1,6 @@
 const express = require("express");
 const router = express.Router();
-const comparerController = require("../../controller/comparerController");
+const comparerController = require("../../../front-end/controller/comparerController");
 
 
 router.route("/:id")
