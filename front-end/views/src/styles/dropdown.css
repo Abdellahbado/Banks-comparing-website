@@ -1,0 +1,28 @@
+.dropdown-toggle-custom {
+  background-color: transparent;
+  border-color: #1f3294;
+  color: #1f3294;
+}
+
+.dropdown-toggle-custom:hover {
+  background-color: #0d2059;
+  border-color: #0d2059;
+  color: white;
+}
+.dropdown-toggle-custom:focus {
+  box-shadow: none;
+  background-color: #0d2059;
+  border-color: #0d2059;
+  color: white;
+}
+
+.dropdown-menu-custom {
+  background-color: white;
+  border-color: #1f3294;
+}
+
+.dropdown-item-custom.active,
+.dropdown-item-custom:active {
+  background-color: #0d2059;
+  color: #fff;
+}

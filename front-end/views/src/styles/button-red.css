@@ -1,0 +1,10 @@
+.btn-myRedVariant {
+  background-color: rgb(215, 0, 0);
+  color: white;
+  transition: background-color 0.3s ease;
+}
+
+.btn-myRedVariant:hover {
+  background-color: #a00000;
+  color: white;
+}
