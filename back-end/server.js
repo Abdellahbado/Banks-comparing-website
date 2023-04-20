@@ -22,7 +22,7 @@ app.use('/', express.static(path.join(__dirname, '/public')));
 // routes
 app.use('/', require('./routes/api/root'));
 app.use('/register', require('./routes/api/register'));
-///////////////////////app.use('/auth', require('./routes/auth'));
+app.use("/auth", require("./routes/api/auth"));
 app.use("/aceuil",require("./routes/api/aceuil"));
 app.use("/comparer",require("./routes/api/Comparer"));
 app.use("/admin",require("./routes/api/admin"));

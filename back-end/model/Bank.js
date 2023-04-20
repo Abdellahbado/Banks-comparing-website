@@ -55,6 +55,18 @@ class Banque {
         return DB.execute(sql);
     }
 
+    static async foundUser (userName){
+        let  sql = `SELECT EXISTS(SELECT * FROM Adminstrateur WHERE Nom='${userName}') AS user_exists;`;
+        let [data,_] = await DB.execute(sql);
+        return data[0].user_exists;
+    }
+
+    static async foundPwd (userName,pwd){
+        let  sql = `SELECT EXISTS(SELECT * FROM Adminstrateur WHERE Nom='${userName}' AND Mot_de_passe='${pwd}') AS user_exists;`;
+        let [data,_] = await DB.execute(sql);
+        return data[0].user_exists;
+    }
+
     /*static getPrestationById (id1,id2) {
         let sql = `SELECT * FROM prestations WHERE pres_id=${id1} AND bank_id = ${id2};`;
         return DB.execute(sql);
