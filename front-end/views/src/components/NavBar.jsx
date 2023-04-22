@@ -3,15 +3,23 @@ import Container from "react-bootstrap/Container";
 import Form from "react-bootstrap/Form";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
+import { Link } from "react-router-dom"; // Import the Link component from react-router-dom
 import logo from "../assets/images/search.png";
 import loggo1 from "../assets/images/loggo1.png";
 import React from "react";
 
-function NavBar() {
+function NavBar(props) {
   return (
-    <Navbar bg="white" expand="lg">
+    <Navbar
+      bg="white"
+      expand="lg"
+      sticky="top"
+      style={{ display: "flex", justifyContent: "space-evenly " }}
+    >
       <Container fluid>
-        <Navbar.Brand href="#" className="mx-5">
+        <Navbar.Brand as={Link} to="/" className="mx-5">
+          {" "}
+          {/* Use the Link component for the Navbar.Brand */}
           <img
             src={loggo1}
             width="128"
@@ -29,27 +37,25 @@ function NavBar() {
             navbarScroll
             variant="tabs"
           >
-            <Nav.Link href="#Accueil" className="mx-4">
+            <Nav.Link as={Link} to="/" className="mx-4">
+              {" "}
+              {/* Use the Link component for the Nav.Link */}
               Accueil{" "}
             </Nav.Link>
-            <Nav.Link href="#Comparer" className="mx-4">
+            <Nav.Link as={Link} to="/comparer" className="mx-4">
+              {" "}
+              {/* Use the Link component for the Nav.Link */}
               Comparer
             </Nav.Link>
-            <Nav.Link href="#Qui-sommes-nous" className="mx-4">
+            <Nav.Link as={Link} to="/qui-sommes-nous" className="mx-4">
+              {" "}
+              {/* Use the Link component for the Nav.Link */}
               Qui-sommes-nous
             </Nav.Link>
           </Nav>
-          <Form className="d-flex mx-5">
-            <Form.Control
-              type="search"
-              placeholder="Recherche une banque"
-              className="me-0 form-control-lg border-0 outline-0"
-              aria-label="Search"
-            />
-            <Button variant="white" size="sm">
-              <img src={logo} width="20" height="20" />
-            </Button>
-          </Form>
+          <Button variant="outline-secondary" onClick={props.onSearchClick}>
+            <img src={logo} width="20" height="20" />
+          </Button>
         </Navbar.Collapse>
       </Container>
     </Navbar>

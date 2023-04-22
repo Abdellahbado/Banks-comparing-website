@@ -1,11 +1,13 @@
 import React, { useState } from "react";
 import { Form } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
-function MyForm() {
+function MyForm({ onSubmit }) {
   const [minValue, setMinValue] = useState("");
   const [maxValue, setMaxValue] = useState("");
   const handleSubmit = (event) => {
     // code when the form is submited
+    event.preventDefault();
+    onSubmit(minValue, maxValue);
   };
   return (
     <Form onSubmit={handleSubmit}>

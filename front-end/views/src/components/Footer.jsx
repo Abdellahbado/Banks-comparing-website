@@ -4,12 +4,11 @@ import Insta from "../assets/images/instagram.png";
 import Face from "../assets/images/facebook.png";
 import Email from "../assets/images/email.png";
 import { Container, Row, Col } from "react-bootstrap";
+import { Link } from "react-router-dom";
+
 function Footer() {
   return (
-    <footer
-      // className="p-5"
-      style={{ height: "400px", backgroundColor: "#0d2059" }}
-    >
+    <footer style={{ height: "400px", backgroundColor: "#0d2059" }}>
       <Container>
         <Row className="justify-content-center p-3  ">
           <Col className="text-center text-white">
@@ -18,23 +17,23 @@ function Footer() {
         </Row>
         <Row className="justify-content-center">
           <Col className="text-center text-white">
-            <a href="#Accueil" className="text-white">
+            <Link to="/" className="text-white">
               Rechercher
-            </a>
+            </Link>
           </Col>
         </Row>
         <Row className="justify-content-center">
           <Col className="text-center text-white">
-            <a href="#Comparer" className="text-white">
+            <Link to="/compare" className="text-white">
               Comparer
-            </a>
+            </Link>
           </Col>
         </Row>
         <Row className="justify-content-center">
           <Col className="text-center text-white">
-            <a href="#Qui-somme-nous" className="text-white">
+            <Link to="/about" className="text-white">
               Qui-somme-nous
-            </a>
+            </Link>
           </Col>
         </Row>
         <Row className="justify-content-center">

@@ -6,6 +6,7 @@ import axios from "axios";
 function Cadre(props) {
   const [showOffcanvas, setShowOffcanvas] = useState(false);
   const [data, setData] = useState(null);
+  // haid t3 plus de détails
   const fetchData = async () => {
     try {
       const response = await axios.get(

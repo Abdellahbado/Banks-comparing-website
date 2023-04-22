@@ -1,15 +1,12 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, forwardRef } from "react";
 import { Form, Button, Dropdown, Modal } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
 import MyForm from "./form";
 import { banks } from "../models/bank_model.js";
-import Cadre from "./cadres/cadre";
-import PlusCadre from "./cadres/plus_cadre";
 import "../styles/dropdown.css";
 import "../styles/button.css";
 import CadreScrollable from "./cadres/cadre_carousel";
-import Paragraph from "./paragraph";
-function Search() {
+const Search = forwardRef((props, ref) => {
   const compare = (a, b) => {
     if (a.name < b.name) {
       return -1;
@@ -19,7 +16,9 @@ function Search() {
     }
     return 0;
   };
-
+  // here dir call l api bach tjib les banques
+  // w 7otha f variable wasmo banks psq ani nkdm bih
+  // dok nb3tlk kich object t3 banks yji fih mn attributs
   const pres = [
     { id: 1, name: "pres1" },
     { id: 2, name: "pres2" },
@@ -53,13 +52,25 @@ function Search() {
   const handleClose = () => setShowModal(false);
   const handleShow = () => setShowModal(true);
   const sortBanks = (id) => {
-    // here we will call an api to sort the banks depending on pres id
     sortedBanks.sort(compare);
+    // hna dir api t3 tri 3la 7sab id t3 prestation
+    // omb3d résultat dirha f hada variable arr
     const arr = [...sortedBanks];
     setSortedBanks(arr);
   };
+  const [minValue, setMinValue] = useState("");
+  const [maxValue, setMaxValue] = useState("");
+
+  const handleFitreFormSubmit = (minValue, maxValue) => {
+    setMinValue(minValue);
+    setMaxValue(maxValue);
+    // hna dir api t3 fitre b min w max
+    // const arr = respons et3 api
+    // setSortedBanks(arr);
+  };
   const [filteredBanks, setFilteredBanks] = useState(sortedBanks);
   useEffect(() => {
+    // hadi fkitered banks li ra7 t'afficha ki yekteb string f recherche
     const filteredBanks1 = sortedBanks.filter((bank) => {
       return search.toLowerCase() === ""
         ? bank
@@ -67,6 +78,12 @@ function Search() {
     });
     setFilteredBanks(filteredBanks1);
   }, [search, sortedBanks]);
+  // this will make the from focused when the ref is set
+  useEffect(() => {
+    if (ref.current) {
+      ref.current.focus();
+    }
+  }, [ref]);
 
   return (
     <>
@@ -83,6 +100,7 @@ function Search() {
           style={{ width: "1000px", marginLeft: "10px" }}
         >
           <Form.Control
+            ref={ref}
             type="text"
             placeholder="Rechercher une banque"
             style={{ height: "50px" }}
@@ -144,7 +162,7 @@ function Search() {
                 </Modal.Title>
               </Modal.Header>
               <Modal.Body>
-                <MyForm />
+                <MyForm onSubmit={handleFitreFormSubmit} />
               </Modal.Body>
               <Modal.Footer>
                 <Button variant="secondary" onClick={handleClose}>
@@ -164,6 +182,6 @@ function Search() {
       </div>
     </>
   );
-}
+});
 
 export default Search;
