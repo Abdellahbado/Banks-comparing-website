@@ -7,7 +7,11 @@ const Diaporama = () => {
   const images = [img, img, img];
 
   return (
-    <Container style={{ maxWidth: "800px" }}>
+    <Container
+      style={{
+        width: "100%",
+      }}
+    >
       <Carousel interval={3000} controls indicators>
         {images.map((image, index) => (
           <Carousel.Item key={index}>

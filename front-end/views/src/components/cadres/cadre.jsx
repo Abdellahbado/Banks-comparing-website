@@ -3,6 +3,30 @@ import Button from "react-bootstrap/Button";
 import { Card, Offcanvas } from "react-bootstrap";
 import "../../styles/button.css";
 import axios from "axios";
+import Details from "../plus_details";
+const bank = {
+  name: "American Bank",
+  id: "jbdbi",
+  openingTime: 8.3,
+  closingTime: 17,
+  descriptions: [
+    "  Banque Américaine est une institution financière de premier plan avec une longue histoire de service à la communauté.",
+    "Chez Banque Américaine, nous nous engageons à fournir des services bancaires exceptionnels adaptés aux besoins de nos clients.",
+    "Avec une large gamme de produits et services, Banque Américaine offre des solutions financières complètes pour les particuliers et les entreprises.",
+    "En tant que banque de confiance, Banque Américaine propose des services bancaires fiables et sécurisés pour aider les clients à atteindre leurs objectifs financiers.",
+    "Chez Banque Américaine, nous sommes fiers de notre excellent service client et de nos solutions bancaires innovantes.",
+    "Avec une équipe de professionnels expérimentés, Banque Américaine est dévouée à aider nos clients à réussir financièrement.",
+    "Banque Américaine est un partenaire de confiance dans la gestion de vos finances, offrant des solutions personnalisées pour répondre à vos besoins uniques.",
+    "Chez Banque Américaine, nous nous efforçons de fournir une valeur exceptionnelle à nos clients grâce à nos services bancaires complets et à nos tarifs compétitifs.",
+  ],
+  prestations: [
+    { name: "Pres 1", price: 50 },
+    { name: "Pres 2", price: 75 },
+    { name: "Pres 3", price: 100 },
+    { name: "Pres 4", price: 120 },
+    { name: "Pres 5", price: 90 },
+  ],
+};
 function Cadre(props) {
   const [showOffcanvas, setShowOffcanvas] = useState(false);
   const [data, setData] = useState(null);
@@ -69,7 +93,7 @@ function Cadre(props) {
         show={showOffcanvas}
         onHide={handleClose}
         placement="bottom"
-        style={{ height: "90%" }}
+        style={{ height: "95%" }}
       >
         <Offcanvas.Header closeButton>
           <Offcanvas.Title style={{ textAlign: "center", width: "100%" }}>
@@ -78,14 +102,7 @@ function Cadre(props) {
         </Offcanvas.Header>
         <Offcanvas.Body>
           The Offcanvas was displayed from {props.id} the bank
-          {data ? (
-            <div>
-              <p>Some data fetched from API:</p>
-              <pre>{JSON.stringify(data, null, 2)}</pre>
-            </div>
-          ) : (
-            <p>Loading...</p>
-          )}
+          <Details banque={bank} />
         </Offcanvas.Body>
       </Offcanvas>
     </>

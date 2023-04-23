@@ -1,6 +1,5 @@
 import Button from "react-bootstrap/Button";
 import Container from "react-bootstrap/Container";
-import Form from "react-bootstrap/Form";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import { Link } from "react-router-dom"; // Import the Link component from react-router-dom
@@ -39,17 +38,14 @@ function NavBar(props) {
           >
             <Nav.Link as={Link} to="/" className="mx-4">
               {" "}
-              {/* Use the Link component for the Nav.Link */}
               Accueil{" "}
             </Nav.Link>
             <Nav.Link as={Link} to="/comparer" className="mx-4">
               {" "}
-              {/* Use the Link component for the Nav.Link */}
               Comparer
             </Nav.Link>
             <Nav.Link as={Link} to="/qui-sommes-nous" className="mx-4">
               {" "}
-              {/* Use the Link component for the Nav.Link */}
               Qui-sommes-nous
             </Nav.Link>
           </Nav>
