@@ -74,7 +74,7 @@ const Search = forwardRef((props, ref) => {
     const filteredBanks1 = sortedBanks.filter((bank) => {
       return search.toLowerCase() === ""
         ? bank
-        : bank.name.toLowerCase().includes(search.toLowerCase());
+        : bank.Nom_banque.toLowerCase().includes(search.toLowerCase());
     });
     setFilteredBanks(filteredBanks1);
   }, [search, sortedBanks]);

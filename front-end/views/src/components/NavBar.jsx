@@ -18,7 +18,6 @@ function NavBar(props) {
       <Container fluid>
         <Navbar.Brand as={Link} to="/" className="mx-5">
           {" "}
-          {/* Use the Link component for the Navbar.Brand */}
           <img
             src={loggo1}
             width="128"
@@ -37,19 +36,20 @@ function NavBar(props) {
             variant="tabs"
           >
             <Nav.Link as={Link} to="/" className="mx-4">
-              {" "}
-              Accueil{" "}
+              Accueil
             </Nav.Link>
             <Nav.Link as={Link} to="/comparer" className="mx-4">
-              {" "}
               Comparer
             </Nav.Link>
             <Nav.Link as={Link} to="/qui-sommes-nous" className="mx-4">
-              {" "}
               Qui-sommes-nous
             </Nav.Link>
           </Nav>
-          <Button variant="outline-secondary" onClick={props.onSearchClick}>
+          <Button
+            variant="outline-secondary"
+            onClick={props.onSearchClick}
+            style={{ marginRight: "100px" }}
+          >
             <img src={logo} width="20" height="20" />
           </Button>
         </Navbar.Collapse>

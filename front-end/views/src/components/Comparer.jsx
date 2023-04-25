@@ -15,7 +15,7 @@ function Comparer() {
     { name: "Condition9", progress: 49 },
     { name: "Condition10", progress: 50 },
     { name: "Condition11", progress: 99 },
-    { name: "Condition12", progress: 99.5 },
+    { name: "Condition12", progress: 99.5 }, 
   ];
 
   const bank2Conditions = [
@@ -34,7 +34,7 @@ function Comparer() {
   ];
 
   return (
-    <div>
+    <div style={{ marginTop: "30px", marginBottom: "30px" }}>
       {bank1Conditions.map((condition, index) => {
         const bank2Condition = bank2Conditions[index];
         let bank1Color = "danger";
@@ -49,11 +49,11 @@ function Comparer() {
           bank1Color = "info";
           bank2Color = "info";
         } else if (progressDiff > 0) {
-          bank2Color = "success";
-          bank1Color = "danger";
-        } else {
           bank2Color = "danger";
           bank1Color = "success";
+        } else {
+          bank2Color = "success";
+          bank1Color = "danger";
         }
 
         return (

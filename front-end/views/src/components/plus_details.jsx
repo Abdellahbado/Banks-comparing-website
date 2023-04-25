@@ -1,4 +1,5 @@
 import React from "react";
+
 import Map from "./map";
 import { Table } from "react-bootstrap";
 import { FaFacebook, FaTwitter, FaInstagram, FaPhone } from "react-icons/fa";
@@ -8,8 +9,8 @@ import "../styles/plus_details_style.css";
 function Details({ banque }) {
   const bank = banque;
 
-  const bankOpeningTime = bank.openingTime;
-  const bankClosingTime = bank.closingTime;
+  const bankOpeningTime = bank.Banque.openingTime;
+  const bankClosingTime = bank.Banque.closingTime;
   const currentHour = new Date().getHours();
 
   const isBankOpen =
@@ -20,7 +21,7 @@ function Details({ banque }) {
       <Container>
         <Row>
           <Col>
-            <h1 className="text-center">{bank.name}</h1>
+            <h1 className="text-center">{bank.Banque.Nom_banque}</h1>
 
             <Map lat={36.1849} lng={2.4194} />
 
@@ -32,7 +33,7 @@ function Details({ banque }) {
               <h6 style={{ color: "red" }}>La banque est fermée maintenant</h6>
             )}
 
-            <p>{bank.descriptions}</p>
+            {<p>{bank.Banque.descriptions}</p>}
             <h4>Voici quelques prestations:</h4>
             <Table
               responsive
@@ -43,15 +44,17 @@ function Details({ banque }) {
             >
               <thead>
                 <tr>
+                  <th>Type</th>
                   <th>Nom</th>
                   <th>Prix</th>
                 </tr>
               </thead>
               <tbody>
-                {bank.prestations.map((prestation) => (
-                  <tr key={prestation.id} className="hover">
-                    <td>{prestation.name}</td>
-                    <td>{prestation.price} DA</td>
+                {bank.Prestations.map((prestation) => (
+                  <tr key={prestation.pres_id} className="hover">
+                    <td>{prestation.pres_type}</td>
+                    <td>{prestation.pres_nom}</td>
+                    <td>{prestation.frais} DA</td>
                   </tr>
                 ))}
               </tbody>
@@ -96,8 +99,8 @@ function Details({ banque }) {
           </Row>
           <Row>
             <Col md={12} className="text-center mt-3">
-              <p style={{ margin: "0" }}>American Bank. All rights reserved.</p>
-              <p style={{ margin: "0" }}>1234 Main St, New York, NY 10001</p>
+              <p style={{ margin: "0" }}>Banki. All rights reserved.</p>
+              <p style={{ margin: "0" }}>Oued Smar, Algeria</p>
             </Col>
           </Row>
         </Container>

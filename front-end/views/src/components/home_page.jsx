@@ -7,10 +7,8 @@ import Footer from "./Footer";
 const HomePage = forwardRef((props, ref) => {
   return (
     <>
-      <Diaporama />
       <Paragraph />
       <Search ref={ref} />
-      <Footer />
     </>
   );
 });

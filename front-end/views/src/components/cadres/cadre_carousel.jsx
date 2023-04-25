@@ -18,22 +18,20 @@ function CadreScrollable(props) {
       <Carousel interval={null}>
         {cardGroups.map((group, index) => (
           <Carousel.Item key={index}>
-            <Container>
-              <Row>
-                {group.map((card, index) => (
-                  <Col key={index} md={4}>
-                    <Cadre
-                      id={card.id}
-                      name={card.name}
-                      adresse={card.adresse}
-                      tel={card.tel}
-                      fax={card.fax}
-                      img={card.img}
-                    />
-                  </Col>
-                ))}
-              </Row>
-            </Container>
+            <Row>
+              {group.map((card) => (
+                <Col key={card.Banque_id} md={4}>
+                  <Cadre
+                    id={card.Banque_id}
+                    name={card.Nom_banque}
+                    adresse={card.Siege_social}
+                    tel={card.Telephone}
+                    fax={card.Fax}
+                    img={card.Logo}
+                  />
+                </Col>
+              ))}
+            </Row>
           </Carousel.Item>
         ))}
       </Carousel>

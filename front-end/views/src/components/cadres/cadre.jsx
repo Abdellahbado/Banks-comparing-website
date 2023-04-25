@@ -4,29 +4,8 @@ import { Card, Offcanvas } from "react-bootstrap";
 import "../../styles/button.css";
 import axios from "axios";
 import Details from "../plus_details";
-const bank = {
-  name: "American Bank",
-  id: "jbdbi",
-  openingTime: 8.3,
-  closingTime: 17,
-  descriptions: [
-    "  Banque Américaine est une institution financière de premier plan avec une longue histoire de service à la communauté.",
-    "Chez Banque Américaine, nous nous engageons à fournir des services bancaires exceptionnels adaptés aux besoins de nos clients.",
-    "Avec une large gamme de produits et services, Banque Américaine offre des solutions financières complètes pour les particuliers et les entreprises.",
-    "En tant que banque de confiance, Banque Américaine propose des services bancaires fiables et sécurisés pour aider les clients à atteindre leurs objectifs financiers.",
-    "Chez Banque Américaine, nous sommes fiers de notre excellent service client et de nos solutions bancaires innovantes.",
-    "Avec une équipe de professionnels expérimentés, Banque Américaine est dévouée à aider nos clients à réussir financièrement.",
-    "Banque Américaine est un partenaire de confiance dans la gestion de vos finances, offrant des solutions personnalisées pour répondre à vos besoins uniques.",
-    "Chez Banque Américaine, nous nous efforçons de fournir une valeur exceptionnelle à nos clients grâce à nos services bancaires complets et à nos tarifs compétitifs.",
-  ],
-  prestations: [
-    { name: "Pres 1", price: 50 },
-    { name: "Pres 2", price: 75 },
-    { name: "Pres 3", price: 100 },
-    { name: "Pres 4", price: 120 },
-    { name: "Pres 5", price: 90 },
-  ],
-};
+import { banqueComplet } from "../../models/plus_detail_model";
+
 function Cadre(props) {
   const [showOffcanvas, setShowOffcanvas] = useState(false);
   const [data, setData] = useState(null);
@@ -34,8 +13,9 @@ function Cadre(props) {
   const fetchData = async () => {
     try {
       const response = await axios.get(
-        `https://jsonplaceholder.typicode.com/posts/${props.id}`
+        `https://56cc-105-98-44-89.ngrok-free.app/aceuil/${props.id + 100}`
       );
+
       setData(response.data);
     } catch (error) {
       console.error(error);
@@ -60,7 +40,7 @@ function Cadre(props) {
   };
   useEffect(() => {
     fetchData();
-  }, [Offcanvas]);
+  }, []);
   return (
     <>
       <Card
@@ -76,13 +56,24 @@ function Cadre(props) {
         />
 
         <Card.Body>
-          <Card.Title>{props.name}</Card.Title>
-          <Card.Text>{props.adresse}</Card.Text>
+          <Card.Title
+            style={{
+              height: "100px",
+              overflow: "hidden",
+            }}
+          >
+            {props.name}
+          </Card.Title>
+          <Card.Text style={{ height: "70px", overflow: "hidden" }}>
+            {props.adresse}
+          </Card.Text>
           <Card.Text>Telephone: {props.tel}</Card.Text>
           <Card.Text>Fax: {props.fax}</Card.Text>
           <Button
             variant="myButtonVariant"
-            style={{ width: "100%" }}
+            style={{
+              width: "100%",
+            }}
             onClick={handleClick}
           >
             Plus de détails
@@ -97,12 +88,12 @@ function Cadre(props) {
       >
         <Offcanvas.Header closeButton>
           <Offcanvas.Title style={{ textAlign: "center", width: "100%" }}>
-            {props.name}
+            {props.Nom_banque}
           </Offcanvas.Title>
         </Offcanvas.Header>
         <Offcanvas.Body>
           The Offcanvas was displayed from {props.id} the bank
-          <Details banque={bank} />
+          <Details banque={data === null ? banqueComplet : data} />
         </Offcanvas.Body>
       </Offcanvas>
     </>
