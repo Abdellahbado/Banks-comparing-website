@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import Button from "react-bootstrap/Button";
 import { Card, Offcanvas } from "react-bootstrap";
 import "../../styles/button.css";
@@ -9,12 +9,10 @@ import { banqueComplet } from "../../models/plus_detail_model";
 function Cadre(props) {
   const [showOffcanvas, setShowOffcanvas] = useState(false);
   const [data, setData] = useState(null);
-  // haid t3 plus de détails
-  const fetchData = async () => {
+  // hadi t3 plus de détails
+  const fetchData = async (id) => {
     try {
-      const response = await axios.get(
-        `https://56cc-105-98-44-89.ngrok-free.app/aceuil/${props.id + 100}`
-      );
+      const response = await axios.get(`http://localhost:3000/aceuil/${id}`);
 
       setData(response.data);
     } catch (error) {
@@ -22,32 +20,24 @@ function Cadre(props) {
     }
   };
 
-  const handleClick = () => {
+  const handleClick = (id) => {
     setShowOffcanvas(true);
+    fetchData(id);
   };
 
   const handleClose = () => {
     setShowOffcanvas(false);
   };
-  const buttonStyle = {
-    width: "100%",
-    backgroundColor: "#1F3294",
-    color: "white",
-    transition: "background-color 0.3s ease",
-    ":hover": {
-      backgroundColor: "white",
-    },
-  };
-  useEffect(() => {
-    fetchData();
-  }, []);
+
   return (
     <>
       <Card
-        className="mx-auto mx-md-auto mx-lg-5 "
+        className="mx-1 mx-md-2 mx-lg-5 "
         style={{
           width: "13rem",
           marginBottom: "30px",
+          // marginLeft: props.id % 3 === 0 ? "50px" : "",
+          // marginRight: props.id % 3 === 2 ? "50px" : "",
         }}
       >
         <Card.Img
@@ -74,7 +64,9 @@ function Cadre(props) {
             style={{
               width: "100%",
             }}
-            onClick={handleClick}
+            onClick={() => {
+              handleClick(props.id);
+            }}
           >
             Plus de détails
           </Button>
@@ -92,8 +84,7 @@ function Cadre(props) {
           </Offcanvas.Title>
         </Offcanvas.Header>
         <Offcanvas.Body>
-          The Offcanvas was displayed from {props.id} the bank
-          <Details banque={data === null ? banqueComplet : data} />
+          {data === null ? <p>Loading</p> : <Details banque={data} />}
         </Offcanvas.Body>
       </Offcanvas>
     </>
@@ -101,4 +92,3 @@ function Cadre(props) {
 }
 
 export default Cadre;
-//className="d-flex flex-column"

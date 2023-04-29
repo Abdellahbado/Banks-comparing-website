@@ -1,4 +1,4 @@
-import React, { useRef, forwardRef } from "react";
+import React, { useRef } from "react";
 import HomePage from "./components/home_page";
 import NavBar from "./components/NavBar";
 import { Route, Routes } from "react-router-dom";

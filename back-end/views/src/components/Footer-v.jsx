@@ -1,39 +1,19 @@
 import React from "react";
-import logo from "../assets/images/loggo-f.png";
-import Insta from "../assets/images/instagram.png";
-import Face from "../assets/images/facebook.png";
-import Email from "../assets/images/email.png";
+import logo from "../assets/loggo-f.png";
+import Insta from "../assets/instagram.png";
+import Face from "../assets/facebook.png";
+import Email from "../assets/email.png";
 import { Container, Row, Col } from "react-bootstrap";
-import { Link } from "react-router-dom";
-
-function Footer() {
+function FooterAdmin() {
   return (
-    <footer style={{ height: "400px", backgroundColor: "#0d2059" }}>
+    <footer
+      className="p-5 "
+      style={{ height: "400px", backgroundColor: "#101D40" }}
+    >
       <Container>
         <Row className="justify-content-center p-3  ">
           <Col className="text-center text-white">
             <img src={logo} width="150" height="80" />
-          </Col>
-        </Row>
-        <Row className="justify-content-center">
-          <Col className="text-center text-white">
-            <Link to="/" className="text-white">
-              Rechercher
-            </Link>
-          </Col>
-        </Row>
-        <Row className="justify-content-center">
-          <Col className="text-center text-white">
-            <Link to="/comparer" className="text-white">
-              Comparer
-            </Link>
-          </Col>
-        </Row>
-        <Row className="justify-content-center">
-          <Col className="text-center text-white">
-            <Link to="/qui-sommes-nous" className="text-white">
-              Qui-somme-nous
-            </Link>
           </Col>
         </Row>
         <Row className="justify-content-center">
@@ -71,4 +51,4 @@ function Footer() {
   );
 }
 
-export default Footer;
+export default FooterAdmin;

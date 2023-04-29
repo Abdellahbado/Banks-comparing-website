@@ -9,12 +9,9 @@ import "../styles/plus_details_style.css";
 function Details({ banque }) {
   const bank = banque;
 
-  const bankOpeningTime = bank.Banque.openingTime;
-  const bankClosingTime = bank.Banque.closingTime;
-  const currentHour = new Date().getHours();
-
-  const isBankOpen =
-    currentHour >= bankOpeningTime && currentHour < bankClosingTime;
+  //   const bankOpeningTime = bank.Banque.openingTime;
+  //   const bankClosingTime = bank.Banque.closingTime;
+  //   const currentHour = new Date().getHours();
 
   return (
     <div>
@@ -25,13 +22,13 @@ function Details({ banque }) {
 
             <Map lat={36.1849} lng={2.4194} />
 
-            {isBankOpen ? (
+            {/* {isBankOpen ? (
               <h6 style={{ color: "green" }}>
                 La banque est ouverte maintenant
               </h6>
             ) : (
               <h6 style={{ color: "red" }}>La banque est fermée maintenant</h6>
-            )}
+            )} */}
 
             {<p>{bank.Banque.descriptions}</p>}
             <h4>Voici quelques prestations:</h4>
@@ -50,7 +47,7 @@ function Details({ banque }) {
                 </tr>
               </thead>
               <tbody>
-                {bank.Prestations.map((prestation) => (
+                {bank.Prestation.map((prestation) => (
                   <tr key={prestation.pres_id} className="hover">
                     <td>{prestation.pres_type}</td>
                     <td>{prestation.pres_nom}</td>

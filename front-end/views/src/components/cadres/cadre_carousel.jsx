@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Carousel, Card, Row, Col, Container, Button } from "react-bootstrap";
 import Cadre from "./cadre";
+import { BsChevronLeft, BsChevronRight } from "react-icons/bs";
 
 function CadreScrollable(props) {
   const banques = props.banques;
@@ -15,7 +16,13 @@ function CadreScrollable(props) {
 
   return (
     <Container>
-      <Carousel interval={null}>
+      <Carousel
+        interval={null}
+        style={{ minWidth: "90%" }}
+        controls
+        prevIcon={<BsChevronLeft size={32} color="blue" />}
+        nextIcon={<BsChevronRight size={32} color="blue" />}
+      >
         {cardGroups.map((group, index) => (
           <Carousel.Item key={index}>
             <Row>

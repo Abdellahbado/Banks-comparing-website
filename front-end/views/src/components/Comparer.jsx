@@ -4,7 +4,7 @@ import { Row, Col } from "react-bootstrap";
 
 function Comparer() {
   const bank1Conditions = [
-    { name: "Condition1", progress: 11 },
+    { name: "Condition1", progress: 1 },
     { name: "Condition2", progress: 50 },
     { name: "Condition3", progress: 80 },
     { name: "Condition4", progress: 40 },
@@ -60,22 +60,21 @@ function Comparer() {
           <div className="d-flex" key={index}>
             <ProgressBar
               className="w-50 mb-3  justify-content-end "
-              style={{ height: "20px" }}
+              style={{ height: "40px" }}
               variant={bank1Color}
-              animated
               now={condition.progress}
               label={`Bank 1: ${condition.progress}Dz`}
             />
-            <div className="mx-3 mb-3 ">
+            <div className="mx-3 mb-3 text-center">
               <span>{list_con}</span>
             </div>
             <ProgressBar
               className="w-50 mb-3 "
               variant={bank2Color}
-              animated
-              style={{ height: "20px" }}
+              style={{ height: "40px" }}
               now={bank2Condition.progress}
               label={`Bank 2: ${bank2Condition.progress}Dz`}
+          
             />
           </div>
         );

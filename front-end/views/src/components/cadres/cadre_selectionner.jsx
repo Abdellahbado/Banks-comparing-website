@@ -6,20 +6,7 @@ import { banqueComplet } from "../../models/plus_detail_model";
 import "../../styles/button.css";
 
 function Cadre(props) {
-  const [showOffcanvas, setShowOffcanvas] = useState(false);
-  const [data, setData] = useState(null);
-  // hada exemple bach nseyi kifch ndiro api
-  const fetchData = async () => {
-    const response = await fetch(
-      `https://jsonplaceholder.typicode.com/posts/${props.id}`
-    );
-    const json = await response.json();
-    setData(json);
-  };
 
-  useEffect(() => {
-    fetchData();
-  }, []);
   return (
     <>
       <Card
