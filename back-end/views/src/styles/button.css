@@ -1,10 +1,10 @@
 .btn-myButtonVariant {
-  background-color: #1f3294;
-  color: white;
+  background-color: #1f3294 !important;
+  color: white !important;
   transition: background-color 0.5s ease;
 }
 
 .btn-myButtonVariant:hover {
-  background-color: #0d2059;
-  color: white;
+  background-color: #0d2059 !important;
+  color: white !important;
 }

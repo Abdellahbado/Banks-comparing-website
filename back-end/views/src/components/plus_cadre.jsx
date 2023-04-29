@@ -1,38 +1,90 @@
-import React from "react";
-import { Card, Button } from "react-bootstrap";
+import React, { useState } from "react";
+import { Card, Button, Offcanvas } from "react-bootstrap";
 import { BsPlus } from "react-icons/bs";
 import "../styles/button.css";
+import FormComponentBanque from "./form_bankque";
+import axios from "axios";
 // const primaryColor = "#1F3294";
 // const secondaryColor = "#85EC55";
-function PlusCadre() {
+function PlusCadre(props) {
+  const [showOffcanvas, setShowOffcanvas] = useState(false);
+  const submitAjouter = async (id) => {
+    // const data hadi resultat t3 modification
+    let data;
+    try {
+      const response = await axios.post(`http://localhost/admin/${id}`, data, {
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: "Bearer YOUR_ACCESS_TOKEN",
+        },
+      });
+      console.log(response.data);
+    } catch (e) {
+      console.error(e);
+    }
+  };
   return (
-    <Card
-      className="mx-auto mx-md-auto mx-lg-5 flex-fill"
-      style={{
-        width: "18rem",
-        marginBottom: "30px",
-        maxWidth: "400px",
-        minWidth: "200px",
-      }}
-    >
-      <Card.Body
+    <>
+      <Card
+        className="mx-auto mx-md-auto mx-lg-5 flex-fill"
         style={{
-          display: "flex",
-          justifyContent: "center",
-          alignItems: "center",
+          width: "18rem",
+          marginBottom: "30px",
+          maxWidth: "350px",
+          minWidth: "200px",
         }}
       >
-        <Button
-          variant="myVariant"
-          className="h-md-100 h-lg-50 w-50"
-          onClick={() => {
-            console.log("Plus cadre");
+        <Card.Body
+          style={{
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
           }}
         >
-          <BsPlus size={120} />
-        </Button>
-      </Card.Body>
-    </Card>
+          <Button
+            variant="myButtonVariant"
+            className="h-md-100 h-lg-50 w-50"
+            onClick={() => {
+              setShowOffcanvas(true);
+            }}
+          >
+            <BsPlus size={120} />
+          </Button>
+        </Card.Body>
+      </Card>
+      <Offcanvas
+        show={showOffcanvas}
+        onHide={() => {
+          setShowOffcanvas(false);
+        }}
+        placement="bottom"
+        style={{ height: "95%" }}
+      >
+        <Offcanvas.Header closeButton>
+          <Offcanvas.Title style={{ textAlign: "center", width: "100%" }}>
+            Ajout d'une nouvelle banque
+          </Offcanvas.Title>
+        </Offcanvas.Header>
+        <Offcanvas.Body>
+          <FormComponentBanque />
+          <button
+            type="submit"
+            className="mb-2 m-2 rounded-3 border border-1 d-flex justify-content-center mx-auto"
+            style={{
+              width: "74.72px",
+              height: "36px",
+              backgroundColor: "#0027F6",
+              color: "white",
+            }}
+            onClick={() => {
+              submitAjouter(props.newBankID);
+            }}
+          >
+            Valider
+          </button>
+        </Offcanvas.Body>
+      </Offcanvas>
+    </>
   );
 }
 

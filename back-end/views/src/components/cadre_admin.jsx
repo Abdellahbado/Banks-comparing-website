@@ -22,6 +22,21 @@ function Cadre(props) {
     setShowOffcanvas(true);
     //fetchData(id);
   };
+  const submitModifier = async (id) => {
+    // const data hadi resultat t3 modification
+    let data;
+    try {
+      const response = await axios.post(`http://localhost/admin/${id}`, data, {
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: "Bearer YOUR_ACCESS_TOKEN",
+        },
+      });
+      console.log(response.data);
+    } catch (e) {
+      console.error(e);
+    }
+  };
   return (
     <>
       <Card
@@ -29,7 +44,7 @@ function Cadre(props) {
         style={{
           width: "18rem",
           marginBottom: "30px",
-          maxWidth: "400px",
+          maxWidth: "350px",
           minWidth: "200px",
         }}
       >
@@ -56,7 +71,7 @@ function Cadre(props) {
               variant="myButtonVariant"
               style={{ width: "46%" }}
               onClick={() => {
-                handleClickModifier(props.Banque_id);
+                handleClickModifier(props.value.Banque_id);
               }}
             >
               Modifier
@@ -102,7 +117,7 @@ function Cadre(props) {
       >
         <Offcanvas.Header closeButton>
           <Offcanvas.Title style={{ textAlign: "center", width: "100%" }}>
-            {props.Nom_banque}
+            Modification des prestations de la banque {props.value.Nom_banque}
           </Offcanvas.Title>
         </Offcanvas.Header>
         <Offcanvas.Body>
@@ -117,7 +132,7 @@ function Cadre(props) {
               color: "white",
             }}
             onClick={() => {
-              setShowOffcanvas(false);
+              submitModifier(props.value.Banque_id);
             }}
           >
             Valider
