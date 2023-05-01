@@ -58,15 +58,17 @@ const Search = forwardRef((props, ref) => {
     const arr = [...sortedBanks];
     setSortedBanks(arr);
   };
-  const [minValue, setMinValue] = useState("");
-  const [maxValue, setMaxValue] = useState("");
+  //const [minValue, setMinValue] = useState("");
+  //const [maxValue, setMaxValue] = useState("");
 
-  const handleFitreFormSubmit = (minValue, maxValue) => {
-    setMinValue(minValue);
-    setMaxValue(maxValue);
+  const handleFiltreFormSubmit = (min, max) => {
+    // setMinValue(min);
+    // setMaxValue(max);
     // hna dir api t3 fitre b min w max
     // const arr = respons et3 api
     // setSortedBanks(arr);
+    
+    console.log(min);
   };
   const [filteredBanks, setFilteredBanks] = useState(sortedBanks);
   useEffect(() => {
@@ -155,24 +157,11 @@ const Search = forwardRef((props, ref) => {
                 </Dropdown.Item>
               ))}
             </Dropdown.Menu>
-            <Modal show={showModal} onHide={handleClose}>
-              <Modal.Header closeButton>
-                <Modal.Title>
-                  Veuiller entrer les deux valeurs du filtre
-                </Modal.Title>
-              </Modal.Header>
-              <Modal.Body>
-                <MyForm onSubmit={handleFitreFormSubmit} />
-              </Modal.Body>
-              <Modal.Footer>
-                <Button variant="secondary" onClick={handleClose}>
-                  Fermer
-                </Button>
-                <Button variant="myButtonVariant" onClick={handleClose}>
-                  Filtrer
-                </Button>
-              </Modal.Footer>
-            </Modal>
+            <MyForm
+              showModal={showModal}
+              handleClose={handleClose}
+              onSubmit={handleFiltreFormSubmit}
+            />
           </Dropdown>
         </Form>
       </div>

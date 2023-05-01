@@ -5,7 +5,7 @@ import { banque } from "../models/bank_model";
 import { Row, Col } from "react-bootstrap";
 import PlusCadre from "./plus_cadre";
 const AfficheCadres = () => {
-  let banks = null;
+  let banks;
   const fetchData = async () => {
     try {
       const response = await axios.get(`http://localhost:3000/aceuil`);
@@ -35,7 +35,7 @@ const AfficheCadres = () => {
             </Col>
           ))}
           <Col className="d-flex text-center">
-            <PlusCadre newBankID={banks.length + 100} />
+            <PlusCadre newBankID={99} />
           </Col>
         </Row>
       </div>

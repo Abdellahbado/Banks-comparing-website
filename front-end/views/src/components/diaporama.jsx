@@ -7,23 +7,23 @@ const Diaporama = () => {
   const images = [img, img, img];
 
   return (
-    <Container
-      style={{
-        width: "100%",
-      }}
-    >
-      <Carousel interval={3000} controls indicators>
-        {images.map((image, index) => (
-          <Carousel.Item key={index}>
-            <img
-              className="d-block w-100"
-              src={image}
-              alt={`Image ${index + 1}`}
-            />
-          </Carousel.Item>
-        ))}
-      </Carousel>
-    </Container>
+      <Container
+        style={{
+          width: "100%",
+        }}
+      >
+        <Carousel interval={3000} controls indicators>
+          {images.map((image, index) => (
+            <Carousel.Item key={index}>
+              <img
+                className="d-block w-100"
+                src={image}
+                alt={`Image ${index + 1}`}
+              />
+            </Carousel.Item>
+          ))}
+        </Carousel>
+      </Container>
   );
 };
 

@@ -67,21 +67,16 @@ function PlusCadre(props) {
         </Offcanvas.Header>
         <Offcanvas.Body>
           <FormComponentBanque />
-          <button
+          <Button
             type="submit"
             className="mb-2 m-2 rounded-3 border border-1 d-flex justify-content-center mx-auto"
             style={{
-              width: "74.72px",
-              height: "36px",
               backgroundColor: "#0027F6",
               color: "white",
             }}
-            onClick={() => {
-              submitAjouter(props.newBankID);
-            }}
           >
             Valider
-          </button>
+          </Button>
         </Offcanvas.Body>
       </Offcanvas>
     </>

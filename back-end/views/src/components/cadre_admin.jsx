@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Offcanvas, Modal, Card, Button } from "react-bootstrap";
+import { Modal, Card, Button } from "react-bootstrap";
 import "../styles/button.css";
 import "../styles/button-red.css";
 import axios from "axios";
@@ -86,9 +86,16 @@ function Cadre(props) {
           </div>
         </Card.Body>
       </Card>
-      <Modal show={showModal} onHide={() => setShowModal(false)}>
+      <Modal
+        show={showModal}
+        onHide={() => setShowModal(false)}
+        dialogClassName="modal-90w"
+        aria-labelledby="example-custom-modal-styling-title"
+      >
         <Modal.Header closeButton>
-          <Modal.Title>Confirmer la suppression</Modal.Title>
+          <Modal.Title id="contained-modal-title-vcenter">
+            Confirmer la suppression
+          </Modal.Title>
         </Modal.Header>
         <Modal.Body>
           Êtes-vous sûr de bien vouloir supprimer {props.value.Nom_banque}?
@@ -107,40 +114,30 @@ function Cadre(props) {
           </Button>
         </Modal.Footer>
       </Modal>
-      <Offcanvas
+      <Modal
         show={showOffcanvas}
         onHide={() => {
           setShowOffcanvas(false);
         }}
-        placement="bottom"
-        style={{ height: "95%" }}
+        dialogClassName="modal-w" //placement="bottom"
+        //style={{ width: "100vw" }}
+        size="lg"
+        aria-labelledby="contained-modal-title-vcenter"
+        centered
+        scrollable={true}
       >
-        <Offcanvas.Header closeButton>
-          <Offcanvas.Title style={{ textAlign: "center", width: "100%" }}>
+        <Modal.Header closeButton>
+          <Modal.Title>
             Modification des prestations de la banque {props.value.Nom_banque}
-          </Offcanvas.Title>
-        </Offcanvas.Header>
-        <Offcanvas.Body>
-          <FormComponent />
-          <button
-            type="submit"
-            className="mb-2 m-2 rounded-3 border border-1 d-flex justify-content-center mx-auto"
-            style={{
-              width: "74.72px",
-              height: "36px",
-              backgroundColor: "#0027F6",
-              color: "white",
-            }}
-            onClick={() => {
-              submitModifier(props.value.Banque_id);
-            }}
-          >
-            Valider
-          </button>
-        </Offcanvas.Body>
-      </Offcanvas>
+          </Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
+          <FormComponent id={props.value.Banque_id} />
+        </Modal.Body>
+      </Modal>
     </>
   );
 }
 
 export default Cadre;
+// header style={{ textAlign: "center", width: "100%" }}

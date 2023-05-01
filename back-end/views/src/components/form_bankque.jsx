@@ -57,7 +57,7 @@ const FormComponentBanque = () => {
       <form
         onSubmit={handleSubmit}
         className="mx-2"
-        style={{ maxWidth: "800px", width: "100%" }}
+        style={{ maxWidth: "75%", width: "66%" }}
       >
         {bank1.map(({ nom_pres }) => (
           <div
@@ -66,7 +66,7 @@ const FormComponentBanque = () => {
           >
             <img className="rounded-4 m-2" src={B} width="15" height="15" />
             <label
-              style={{ width: "200px", marginRight: "10px", flex: "1 0 auto" }}
+              style={{ width: "26%", marginRight: "0px", flex: "1 0 auto" }}
             >
               {nom_pres}
             </label>
@@ -75,7 +75,7 @@ const FormComponentBanque = () => {
               name={nom_pres}
               value={formValues[nom_pres]}
               onChange={handleChange}
-              className="mx-2 rounded-2"
+              className="mx-2 mb-2 rounded-2"
               style={{
                 borderColor: "#0027F6",
                 flex: "1 0 45%",
@@ -83,10 +83,10 @@ const FormComponentBanque = () => {
               }}
             />
             <button
+              type="button"
               className="mx-2 mb-2 rounded-3 border border-1"
               style={{
-                width: "66px",
-                height: "27px",
+                width: "10%",
                 backgroundColor: "#2FB00F",
                 color: "white",
               }}
@@ -98,8 +98,7 @@ const FormComponentBanque = () => {
               type="button"
               className="mb-2 rounded-3 border border-1"
               style={{
-                width: "66px",
-                height: "27px",
+                width: "10%",
                 backgroundColor: "#E50B0B",
                 color: "white",
               }}

@@ -1,29 +1,30 @@
 import React, { useState } from "react";
 import B from "../assets/letter-b.png";
+import { Button } from "react-bootstrap";
 
 const bank1 = [
-  { nom_pres: "Ouverture compte", frais: "12" },
-  { nom_pres: "Condia choco", frais: "2" },
+  { nom_pres: "Ouverture compte", valeur: "12" },
+  { nom_pres: "Condia choco", valeur: "2" },
   {
     nom_pres:
       "Prestation banque hallal avec les intérets  Prestation banque hallal avec les intéret",
-    frais: "39%",
+    valeur: "39%",
   },
-  { nom_pres: "Condition4", frais: "Free 0 " },
-  { nom_pres: "Condition5", frais: "-1" },
-  { nom_pres: "Imagine prestation ykon fua", frais: "200" },
-  { nom_pres: "Condition7", frais: "39%" },
-  { nom_pres: "Condition8", frais: "100+10%(reduction alea) " },
+  { nom_pres: "Condition4", valeur: "Free 0 " },
+  { nom_pres: "Condition5", valeur: "-1" },
+  { nom_pres: "Imagine prestation ykon fua", valeur: "200" },
+  { nom_pres: "Condition7", valeur: "39%" },
+  { nom_pres: "Condition8", valeur: "100+10%(reduction alea) " },
   {
     nom_pres: "La paix complet ta3k gir riyeh a wdi Dz",
-    frais: "La paix complet ta3k gir riyeh a wdi Dz",
+    valeur: "La paix complet ta3k gir riyeh a wdi Dz",
   },
 ];
 
-const FormComponent = () => {
+const FormComponent = ({id}) => {
   const [formValues, setFormValues] = useState(
     bank1.reduce(
-      (acc, { nom_pres, frais }) => ({ ...acc, [nom_pres]: frais }),
+      (acc, { nom_pres, valeur }) => ({ ...acc, [nom_pres]: valeur }),
       {}
     )
   );
@@ -48,20 +49,20 @@ const FormComponent = () => {
   };
 
   return (
-    <div className="d-flex justify-content-center">
+    <div className="">
       <form
         onSubmit={handleSubmit}
         className="mx-2"
-        style={{ maxWidth: "800px", width: "100%" }}
+        style={{ maxWidth: "100%", width: "100%" }}
       >
         {bank1.map(({ nom_pres }) => (
           <div
             key={nom_pres}
             style={{ display: "flex", alignItems: "center", flexWrap: "wrap" }}
           >
-            <img className="rounded-4 m-2" src={B} width="15" height="15" />
+            <img className="rounded-4 m-2" src={B} width="15px" height="15px" />
             <label
-              style={{ width: "200px", marginRight: "10px", flex: "1 0 auto" }}
+              style={{ width: "16%", marginRight: "0px", flex: "1 0 auto" }}
             >
               {nom_pres}
             </label>
@@ -70,7 +71,7 @@ const FormComponent = () => {
               name={nom_pres}
               value={formValues[nom_pres]}
               onChange={handleChange}
-              className="mx-2 rounded-2"
+              className="mx-2 mb-2 rounded-2"
               style={{
                 borderColor: "#0027F6",
                 flex: "1 0 45%",
@@ -81,8 +82,7 @@ const FormComponent = () => {
               type="button"
               className="mx-2 mb-2 rounded-3 border border-1"
               style={{
-                width: "66px",
-                height: "27px",
+                //width: "10%",
                 backgroundColor: "#2FB00F",
                 color: "white",
               }}
@@ -94,8 +94,7 @@ const FormComponent = () => {
               type="button"
               className="mb-2 rounded-3 border border-1"
               style={{
-                width: "66px",
-                height: "27px",
+                //width: "10%",
                 backgroundColor: "#E50B0B",
                 color: "white",
               }}
@@ -105,6 +104,19 @@ const FormComponent = () => {
             </button>
           </div>
         ))}
+        <button
+          type="submit"
+          className="mb-2 m-2 rounded-3 border border-1 d-flex justify-content-center mx-auto"
+          style={{
+            width: "100px",
+            height: "40px",
+            minWidth: "60px",
+            backgroundColor: "#0027F6",
+            color: "white",
+          }}
+        >
+          Valider
+        </button>
       </form>
     </div>
   );
