@@ -1,13 +1,19 @@
 import React from "react";
 import { Carousel, Container } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
-import img from "../assets/images/bank_image.jpg";
+import img1 from "../assets/images/bank1.jpg";
+import img2 from "../assets/images/bank2.jpg";
+import img3 from "../assets/images/bank3.jpg";
 
 const Diaporama = () => {
-  const images = [img, img, img];
+  const images = [img1, img2, img3];
 
   return (
-    <Container style={{ maxWidth: "800px" }}>
+    <Container
+      style={{
+        width: "100%",
+      }}
+    >
       <Carousel interval={3000} controls indicators>
         {images.map((image, index) => (
           <Carousel.Item key={index}>

@@ -1,21 +1,41 @@
 import React, { useState, useEffect, forwardRef } from "react";
 import { Form, Button, Dropdown, Modal } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
-import MyForm from "./form";
-import { banks } from "../models/bank_model.js";
+import ModalForm from "./form";
+//import { banks } from "../models/bank_model.js";
 import "../styles/dropdown.css";
 import "../styles/button.css";
 import CadreScrollable from "./cadres/cadre_carousel";
+import axios from "axios";
+
 const Search = forwardRef((props, ref) => {
-  const compare = (a, b) => {
-    if (a.name < b.name) {
-      return -1;
+  const [sortedBanks, setSortedBanks] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
+  const [prest, setPrest] = useState([]);
+  const fetchPres = async () => {
+    try {
+      const response = await axios.get("http://localhost:3500/aceuil/pres");
+      setPrest(response.data);
+    } catch (err) {
+      console.error(err);
     }
-    if (a.name > b.name) {
-      return 1;
-    }
-    return 0;
   };
+  const fetchData = async () => {
+    try {
+      const response = await axios.get("http://localhost:3500/aceuil");
+      setSortedBanks(response.data);
+      setIsLoading(false);
+    } catch (error) {
+      console.error(error);
+      setIsLoading(false);
+    }
+  };
+  useEffect(() => {
+    console.log("a");
+    fetchData();
+    fetchPres();
+  }, []);
+
   // here dir call l api bach tjib les banques
   // w 7otha f variable wasmo banks psq ani nkdm bih
   // dok nb3tlk kich object t3 banks yji fih mn attributs
@@ -47,37 +67,63 @@ const Search = forwardRef((props, ref) => {
   ];
   const [search, setSearch] = useState("");
   const [showModal, setShowModal] = useState(false);
-  const myBanks = banks;
-  const [sortedBanks, setSortedBanks] = useState([...myBanks]);
   const handleClose = () => setShowModal(false);
-  const handleShow = () => setShowModal(true);
-  const sortBanks = (id) => {
-    sortedBanks.sort(compare);
-    // hna dir api t3 tri 3la 7sab id t3 prestation
-    // omb3d résultat dirha f hada variable arr
-    const arr = [...sortedBanks];
-    setSortedBanks(arr);
-  };
-  const [minValue, setMinValue] = useState("");
-  const [maxValue, setMaxValue] = useState("");
-
-  const handleFitreFormSubmit = (minValue, maxValue) => {
-    setMinValue(minValue);
-    setMaxValue(maxValue);
-    // hna dir api t3 fitre b min w max
-    // const arr = respons et3 api
-    // setSortedBanks(arr);
-  };
+  const [filtreID, setFiltreID] = useState(0);
+  const handleFiltreShow = (id) => {
+    setFiltreID(id)
+    setShowModal(true);}
   const [filteredBanks, setFilteredBanks] = useState(sortedBanks);
+
   useEffect(() => {
     // hadi fkitered banks li ra7 t'afficha ki yekteb string f recherche
     const filteredBanks1 = sortedBanks.filter((bank) => {
       return search.toLowerCase() === ""
         ? bank
-        : bank.name.toLowerCase().includes(search.toLowerCase());
+        : bank.Nom_banque.toLowerCase().includes(search.toLowerCase());
     });
     setFilteredBanks(filteredBanks1);
   }, [search, sortedBanks]);
+  let res; // will store the result of the response
+  const sortBanks = async (id) => {
+    sortedBanks.sort((a, b) => {
+      if (a.name < b.name) {
+        return -1;
+      }
+      if (a.name > b.name) {
+        return 1;
+      }
+      return 0;
+    });
+    try {
+      const response = await axios.get(
+        `http://localhost:3500/aceuil/tri/${id}`
+      );
+      res = response.data;
+      if (res !== null) {
+        const arr = res;
+        setSortedBanks(arr);
+      }
+    } catch (e) {
+      console.error(e);
+    }
+  };
+
+  const handleFiltreFormSubmit = async (min, max) => {
+    try {
+      const response = await axios.get(`http://localhost:3500/aceuil/filtrer/${filtreID}/${min}/${max}`);
+      //const response = axios.get(`http://localhost:3500/aceuil/filtrer/2/500/500`);
+
+      console.log(response.data);
+      res = response.data;
+      if (res !== null) {
+        const arr = res;
+        setSortedBanks(arr);
+      }
+    } catch (e) {
+      console.error(e);
+    }
+  };
+
   // this will make the from focused when the ref is set
   useEffect(() => {
     if (ref.current) {
@@ -120,15 +166,21 @@ const Search = forwardRef((props, ref) => {
               style={{ maxHeight: "400px", overflowY: "auto" }}
               className="dropdown-menu-custom"
             >
-              {pres.map((pres) => (
-                <Dropdown.Item
-                  className="dropdown-item-custom"
-                  href="#"
-                  onClick={() => sortBanks(pres.id)}
-                >
-                  {pres.name}
+              {prest === null ? (
+                <Dropdown.Item className="dropdown-item-custom" href="#">
+                  Loading prestations ...
                 </Dropdown.Item>
-              ))}
+              ) : (
+                prest.map((pres) => (
+                  <Dropdown.Item
+                    className="dropdown-item-custom"
+                    href="#"
+                    onClick={() => sortBanks(pres.pres_id)}
+                  >
+                    {pres.pres_nom}
+                  </Dropdown.Item>
+                ))
+              )}
             </Dropdown.Menu>
           </Dropdown>
           <Dropdown>
@@ -145,40 +197,43 @@ const Search = forwardRef((props, ref) => {
               style={{ maxHeight: "400px", overflowY: "auto" }}
               className="dropdown-menu-custom"
             >
-              {pres.map((pres) => (
-                <Dropdown.Item
-                  className="dropdown-item-custom"
-                  href="#"
-                  onClick={handleShow}
-                >
-                  {pres.name}
+              {prest === null ? (
+                <Dropdown.Item className="dropdown-item-custom" href="#">
+                  Loading prestations ...
                 </Dropdown.Item>
-              ))}
+              ) : (
+                prest.map((pres) => (
+                  <Dropdown.Item
+                    className="dropdown-item-custom"
+                    href="#"
+                    onClick={()=>{handleFiltreShow(pres.pres_id)}}
+                  >
+                    {pres.pres_nom}
+                  </Dropdown.Item>
+                ))
+              )}
             </Dropdown.Menu>
-            <Modal show={showModal} onHide={handleClose}>
-              <Modal.Header closeButton>
-                <Modal.Title>
-                  Veuiller entrer les deux valeurs du filtre
-                </Modal.Title>
-              </Modal.Header>
-              <Modal.Body>
-                <MyForm onSubmit={handleFitreFormSubmit} />
-              </Modal.Body>
-              <Modal.Footer>
-                <Button variant="secondary" onClick={handleClose}>
-                  Fermer
-                </Button>
-                <Button variant="myButtonVariant" onClick={handleClose}>
-                  Filtrer
-                </Button>
-              </Modal.Footer>
-            </Modal>
+            <ModalForm
+              showModal={showModal}
+              handleClose={handleClose}
+              onSubmit={handleFiltreFormSubmit}
+            />
           </Dropdown>
         </Form>
       </div>
 
       <div>
-        <CadreScrollable banques={filteredBanks} />
+        {isLoading === true ? (
+          <p>Loading banks...</p>
+        ) : (
+          <CadreScrollable banques={filteredBanks} />
+        )}
+        {/* {!props.isLoading && filteredBanks.length > 0 && (
+            <div>
+              <CadreScrollable banques={filteredBanks} />
+            </div>
+          )}
+        {!props.isLoading && filteredBanks.length === 0 && <p>No results found.</p>} */}
       </div>
     </>
   );

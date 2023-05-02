@@ -10,11 +10,10 @@ const Banques = require("../model/Bank");
         }
 }
 
-const getPrestation = async (req,res,next) => {
+const getPrestations = async (req,res,next) => {
     try {
-        let id1 = req.params.id_pres;
-        let id2 = req.params.id_bank;
-        let [Prestation, __] = await Banques.getPrestationById(id1,id2);
+        let id = req.params.id;
+        let [Prestation, _] = await Banques.getPrestationById(id);
         res.status(200).json(Prestation);
     } catch (error) {
         console.log(error);
@@ -24,7 +23,8 @@ const getPrestation = async (req,res,next) => {
 
 const ajouterBanque = async (req,res,next) => {
     try {
-        await Banques.addBanque(req.body);
+        let id = req.params.id;
+        await Banques.addBanque(id, req.body);
         res.send("Banque a été bien ajouté");
     } catch (error) {
         console.log(error);
@@ -44,7 +44,8 @@ const ajouterPrestation = async (req,res,next) => {
 
 const modifierBanque = async (req,res,next) => {
     try {
-        await Banques.updateBanque(req.body);
+        let id = req.id;
+        await Banques.updateBanque(id,req.body);
         res.send("Banque a été bien modifié");
     } catch (error) {
         console.log(error);
@@ -54,7 +55,8 @@ const modifierBanque = async (req,res,next) => {
 
 const ModifierPrestations = async (req,res,next) => {
     try {
-        await Banques.upadatePrestation(req.body);
+        let banque = req.params.id;
+        await Banques.upadatePrestation(banque,req.body);
         res.send("prestations est bien modifié");
     } catch (error) {
         console.log(error);
@@ -64,7 +66,8 @@ const ModifierPrestations = async (req,res,next) => {
 
 const supprimerBanque = async (req,res,next) => {
     try {
-        await Banques.deleteBanque(req.body);
+        let id = req.params.id;
+        await Banques.deleteBanque(id);
         res.send("Banque a été supprimer");
     } catch (error) {
         console.log(error);
@@ -90,6 +93,6 @@ module.exports = {getBanques,
                   ModifierPrestations,
                   supprimerBanque,
                   supprimerPrestation,
-                  getPrestation
+                  getPrestations
 }; 
 

@@ -14,3 +14,93 @@
 20230418	09:18:48	ea240560-9395-45aa-ab79-5938ca05e210	Error: Unknown column 'undefined' in 'where clause'
 20230418	09:28:17	4fe35fbf-15cc-4da0-b5d7-04e8807c0638	Error: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'WHERE prestations.pres_id=2
                    )' at line 5
+20230423	16:23:18	0c2e7c5e-53c3-4127-a4f7-8a08ca734024	Error: ENOENT: no such file or directory, stat '/home/hamza/Documents/Projet_2cp/Projet-2CP/back-end/routes/views/index.html'
+20230423	16:55:26	4a0696f1-b7ba-40d3-ad94-fd971921635e	Error: ENOENT: no such file or directory, stat '/home/hamza/Documents/Projet_2cp/Projet-2CP/back-end/routes/views/index.html'
+20230423	16:57:50	b216ee09-f55d-4267-9178-e83d85196b53	Error: Not allowed by CORS
+20230423	16:57:50	67b2b8bb-7dec-415e-99cd-3235827e8547	Error: Not allowed by CORS
+20230423	20:14:33	810b5c60-f969-4f2d-bf59-d7223600179d	Error: ENOENT: no such file or directory, stat '/home/hamza/Documents/Projet_2cp/Projet-2CP/back-end/routes/views/index.html'
+20230423	20:15:31	2a8b4796-2a6b-4642-ac53-2197f3c7afb9	Error: ENOENT: no such file or directory, stat '/home/hamza/Documents/Projet_2cp/Projet-2CP/back-end/routes/views/index.html'
+20230423	20:19:24	8999699f-3b57-42ca-a179-262beff25396	Error: ENOENT: no such file or directory, stat '/home/hamza/Documents/Projet_2cp/Projet-2CP/back-end/routes/views/index.html'
+20230424	19:11:03	75810224-3383-4f7c-8c3d-91b9a63ea168	Error: Every derived table must have its own alias
+20230424	19:12:16	81cfefc3-f4bc-43b0-82b5-03670cc84cab	Error: Every derived table must have its own alias
+20230428	21:08:44	92f0dd77-b6fc-4e7e-939e-42959d5eefe2	TypeError: Cannot read properties of undefined (reading 'jwt')
+20230430	18:37:42	0c358cb9-4d1c-43ff-b32f-247b80e75645	Error: Unknown column 'pres' in 'where clause'
+20230430	18:41:48	a45b15f4-6f71-4855-a1bd-b289f9f096c5	Error: Unknown column 'pres' in 'where clause'
+20230430	18:43:15	138bbe93-d50b-4352-9d25-ba646346e7cc	Error: Unknown column 'pres' in 'where clause'
+20230430	18:48:19	84ff9706-1f38-43be-a718-949c21d805fd	Error: Unknown column 'pres' in 'where clause'
+20230430	21:01:42	4c7e2efa-0bc2-40d2-b52b-c3716dbe5ded	Error: Unknown column 'undefined' in 'where clause'
+20230430	21:01:45	21eec23e-4a12-4e4c-8d23-746967c77e40	Error: Unknown column 'undefined' in 'where clause'
+20230430	21:01:47	46df7962-a331-462f-9708-7c51fe0844b3	Error: Unknown column 'undefined' in 'where clause'
+20230430	21:08:19	b8d909c4-b2e9-493b-bc62-a5726ca65c03	Error: Unknown column 'undefined' in 'where clause'
+20230430	21:08:22	6b9025ea-c4b0-4ca9-a094-cc29dac70e40	Error: Unknown column 'undefined' in 'where clause'
+20230430	21:08:32	6223fff5-5ba0-4737-8294-9f33ea24bc0f	Error: Unknown column 'undefined' in 'where clause'
+20230430	21:08:50	33c0077d-ae00-4600-925f-5aa1d34bae69	Error: Unknown column 'undefined' in 'where clause'
+20230501	15:45:35	c6b08b50-2ee8-4dcd-9d9e-3a918389f1ba	Error: Unknown column 'undefined' in 'where clause'
+20230501	15:45:35	ab304e26-9ad2-4052-a891-b4225de26a89	Error: Unknown column 'undefined' in 'where clause'
+20230501	15:47:30	c2af05b3-3e64-45a4-ac05-380c466cfd80	Error: Unknown column 'undefined' in 'where clause'
+20230501	17:44:05	7e47744c-bd41-4015-abb7-86b6c1e2c9b4	Error: Unknown column 'undefined' in 'where clause'
+20230501	17:44:05	08fa88df-2b1f-4d59-921e-77e0cec1e49a	Error: Unknown column 'undefined' in 'where clause'
+20230501	21:30:38	2bb350b9-6b0f-4a53-82ce-ea4d64279a95	Error: Table 'PROJET_2CP_TEAM02.Prestations' doesn't exist
+20230502	02:25:48	6f29f136-f242-4153-8089-16ebe946d0c3	Error: Unknown column 'id' in 'where clause'
+20230502	02:25:50	348de99b-5e31-4e37-aab6-1c3476426117	Error: Unknown column 'id2' in 'where clause'
+20230502	02:25:55	eead49af-bd6c-4bfa-b4d2-ae3fcf5effdc	Error: Unknown column 'id2' in 'where clause'
+20230502	02:25:58	768e2745-398e-45da-b9f5-e465e5f9ebdc	Error: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ''id2' at line 1
+20230502	02:26:02	4b2ac1c1-6ac5-4358-861e-a6728f50b9cf	Error: Unknown column 'id2' in 'where clause'
+20230502	02:26:06	f03bb059-4696-4ee2-99ff-6fb398f8467c	Error: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '{id2' at line 1
+20230502	02:26:14	6ac437a6-f9f9-452a-b543-7473763a9fbc	Error: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '{id2}' at line 1
+20230502	02:26:17	8331196d-4385-4de8-a40f-91c90bc42e6a	Error: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '}' at line 1
+20230502	09:13:59	efdfdff1-4272-496d-911e-e46357056113	Error: Not allowed by CORS
+20230502	09:13:59	7345b4aa-dfe9-443a-8fd5-b846792113ef	Error: Not allowed by CORS
+20230502	09:14:22	644c9972-70d8-4f84-a302-37dc5c20d243	Error: Not allowed by CORS
+20230502	09:14:22	b25c1c96-d1d2-42f3-99c2-a6ac02d0d45b	Error: Not allowed by CORS
+20230502	09:14:23	383517da-9315-45dd-bd2d-bd2b697507e7	Error: Not allowed by CORS
+20230502	09:14:23	b8b2eefd-36c0-4990-a69f-f750161cd2d9	Error: Not allowed by CORS
+20230502	09:14:25	867b82ff-66ad-4d1e-844c-d2b985c31b59	Error: Not allowed by CORS
+20230502	09:14:25	79aa8f17-f6de-422c-b54e-485f8eda7270	Error: Not allowed by CORS
+20230502	09:24:34	878f669f-2919-4422-9c45-9cac5c89f304	Error: Not allowed by CORS
+20230502	09:24:34	b2c2be0c-8bf7-4551-9a38-673baa9e6510	Error: Not allowed by CORS
+20230502	09:24:34	8c08b1e8-24c5-4aff-bf33-4690d4793ded	Error: Not allowed by CORS
+20230502	09:24:34	58130177-fae7-4c48-b1ed-6a59c009e5c7	Error: Not allowed by CORS
+20230502	09:24:36	9518c7a1-d97d-4909-a7ec-2338dcbaddbd	Error: Not allowed by CORS
+20230502	09:24:36	92669969-8b81-44ac-b593-611da01a2e0c	Error: Not allowed by CORS
+20230502	10:00:14	c95480b7-6ccf-4093-81e9-cc66d5ee4a2f	Error: ENOENT: no such file or directory, stat '/home/hamza/Documents/Projet_2cp/Projet-2CP/front-end/views/index.html'
+20230502	10:01:19	82e3d8de-62cc-41f3-8614-f1c598402944	Error: Not allowed by CORS
+20230502	10:01:20	c674eed6-a8b4-4247-bc83-da580713ae71	Error: Not allowed by CORS
+20230502	10:01:20	a99c2ad2-08fb-4bab-a9d1-aa3eb27f9744	Error: Not allowed by CORS
+20230502	10:01:20	82847448-8cb0-4e13-9447-c7f20710be85	Error: Not allowed by CORS
+20230502	10:01:24	0f4ad672-7158-4724-97c4-62b1876307e8	Error: Not allowed by CORS
+20230502	10:01:24	ee029187-a54b-4e63-bf0a-9bdfd43a2df8	Error: Not allowed by CORS
+20230502	10:01:25	516a64b6-d8a3-4d68-95bd-c4ab7c8e728e	Error: Not allowed by CORS
+20230502	10:01:25	ac736c23-91f9-4727-96cc-0baa650f444b	Error: Not allowed by CORS
+20230502	10:01:25	90c7ef07-9682-4674-8aa7-a7e404b0116f	Error: Not allowed by CORS
+20230502	10:01:25	946ed18a-d596-44bf-9970-39b012c65dfd	Error: Not allowed by CORS
+20230502	10:01:27	cbb891a1-d569-4978-8aaf-c68057a71bba	Error: Not allowed by CORS
+20230502	10:01:27	72dc0536-4a5a-4a42-a49b-08c1ca1562b4	Error: Not allowed by CORS
+20230502	10:01:28	96674013-9b3a-429b-9181-35a2f52cef0c	Error: Not allowed by CORS
+20230502	10:01:28	855b715f-5a1d-4fe7-b801-d2c80c0d9de0	Error: Not allowed by CORS
+20230502	10:01:28	7d999a3c-81b0-45b6-a12a-703a36d3dd52	Error: Not allowed by CORS
+20230502	10:01:28	7ddc3871-cc71-4f82-af15-c02c5d361f16	Error: Not allowed by CORS
+20230502	10:01:29	72c2c21a-d0b5-4a28-90f4-36e5b540f3e9	Error: Not allowed by CORS
+20230502	10:01:29	31698095-587a-410f-85d0-ebead4ddb081	Error: Not allowed by CORS
+20230502	10:01:30	9e97d352-87dd-41a5-b81b-b45385416d99	Error: Not allowed by CORS
+20230502	10:01:30	c0f4e160-462e-415c-a229-f1961d9424eb	Error: Not allowed by CORS
+20230502	10:01:30	c2318a1f-0f29-4c22-a525-56f6a9a2a49c	Error: Not allowed by CORS
+20230502	10:01:30	a689d11c-6285-4e2a-9fb3-cc702906e968	Error: Not allowed by CORS
+20230502	10:01:31	8c5ffe9e-31eb-48be-aa52-e1f884d94787	Error: Not allowed by CORS
+20230502	10:01:31	bd28b8f3-088e-4000-9611-b1b31089782a	Error: Not allowed by CORS
+20230502	10:01:48	89a912d4-1478-4657-8249-fa9f739f93e2	Error: Not allowed by CORS
+20230502	10:01:48	36ebecb1-8e89-4701-9fc6-dbab4b5f5b82	Error: Not allowed by CORS
+20230502	10:01:52	339c591c-600b-4227-a501-0808192abc7f	Error: Not allowed by CORS
+20230502	10:01:52	832492a3-85b3-42e9-af20-acf897b882df	Error: Not allowed by CORS
+20230502	10:01:57	2c499119-9463-4fc0-9bca-995b00a67c75	Error: Not allowed by CORS
+20230502	10:01:57	61179cca-1d9c-49c5-a675-e030f99e143d	Error: Not allowed by CORS
+20230502	10:01:57	548dc30c-1fdc-4d24-b9e2-d6a5c0e81af0	Error: Not allowed by CORS
+20230502	10:01:57	37baf7f1-4103-4d2f-b201-bfd7139d7515	Error: Not allowed by CORS
+20230502	10:01:59	3e00dccb-0283-423d-8c36-f718fcd8a72d	Error: Not allowed by CORS
+20230502	10:01:59	96a882c8-1e1a-4179-88c2-2466772f37c6	Error: Not allowed by CORS
+20230502	10:02:00	82eba9a9-705a-4f27-b219-08faa048a6c5	Error: Not allowed by CORS
+20230502	10:02:00	16a23f09-74db-47c6-af8c-10374ef04305	Error: Not allowed by CORS
+20230502	10:02:00	d1fe5d79-3191-4443-870e-5501db007be3	Error: Not allowed by CORS
+20230502	10:02:00	19278ed1-218b-4f35-a018-ac351143cd55	Error: Not allowed by CORS
+20230502	11:34:49	5a46fd9e-6e07-4521-a10f-169bdfcfe5f5	Error: Unknown column 'undefined' in 'where clause'
+20230502	11:34:49	cf635347-8211-4637-9bd1-ce9c420a14f2	Error: Unknown column 'undefined' in 'where clause'

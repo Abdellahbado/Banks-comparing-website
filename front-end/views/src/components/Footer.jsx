@@ -24,14 +24,14 @@ function Footer() {
         </Row>
         <Row className="justify-content-center">
           <Col className="text-center text-white">
-            <Link to="/compare" className="text-white">
+            <Link to="/comparer" className="text-white">
               Comparer
             </Link>
           </Col>
         </Row>
         <Row className="justify-content-center">
           <Col className="text-center text-white">
-            <Link to="/about" className="text-white">
+            <Link to="/qui-sommes-nous" className="text-white">
               Qui-somme-nous
             </Link>
           </Col>

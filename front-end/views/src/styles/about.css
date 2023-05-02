@@ -1,0 +1,129 @@
+.pic{
+  height: 400px;
+  width: 700px;
+  margin-top: 0px;
+  margin-left: 100px;
+  border-radius: 50px;
+  box-shadow: 0px 5px 10px 0px rgba(0, 0, 0, 0.5) ; 
+ 
+}
+.tit{
+  font-size: 120px;
+  margin-top:  60px; 
+  color: #0027F6;
+  margin-left: 40px;
+  font-family: fantasy;
+}
+.head{
+  margin-top: 100px;
+  margin-left: 100px;
+  margin-right: 100px;
+  display: flex;
+  margin-top: 10px;
+  background-color: rgb(229, 243, 235);
+  border-radius: 50px;
+  opacity:0.9 ;
+
+  
+}
+
+.objet {
+
+  background-color: rgb(229, 243, 235);
+  border-radius: 40px;
+  width: 1100px; /* or any other width */
+  margin: 0 auto;
+  margin-top: 20px;
+
+}
+.notr{
+  padding-top: 50px;
+  padding-left: 220px;
+  font-family: fantasy;
+  font-size: 50px;
+  color: #0027F6;
+}
+.para{
+  margin: 50px;
+  font-size: 25px;
+  font-family: serif;
+}
+.g3 {
+height: 1200px;
+background-color: rgb(229, 243, 235);
+border: #F0FFFF solid;
+border-radius: 50px;
+width: 1100px;
+margin: 0 auto;
+margin-top: 100px;
+}
+.personne{
+  margin-top: 50px;
+  margin-left: 50px;
+  width: 300px;
+  height: 400px;
+  background-color: #FFFFFF;
+  border-radius: 50px 0 50px 0 ;
+  color: black;
+  box-shadow: 0px 5px 10px 0px rgba(0, 0, 0, 0.5) ; 
+  transition: margin-top 1s ;
+
+}
+.data{
+ padding-top: 30px;
+ padding-left: 50px;
+  font-size: 17px;
+  font-family: fantasy ;
+
+}
+.me{
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  margin-left: 100px;
+  margin-top: 0px;
+}
+.personne2{
+  margin-top: 50px;
+  margin-left: 50px;
+  width: 300px;
+  height: 400px;
+  background-color: #FFFFFF;
+  border-radius: 0 50px 0 50px ;
+  color:  black;
+  box-shadow: 0px 5px 10px 0px rgba(0, 0, 0, 0.5);
+  transition: margin-top 1s ;
+}
+.equipe{
+  display: flex;
+}
+.personne:hover{
+  border-color: #0027F6;
+  box-shadow: 0 0.7em 0.7em -0.3em #0027F6;
+  transform: translateY(-0.5em);
+  margin-top: 30px ;
+
+}
+.personne2:hover{
+  border-color: #0027F6;
+  box-shadow: 0 0.7em 0.7em -0.3em #0027F6;
+  transform: translateY(-0.5em);
+  margin-top: 30px ;
+}
+.personne3{
+  margin-top: 50px;
+  margin-left: 50px;
+  width: 300px;
+  height: 400px;
+  background-color: #FFFFFF;
+  border-radius: 0 50px 0 50px ;
+  color:  black;
+  box-shadow: 0px 5px 10px 0px rgba(0, 0, 0, 0.5);
+  transition: margin-top 1s ;
+}
+.personne3:hover{
+  border-color: goldenrod;
+  box-shadow: 0 0.7em 0.7em -0.3em goldenrod;
+  transform: translateY(-0.5em);
+  margin-top: 30px ;
+}

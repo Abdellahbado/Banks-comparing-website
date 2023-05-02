@@ -15,7 +15,7 @@ const getBnquesByID =  async (req,res,next) => {
     try {
         let BanqueID = req.params.id;
         let [Banque, _] = await Banques.getById(BanqueID);
-        let [Prestation, __] = await Banques.getPrestationById(BanqueID);
+        let Prestation = await Banques.getPrestationById(BanqueID);
         res.status(200).json({Banque:Banque[0] , Prestation});
     } catch (error) {
         console.log(error);
@@ -39,8 +39,19 @@ const filtrerById =  async (req,res,next) =>  {
 const triByPres = async (req,res,next) => {
     try {
         let pres = req.params.id;
-        let [Banque, _] = await Banques.Tri(pres);
+        let Banque = await Banques.Tri(pres);
         res.status(200).json(Banque);
+    } catch (error) {
+        console.log(error);
+        next(error);
+    }
+}
+
+const getPresNom = async (req,res,next) => {
+    try {
+        let [Prestation, _] = await Banques.getPrestationNom();
+        res.status(200).json(Prestation);
+        
     } catch (error) {
         console.log(error);
         next(error);
@@ -51,6 +62,7 @@ module.exports = {
             getBanques,
             getBnquesByID,
             filtrerById,
-            triByPres
+            triByPres,
+            getPresNom
 };
 

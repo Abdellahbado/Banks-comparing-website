@@ -5,26 +5,33 @@ const path = require('path');
 const cors = require('cors');
 const corsOptions = require("./config/corsOption");
 const { logger } = require('./middleware/logEvents');
+const verifyJWT = require("./middleware/verifyJWT");
+const cookieParser = require("cookie-parser");
 const errorHandler = require('./middleware/errorHandler');
 const PORT = process.env.PORT || 3500;
 // custom middleware logger
 app.use(logger);
 // Cross Origin Resource Sharing
-app.use(cors(corsOptions));
+app.use(cors());
 // built-in middleware to handle urlencoded data
 // in other words, form data:  get(aceuilController.getBnques)
 // ‘content-type: application/x-www-form-urlencoded’
 app.use(express.urlencoded({ extended: false }));
 // built-in middleware for json 
 app.use(express.json());
+//cookie parser
+app.use(cookieParser());
 //serve static files
 app.use('/', express.static(path.join(__dirname, '/public')));
 // routes
-app.use('/', require('./routes/api/root'));
+app.use('/', require('../front-end/routes/api/root'));
+app.use("/aceuil",require("../front-end/routes/api/aceuil"));
+app.use("/comparer",require("../front-end/routes/api/Comparer"));
 app.use('/register', require('./routes/api/register'));
 app.use("/auth", require("./routes/api/auth"));
-app.use("/aceuil",require("./routes/api/aceuil"));
-app.use("/comparer",require("./routes/api/Comparer"));
+app.use("/refresh", require("./routes/api/refresh"));
+app.use("/logout",require("./routes/api/logout"));
+//app.use(verifyJWT);
 app.use("/admin",require("./routes/api/admin"));
 
 

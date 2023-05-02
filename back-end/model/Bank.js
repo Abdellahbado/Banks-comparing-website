@@ -1,4 +1,5 @@
 const DB = require("../config/DB");
+const bcrypt = require('bcrypt');
 
 class Banque {
 
@@ -17,18 +18,18 @@ class Banque {
     }
 
 
-    static addBanque(data) {
-        let sql = `INSERT INTO Banque(Banque_id, Nom_banque, Siege_social, Telephone, Fax) VALUES(${data.Banque_id} ,  "${data.Nom_banque}", "${data.Siege_social}", ${data.Telephone}, ${data.Fax});`;
+    static addBanque(id,data) {
+        let sql = `INSERT INTO Banque(Banque_id, Nom_banque, Siege_social, Telephone, Fax) VALUES(${id} ,  "${data.Nom_banque}", "${data.Siege_social}", ${data.Telephone}, ${data.Fax});`;
         DB.execute(sql);
     }
 
-    static updateBanque(data){
-        let sql = `UPDATE Banque SET Nom_banque="${data.Nom_banque}", Siege_social="${data.Siege_social}", Telephone=${data.Telephone}, Fax=${data.Fax} WHERE Banque_id=${data.Banque_id};`;
+    static updateBanque(id, data){
+        let sql = `UPDATE Banque SET Nom_banque="${data.Nom_banque}", Siege_social="${data.Siege_social}", Telephone=${data.Telephone}, Fax=${data.Fax} WHERE Banque_id=${id};`;
         DB.execute(sql);
     }
 
-    static deleteBanque(data){
-        let sql = `DELETE FROM Banque WHERE Banque_id=${data.Banque_id}`;
+    static deleteBanque(id){
+        let sql = `DELETE FROM Banque WHERE Banque_id=${id}`;
         DB.execute(sql);
     }
 
@@ -37,9 +38,13 @@ class Banque {
         DB.execute(sql);
     }
 
-    static upadatePrestation(data){
-        let sql = `UPDATE Prestations SET pres_nom="${data.pres_nom}", pres_type="${data.pres_type}", frais=${data.frais} WHERE pres_id=${data.pres_id} AND bank_id=${data.bank_id};`
+    static async upadatePrestation(id,data){
+        for (let index = 0; index < data.length; index++) {
+            let sql = `UPDATE prestations SET frais="${data[index].frais}" WHERE pres_id=${data[index].pres_id} AND bank_id=${id};`
+            await DB.execute(sql);          
+        }
     }
+
     static deletePrestation(data){
         let sql = `DELETE FROM Prestations WHERE pres_id=${data.pres_id} AND bank_id=${data.bank_id}`;
         DB.execute(sql);
@@ -51,7 +56,7 @@ class Banque {
     }
 
     static getPrestationById (id) {
-        let sql = `SELECT * FROM prestations WHERE bank_id = ${id};`;
+        let sql = `SELECT pres_id,pres_nom,frais FROM prestations WHERE bank_id = ${id};`;
         return DB.execute(sql);
     }
 
@@ -62,34 +67,16 @@ class Banque {
     }
 
     static async foundPwd (userName,pwd){
-        let  sql = `SELECT EXISTS(SELECT * FROM Adminstrateur WHERE Nom='${userName}' AND Mot_de_passe='${pwd}') AS user_exists;`;
-        let [data,_] = await DB.execute(sql);
-        return data[0].user_exists;
+        let  sql = `SELECT * FROM Adminstrateur WHERE Nom='${userName}';`;
+        let data = await DB.execute(sql);
+        const match = await bcrypt.compare( pwd,data[0][0].Mot_de_passe);
+        if(match){
+            return 1;
+        }
+        else{
+            return 0;
+        }
     }
-
-    /*static getPrestationById (id1,id2) {
-        let sql = `SELECT * FROM prestations WHERE pres_id=${id1} AND bank_id = ${id2};`;
-        return DB.execute(sql);
-    }*/
-
-    static filtrer(presId,min,max){
-        let sql = `SELECT * FROM Banque 
-                   WHERE Banque.Banque_id IN (
-                      SELECT bank_id FROM prestations
-                      WHERE prestations.pres_id=${presId} AND prestations.frais >= ${min} AND prestations.frais <=${max} );`;
-        return DB.execute(sql);
-    }
-
-    static Tri(id){
-        let sql = `SELECT * FROM Banque 
-                   WHERE Banque_id IN (
-                   SELECT bank_id FROM prestations 
-                   WHERE prestations.pres_id=${id}
-                   ORDER BY prestations.frais
-                   );`;
-        return DB.execute(sql);
-    }
-
 }
 
 

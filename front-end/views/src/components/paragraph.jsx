@@ -1,48 +1,51 @@
 import React from "react";
-import { Card } from "react-bootstrap";
-import myImage from "../assets/images/bank_image.jpg";
+import { Card, Button } from "react-bootstrap";
+import { Link, useNavigate } from "react-router-dom";
+import myImage from "../assets/images/bank_image_paragraph.jpg";
+import { Image } from "react-bootstrap";
 function Paragraph() {
+  const navigate = useNavigate();
   return (
-    <div style={{ position: "relative" }}>
-      <Card
-        text="white"
-        border="0"
-        className="rounded rounded-lg mx-1 mx-md-3 mx-lg-5 my-1 my-md-3 my-lg-4"
+    <Card
+      className="mx-1 mx-md-3 mx-lg-5 my-1 my-md-3 my-lg-4"
+      style={{
+        minHeight: "500px",
+        borderRadius: "50px",
+        backgroundImage: `url(${myImage})`,
+        backgroundSize: "cover",
+        backgroundPosition: "center",
+      }}
+    >
+      <Card.Body
         style={{
-          backgroundImage: "linear-gradient(to right , #0d2059,#3b5aa9 )",
-          height: "400px",
-          display: "flex",
-          borderRadius: "50px",
+          textAlign: "center",
+          backgroundColor: "rgba(255, 255, 255, 0.3)",
         }}
       >
-        <Card.Body>
-          <h2
-            style={{
-              marginLeft: "50px",
-              marginRight: "50px",
-              marginTop: "20px",
-            }}
-          >
-            Comparer entre banques
-          </h2>
-          <h2
-            style={{
-              marginLeft: "100px",
-              marginRight: "50px",
-              marginTop: "20px",
-            }}
-          >
-            facilement
-          </h2>
-          <h4 style={{ margin: "40px" }}>
-            Sur notre site, les utilisateurs peuvent comparer les offres des
-            différentes banques en un seul endroit, ce qui leur permet de
-            trouver facilement la banque qui correspond le mieux à leurs besoins
-            et à leur budget.
-          </h4>
-        </Card.Body>
-      </Card>
-    </div>
+        <Card.Title
+          style={{
+            fontSize: "2.5rem", 
+            fontWeight: "bold",
+            color: "black",
+            textAlign: "center",
+            paddingTop: "150px", 
+          }}
+        >
+          Comparer entre banques facilement
+        </Card.Title>
+        <h4 style={{ color: "#0d2059" }}>
+          Comparez les offres des banques en un seul endroit pour trouver celle
+          qui vous correspond le mieux.
+        </h4>
+        <Button
+          variant="myButtonVariant"
+          style={{ margin: "20px" }}
+          onClick={() => navigate("/comparer")}
+        >
+          Comparer
+        </Button>
+      </Card.Body>
+    </Card>
   );
 }
 export default Paragraph;

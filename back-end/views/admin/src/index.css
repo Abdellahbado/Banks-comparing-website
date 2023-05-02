@@ -1,0 +1,84 @@
+.create {
+    max-width: 400px;
+    margin: 0 auto;
+    margin-top: 100px;
+    text-align: center;
+  }
+  .create label {
+    text-align: left;
+    display: block;
+  }
+  .create h2 {
+    font-size: 20px;
+    color: mintcream;
+    margin-bottom: 10px;
+  }
+  .create input, .create textarea, .create select {
+    width: 100%;
+    padding: 6px 10px;
+    margin: 10px 0;
+    border: 1px solid #ddd;
+    box-sizing: border-box;
+    display: block;
+  }
+  
+  form{
+    padding: 50px;
+    padding-top: 40px;
+    border-radius: 60px;
+    background-color: #FAFAFA ;
+    box-shadow: 5px 5px 5px rgba(0,0,0,0.5);
+    border:  #efefef 2px solid;
+    width: 100%; /* adjust the width to 80% of the parent element */
+    height: 500px; /* set the height to 500 pixels */
+  
+  }
+  .login{
+    margin-bottom:  35px;
+    color : #363B58 ;
+    font-size : 40px;
+    background-color: mintcream;
+  
+  
+  }
+  
+  
+  
+  img{
+    width: 40px;
+    height: 40px;
+  }
+  .corct{
+  
+  font-size: 100px;
+  
+  }
+  
+  .oublie{
+    color:  rgb(31, 104, 172)  ;
+    text-decoration: none;
+    font-size: 13px;
+    margin-left: 150px;
+    
+  }
+  
+  .containere{
+    text-align: center;
+    background-image: url(./assets/authBackground.png);
+    position: fixed;
+    min-width: 100% ;
+    min-height: 100%;
+    background-size: cover;
+    background-position: center;
+  }
+  .fancy {
+    margin-top: 25px;
+    border-radius: 20px;
+    width: 200px;
+    height: 50px;
+    color: #101D40;
+  }
+  .fancy:hover{
+    background-color: #101D40;
+    color: white;
+  }

@@ -3,40 +3,37 @@ import Button from "react-bootstrap/Button";
 import { Card, Offcanvas } from "react-bootstrap";
 import "../../styles/button.css";
 import axios from "axios";
+import Details from "../plus_details";
+import { banqueComplet } from "../../models/plus_detail_model";
+
 function Cadre(props) {
   const [showOffcanvas, setShowOffcanvas] = useState(false);
   const [data, setData] = useState(null);
   // haid t3 plus de détails
-  const fetchData = async () => {
+  const fetchData = async (id) => {
     try {
       const response = await axios.get(
-        `https://jsonplaceholder.typicode.com/posts/${props.id}`
+        `http://localhost:3500/aceuil/banque/${id}`
       );
+
       setData(response.data);
     } catch (error) {
       console.error(error);
     }
   };
 
-  const handleClick = () => {
+  const handleClick = (id) => {
     setShowOffcanvas(true);
+    fetchData(id);
   };
 
   const handleClose = () => {
     setShowOffcanvas(false);
   };
-  const buttonStyle = {
-    width: "100%",
-    backgroundColor: "#1F3294",
-    color: "white",
-    transition: "background-color 0.3s ease",
-    ":hover": {
-      backgroundColor: "white",
-    },
-  };
-  useEffect(() => {
-    fetchData();
-  }, [Offcanvas]);
+
+//   useEffect(() => {
+//     fetchData();
+//   }, []);
   return (
     <>
       <Card
@@ -52,14 +49,25 @@ function Cadre(props) {
         />
 
         <Card.Body>
-          <Card.Title>{props.name}</Card.Title>
-          <Card.Text>{props.adresse}</Card.Text>
+          <Card.Title
+            style={{
+              height: "100px",
+              overflow: "hidden",
+            }}
+          >
+            {props.name}
+          </Card.Title>
+          <Card.Text style={{ height: "70px", overflow: "hidden" }}>
+            {props.adresse}
+          </Card.Text>
           <Card.Text>Telephone: {props.tel}</Card.Text>
           <Card.Text>Fax: {props.fax}</Card.Text>
           <Button
             variant="myButtonVariant"
-            style={{ width: "100%" }}
-            onClick={handleClick}
+            style={{
+              width: "100%",
+            }}
+            onClick={()=>{handleClick(props.id)}}
           >
             Plus de détails
           </Button>
@@ -69,23 +77,16 @@ function Cadre(props) {
         show={showOffcanvas}
         onHide={handleClose}
         placement="bottom"
-        style={{ height: "90%" }}
+        style={{ height: "95%" }}
       >
         <Offcanvas.Header closeButton>
           <Offcanvas.Title style={{ textAlign: "center", width: "100%" }}>
-            {props.name}
+            {props.Nom_banque}
           </Offcanvas.Title>
         </Offcanvas.Header>
         <Offcanvas.Body>
-          The Offcanvas was displayed from {props.id} the bank
-          {data ? (
-            <div>
-              <p>Some data fetched from API:</p>
-              <pre>{JSON.stringify(data, null, 2)}</pre>
-            </div>
-          ) : (
-            <p>Loading...</p>
-          )}
+          {data ===null? <p>Loading</p>: <Details banque={data} />  }
+          
         </Offcanvas.Body>
       </Offcanvas>
     </>
@@ -93,4 +94,3 @@ function Cadre(props) {
 }
 
 export default Cadre;
-//className="d-flex flex-column"
