@@ -4,8 +4,8 @@ import loggo1 from "../assets/loggo1.png";
 const NavBarAdmin = function () {
   return (
     <Navbar
-      className="mb-3 "
-      style={{ backgroundColor: "rgba(0, 39, 246, 0.1)" }}
+      style={{ backgroundColor: "white", marginLeft: "50px" }}
+      sticky="top"
     >
       <Container fluid>
         <Navbar.Brand>

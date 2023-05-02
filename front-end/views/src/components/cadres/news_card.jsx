@@ -4,12 +4,12 @@ import { Card } from "react-bootstrap";
 const NewsCard = (props) => {
   return (
     <Card
-      border="secondary"
-      className="mb-3"
+      border={props.bg}
+      className="m-3"
       onClick={props.onClick}
-      bg={props.bg}
+      //borderColor={props.bg}
     >
-      <Card.Img variant="top" src={props.src} />
+      <Card.Img variant="top" src={props.img} />
       <Card.Body>
         <Card.Title className="text-primary"> {props.title}</Card.Title>
         <Card.Text>

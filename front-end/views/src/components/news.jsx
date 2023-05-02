@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import { Container, Row, Col } from "react-bootstrap";
-import NewsCard from "./cadres/newsCards";
+import NewsCard from "./cadres/newsCards.jsx";
+import "bootstrap/dist/css/bootstrap.min.css";
+import "../styles/news_style.css";
 
 const News = () => {
   const news = [
@@ -18,7 +20,8 @@ const News = () => {
         '"We are confident that this offer will be attractive to frequent travelers who are looking for a credit card that offers valuable rewards and benefits," added Doe.',
         "Bank XYZ's new credit card product is part of its ongoing efforts to provide innovative financial solutions to its customers, and to continue to grow its market share in the highly competitive credit card industry.",
       ],
-      src: "https://upload.wikimedia.org/wikipedia/commons/5/56/Donald_Trump_official_portrait.jpg",
+      src:
+        "https://upload.wikimedia.org/wikipedia/commons/5/56/Donald_Trump_official_portrait.jpg",
     },
     {
       title: "ABC Bank",
@@ -34,7 +37,8 @@ const News = () => {
         '"We hope that this promotion will encourage customers to try out the app and see for themselves how convenient and easy-to-use it is," added Smith.',
         "The new mobile app is part of ABC Bank's ongoing efforts to innovate and provide the best possible banking experience for its customers.",
       ],
-      src: "https://upload.wikimedia.org/wikipedia/commons/5/5b/%D0%90%D0%B1%D0%B4%D0%B5%D0%BB%D1%8C%D0%BC%D0%B0%D0%B4%D0%B6%D0%B8%D0%B4_%D0%A2%D0%B5%D0%B1%D0%B1%D1%83%D0%BD_%2806-11-2021%29.jpg",
+      src:
+        "https://upload.wikimedia.org/wikipedia/commons/5/5b/%D0%90%D0%B1%D0%B4%D0%B5%D0%BB%D1%8C%D0%BC%D0%B0%D0%B4%D0%B6%D0%B8%D0%B4_%D0%A2%D0%B5%D0%B1%D0%B1%D1%83%D0%BD_%2806-11-2021%29.jpg",
     },
   ];
   const [selectedNew, setSelectedNew] = useState(news[0]);
@@ -45,32 +49,31 @@ const News = () => {
   };
 
   return (
-    <div style={{ height: "100%" }} className="pt-3">
-      <Container>
-        <Row>
-          <Col xs={8}>
-            <NewsCard
-              title={selectedNew.title}
-              subTitle={selectedNew.subTitle}
-              description={selectedNew.description}
-              src={selectedNew.src}
-            />
-          </Col>
+    <Container className="body">
+      <Row>
+        <Col xs={8}>
+          <NewsCard
+            bg={"beige"}
+            title={selectedNew.title}
+            subTitle={selectedNew.subTitle}
+            description={selectedNew.description}
+            src={selectedNew.src}
+          />
+        </Col>
 
-          <Col xs={4}>
-            {news.map((item) => (
-              <NewsCard
-                onClick={() => handleNewSelect(item)}
-                bg={selectedNew.id === item.id ? "secondary" : null}
-                title={item.title}
-                subTitle={item.subTitle}
-                src={item.src}
-              />
-            ))}
-          </Col>
-        </Row>
-      </Container>
-    </div>
+        <Col xs={4}>
+          {news.map((item) => (
+            <NewsCard
+              onClick={() => handleNewSelect(item)}
+              bg={selectedNew.id == item.id ? "beige" : "lightbeige"}
+              title={item.title}
+              subTitle={item.subTitle}
+              src={item.src}
+            />
+          ))}
+        </Col>
+      </Row>
+    </Container>
   );
 };
 

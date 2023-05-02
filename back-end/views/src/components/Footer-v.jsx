@@ -8,7 +8,11 @@ function FooterAdmin() {
   return (
     <footer
       className="p-5 "
-      style={{ height: "400px", backgroundColor: "#101D40" }}
+      style={{
+        height: "400px",
+        backgroundColor: "#101D40",
+        marginLeft: "50px",
+      }}
     >
       <Container>
         <Row className="justify-content-center p-3  ">

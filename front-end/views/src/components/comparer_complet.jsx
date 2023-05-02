@@ -92,21 +92,21 @@ const banques = [
 
 function ComparerComplet() {
   const [showComparer, setShowComparer] = useState(false);
-  const [selectedCardIds, setSelectedCardIds] = useState([]);
+  const [selectedCard, setSelectedCard] = useState([]);
 
-  const handleCardClick = (id) => {
-    if (selectedCardIds.includes(id) && selectedCardIds.length <= 2) {
-      setSelectedCardIds(selectedCardIds.filter((cardId) => cardId !== id));
+  const handleCardClick = (card) => {
+    if (selectedCard.includes(card) && selectedCard.length <= 2) {
+      setSelectedCard(selectedCard.filter((cardd) => cardd.id !== card.id));
     } else {
-      if (!selectedCardIds.includes(id) && selectedCardIds.length < 2) {
-        setSelectedCardIds([...selectedCardIds, id]);
+      if (!selectedCard.includes(card) && selectedCard.length < 2) {
+        setSelectedCard([...selectedCard, card]);
       }
     }
-    selectedCardIds.forEach((id) => console.log(id));
+    selectedCard.forEach((card) => console.log(card.id));
   };
 
   function go() {
-    if (selectedCardIds.length === 2) {
+    if (selectedCard.length === 2) {
       console.log("starting");
     }
     setShowComparer(true);
@@ -129,8 +129,8 @@ function ComparerComplet() {
                   <Col key={index} md={4}>
                     <Cadre
                       id={card.id}
-                      onClick={() => handleCardClick(card.id)}
-                      bg={selectedCardIds.includes(card.id) ? "primary" : null}
+                      onClick={() => handleCardClick(card)}
+                      bg={selectedCard.includes(card) ? "primary" : null}
                       name={card.name}
                       adresse={card.adresse}
                       tel={card.tel}

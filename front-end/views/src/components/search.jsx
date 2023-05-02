@@ -5,6 +5,8 @@ import MyForm from "./form";
 import { banks } from "../models/bank_model.js";
 import "../styles/dropdown.css";
 import "../styles/button.css";
+<FaTrash style={{ marginRight: "20px" }} />
+
 import CadreScrollable from "./cadres/cadre_carousel";
 const Search = forwardRef((props, ref) => {
   const compare = (a, b) => {
@@ -119,7 +121,7 @@ const Search = forwardRef((props, ref) => {
             </Dropdown.Toggle>
 
             <Dropdown.Menu
-              style={{ maxHeight: "400px", overflowY: "auto" }}
+                style={{ maxHeight: "400px", overflowY: "auto" }}
               className="dropdown-menu-custom"
             >
               {pres.map((pres) => (
