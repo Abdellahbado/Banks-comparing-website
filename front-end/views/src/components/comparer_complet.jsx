@@ -1,19 +1,20 @@
-import React, { useState } from "react";
-
+import React, { useState, useEffect } from "react";
+import Slider from "react-slick";
+import { BsChevronLeft, BsChevronRight } from "react-icons/bs";
 import "bootstrap/dist/css/bootstrap.min.css";
 import {
-  Carousel,
-  Card,
   Row,
   Col,
   Container,
   Button,
   Offcanvas,
-  OffcanvasBody,
   OffcanvasTitle,
+  Modal,
 } from "react-bootstrap";
 import Cadre from "./cadres/cadre_selectionner";
 import Comparer from "./Comparer";
+import "../styles/button.css";
+import axios from "axios";
 
 const banques = [
   {
@@ -91,6 +92,23 @@ const banques = [
 ];
 
 function ComparerComplet() {
+  const [banks, setBanks] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
+  const fetchData = async () => {
+    try {
+      const response = await axios.get("http://localhost:3500/aceuil");
+      setBanks(response.data);
+      setIsLoading(false);
+    } catch (error) {
+      console.error(error);
+      setIsLoading(false);
+    }
+  };
+  useEffect(() => {
+    fetchData();
+  }, []);
+
+  const banques = banks;
   const [showComparer, setShowComparer] = useState(false);
   const [selectedCard, setSelectedCard] = useState([]);
 
@@ -120,50 +138,64 @@ function ComparerComplet() {
 
   return (
     <Container>
-      <Carousel interval={null}>
+      <Slider
+        prevArrow={<BsChevronLeft size={120} color="blue" />}
+        nextArrow={<BsChevronRight size={120} color="blue" />}
+        dots={true}
+        infinite={true}
+        slidesToShow={1}
+      >
         {cardGroups.map((group, index) => (
-          <Carousel.Item key={index}>
+          <div key={index}>
             <Container>
               <Row>
                 {group.map((card, index) => (
                   <Col key={index} md={4}>
                     <Cadre
-                      id={card.id}
+                      id={card.Banque_id}
                       onClick={() => handleCardClick(card)}
                       bg={selectedCard.includes(card) ? "primary" : null}
-                      name={card.name}
-                      adresse={card.adresse}
-                      tel={card.tel}
-                      fax={card.fax}
-                      img={card.img}
+                      name={card.Nom_banque}
+                      adresse={card.Siege_social}
+                      tel={card.Telephone}
+                      fax={card.Fax}
+                      img={card.Logo}
                     />
                   </Col>
                 ))}
               </Row>
             </Container>
-          </Carousel.Item>
+          </div>
         ))}
-      </Carousel>
+      </Slider>
+
       <div className="text-center">
-        <Button onClick={go} style={{ marginBottom: "20px" }}>
+        <Button
+          onClick={go}
+          style={{ marginBottom: "20px", marginTop: "50px" }}
+          variant="myButtonVariant"
+        >
           Comparer
         </Button>
       </div>
-      <Offcanvas
+      <Modal
         show={showComparer}
         onHide={() => {
           setShowComparer(false);
         }}
         placement="bottom"
         style={{ height: "95%" }}
+        dialogClassName="modal-lg" // Add this line
+        scrollable={true}
       >
-        <Offcanvas.Header closeButton>
-          <OffcanvasTitle>Comparaison entre 2 banques</OffcanvasTitle>
-        </Offcanvas.Header>
-        <Offcanvas.Body>
-          <Comparer />
-        </Offcanvas.Body>
-      </Offcanvas>
+        <Modal.Header closeButton>
+          <Modal.Title />
+        </Modal.Header>
+        <Modal.Body>
+          <Comparer banques={selectedCard} />
+        </Modal.Body>
+        <Modal.Footer />
+      </Modal>
     </Container>
   );
 }

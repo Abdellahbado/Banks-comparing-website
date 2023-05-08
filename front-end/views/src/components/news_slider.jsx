@@ -2,14 +2,16 @@ import React from "react";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import { Card, Button } from "react-bootstrap";
-import NewsCard from "./newsCards";
+import NewsCard from "./cadres/news_card";
 import { useState } from "react";
+import { BsChevronLeft, BsChevronRight } from "react-icons/bs";
 
 function MySlider() {
   const items = [
     {
-      img: "vjhs",
+      img:
+        "https://blockworks.co/_next/image?url=https://blockworks-co.imgix.net/wp-content/uploads/2023/04/first-republic-bank.jpg&w=1920&q=75&webp=false",
+
       title: "Bank XYZ ",
       id: "1",
 
@@ -25,7 +27,9 @@ function MySlider() {
       ],
     },
     {
-      img: "vjhs",
+      img:
+        "https://ichef.bbci.co.uk/news/1024/branded_news/9B5F/production/_129557793_gettyimages-1485498014.jpg",
+
       title: "ABC Bank",
       id: "2",
 
@@ -41,7 +45,9 @@ function MySlider() {
       ],
     },
     {
-      img: "vjhs",
+      img:
+        "https://media-cldnry.s-nbcnews.com/image/upload/t_fit-1500w,f_auto,q_auto:best/mpx/2704722219/2023_04/1682508613301_tdy_news_7a_cheung_first_republic_bank_230426_1920x1080-7j1kcc.jpg",
+
       title: "ABC Bank",
       id: "3",
 
@@ -57,7 +63,9 @@ function MySlider() {
       ],
     },
     {
-      img: "vjhs",
+      img:
+        "https://img.lemde.fr/2023/03/15/0/0/4999/3333/1440/960/60/0/0c342dd_5746906-01-06.jpg",
+
       title: "ABC Bank",
       id: "4",
 
@@ -73,7 +81,9 @@ function MySlider() {
       ],
     },
     {
-      img: "vjhs",
+      img:
+        "https://live-production.wcms.abc-cdn.net.au/14451e04795ce13882e8b1aab78d63a9?impolicy=wcms_crop_resize&cropH=1932&cropW=3435&xPos=0&yPos=0&width=862&height=485",
+
       title: "ABC Bank",
       id: "5",
 
@@ -143,7 +153,13 @@ function MySlider() {
   }
 
   return (
-    <div>
+    <div
+      style={{
+        marginBottom: "50px",
+        marginRight: "100px",
+        marginLeft: "100px",
+      }}
+    >
       <NewsCard
         img={selectedNew.img}
         title={selectedNew.title}
@@ -151,7 +167,11 @@ function MySlider() {
         description={selectedNew.description}
       />
       <h5 style={{ marginLeft: "20px" }}> Latest news: </h5>
-      <Slider {...settings}>
+      <Slider
+        {...settings}
+        prevArrow={<BsChevronLeft size={120} color="blue" />}
+        nextArrow={<BsChevronRight size={120} color="blue" />}
+      >
         {items.map((item, index) => (
           <div key={item.id}>
             <NewsCard

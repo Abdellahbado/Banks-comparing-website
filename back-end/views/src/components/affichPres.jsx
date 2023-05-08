@@ -42,7 +42,7 @@ function AffichPres() {
   const [showModal, setShowModal] = useState(false);
   const [nomP, setNomP] = useState("");
   const [typeP, setTypeP] = useState("");
-
+  const [showModalSupprimer, setShowModalSupprimer] = useState(false);
   const handleSubmit = async () => {
     const data = { pres_nom: nomP, pres_type: typeP };
     console.log(nomP + " " + typeP);
@@ -52,7 +52,7 @@ function AffichPres() {
       console.error(e);
     }
   };
-  const [selectedItem, setSelectedItem] = useState(null);
+  const [selectedItem, setSelectedItem] = useState(0);
   const handleDropdownSelect = (eventKey) => {
     setSelectedItem(eventKey);
   };
@@ -67,14 +67,13 @@ function AffichPres() {
   };
 
   return (
-    <>
+    <div style={{ marginLeft: "50px" }}>
       <Card
         className="mx-1 mx-md-3 mx-lg-5 my-1 my-md-3 my-lg-4"
         style={{
           minHeight: "500px",
           borderRadius: "50px",
-          backgroundColor: "#101d40",
-          marginLeft: "50px",
+          background: "linear-gradient(to right, #0d2059, #1f3294)",
         }}
       >
         <Card.Body
@@ -126,7 +125,7 @@ function AffichPres() {
                 block
               >
                 <FaTrash style={{ marginRight: "20px" }} />
-                Dropdown Button
+                Supprimer Prestation
               </Dropdown.Toggle>
 
               <Dropdown.Menu
@@ -134,7 +133,14 @@ function AffichPres() {
                 variant="custom"
               >
                 {pres.map((item, index) => (
-                  <Dropdown.Item key={index} eventKey={item}>
+                  <Dropdown.Item
+                    key={index}
+                    eventKey={item}
+                    onClick={() => {
+                      setSelectedItem(index);
+                      setShowModalSupprimer(true);
+                    }}
+                  >
                     {item.pres}
                   </Dropdown.Item>
                 ))}
@@ -187,7 +193,38 @@ function AffichPres() {
           </Button>
         </Modal.Footer>
       </Modal>
-    </>
+      <Modal
+        show={showModalSupprimer}
+        onHide={() => setShowModalSupprimer(false)}
+        dialogClassName="modal-90w"
+        aria-labelledby="example-custom-modal-styling-title"
+      >
+        <Modal.Header closeButton>
+          <Modal.Title id="contained-modal-title-vcenter">
+            Confirmer la suppression
+          </Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
+          Êtes-vous sûr de bien vouloir supprimer {pres[selectedItem].pres}?
+        </Modal.Body>
+        <Modal.Footer>
+          <Button
+            variant="secondary"
+            onClick={() => setShowModalSupprimer(false)}
+          >
+            Annuler
+          </Button>
+          <Button
+            variant="myRedVariant"
+            onClick={() => {
+              handleDelete(pres[selectedItem].id);
+            }}
+          >
+            Supprimer
+          </Button>
+        </Modal.Footer>
+      </Modal>
+    </div>
   );
 }
 

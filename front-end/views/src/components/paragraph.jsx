@@ -24,14 +24,14 @@ function Paragraph() {
       >
         <Card.Title
           style={{
-            fontSize: "2.5rem", 
+            fontSize: "2.5rem",
             fontWeight: "bold",
             color: "black",
             textAlign: "center",
-            paddingTop: "150px", 
+            paddingTop: "150px",
           }}
         >
-          Comparer entre banques facilement
+          Comparer entre deux banques facilement
         </Card.Title>
         <h4 style={{ color: "#0d2059" }}>
           Comparez les offres des banques en un seul endroit pour trouver celle

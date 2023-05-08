@@ -1,0 +1,7 @@
+.my-progress-bar1 {
+    background-color: #ffa500; /* set the background color to orange */
+    border-color: #ffa500; /* set the border color to orange */
+    color: #e22d2d; 
+    justify-content: flex-end;
+    margin-bottom: 1rem;
+  }

@@ -53,7 +53,7 @@ const FormComponentBanque = () => {
   };
 
   return (
-    <div className="d-flex justify-content-center">
+    <div className="d-flex justify-content-center" style={{marginLeft:"50px"}}>
       <form
         onSubmit={handleSubmit}
         className="mx-2"

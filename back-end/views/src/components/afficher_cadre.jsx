@@ -55,63 +55,7 @@ const AfficheCadres = () => {
           <Col className="d-flex text-center">
             <PlusCadre newBankID={99} />
           </Col>
-          <Button
-            variant="myButtonVariant"
-            className="justify-content"
-            style={{ maxWidth: "200px", marginBottom: "30px" }}
-            onClick={() => {
-              setShowModal(true);
-            }}
-          >
-            Ajouter Prestation
-            <BsPlus size={60} />
-          </Button>
         </Row>
-
-        <Modal show={showModal} onHide={() => setShowModal(false)}>
-          <Modal.Header closeButton>
-            <Modal.Title>
-              Veuiller entrer les informations de la nouvelle prestation
-            </Modal.Title>
-          </Modal.Header>
-          <Modal.Body>
-            <Form onSubmit={handleSubmit}>
-              <Form.Group>
-                <Form.Label>Le nom de la prestation</Form.Label>
-                <Form.Control
-                  type="text"
-                  value={nomP}
-                  onChange={(e) => setNomP(e.target.value)}
-                />
-              </Form.Group>
-              <Form.Group>
-                <Form.Label>Le type de la prestation</Form.Label>
-                <Form.Control
-                  type="text"
-                  value={typeP}
-                  onChange={(e) => setTypeP(e.target.value)}
-                />
-              </Form.Group>
-            </Form>{" "}
-          </Modal.Body>
-          <Modal.Footer>
-            <Button
-              variant="secondary"
-              onClick={() => {
-                setShowModal(false);
-              }}
-            >
-              Fermer
-            </Button>
-            <Button
-              variant="myButtonVariant"
-              onClick={handleSubmit}
-              type="submit"
-            >
-              Filtrer
-            </Button>
-          </Modal.Footer>
-        </Modal>
       </div>
     </>
   );

@@ -4,6 +4,7 @@ import FooterAdmin from "./components/Footer-v";
 import SideBar from "./components/sidebar";
 import { Routes, Route } from "react-router-dom";
 import AffichPres from "./components/affichPres";
+import AffichNews from "./components/affichNews";
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
           }
         />
         <Route exact path="/prestation" element={<AffichPres />} />
+        <Route exact path="/news" element={<AffichNews />} />
       </Routes>
       <FooterAdmin />
     </>

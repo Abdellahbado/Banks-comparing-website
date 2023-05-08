@@ -5,7 +5,7 @@ import { Route, Routes } from "react-router-dom";
 import Footer from "./components/footer";
 import Diaporama from "./components/diaporama";
 import ComparerComplet from "./components/comparer_complet";
-import News from "./components/news";
+import MySlider from "./components/news_slider";
 
 function App() {
   const searchRef = useRef(null);
@@ -29,7 +29,7 @@ function App() {
       <Routes>
         <Route exact path="/" element={<HomePage ref={searchRef} />} />
         <Route exact path="/comparer" element={<ComparerComplet />} />
-        <Route exact path="/news" element={<News />} />
+        <Route exact path="/news" element={<MySlider />} />
       </Routes>
       <Footer />
     </>

@@ -5,15 +5,17 @@ import "../../styles/button.css";
 import axios from "axios";
 import Details from "../plus_details";
 import { banqueComplet } from "../../models/plus_detail_model";
-
+import "../../styles/card.css";
+import bea from "../../assets/images/bea.png";
 function Cadre(props) {
   const [showOffcanvas, setShowOffcanvas] = useState(false);
   const [data, setData] = useState(null);
   // hadi t3 plus de détails
   const fetchData = async (id) => {
     try {
-      const response = await axios.get(`http://localhost:3000/aceuil/${id}`);
-
+      const response = await axios.get(
+        `http://localhost:3500/aceuil/banque/${id}`
+      );
       setData(response.data);
     } catch (error) {
       console.error(error);
@@ -32,12 +34,10 @@ function Cadre(props) {
   return (
     <>
       <Card
-        className="mx-1 mx-md-2 mx-lg-5 "
+        className="my-card mx-auto mx-md-auto mx-lg-5 "
         style={{
           width: "13rem",
           marginBottom: "30px",
-          // marginLeft: props.id % 3 === 0 ? "50px" : "",
-          // marginRight: props.id % 3 === 2 ? "50px" : "",
         }}
       >
         <Card.Img

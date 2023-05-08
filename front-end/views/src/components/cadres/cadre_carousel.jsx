@@ -3,6 +3,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import { Carousel, Card, Row, Col, Container, Button } from "react-bootstrap";
 import Cadre from "./cadre";
 import { BsChevronLeft, BsChevronRight } from "react-icons/bs";
+import Slider from "react-slick";
 
 function CadreScrollable(props) {
   const banques = props.banques;
@@ -15,19 +16,20 @@ function CadreScrollable(props) {
   }
 
   return (
-    <Container>
-      <Carousel
-        interval={null}
-        style={{ minWidth: "90%" }}
-        controls
-        prevIcon={<BsChevronLeft size={32} color="blue" />}
-        nextIcon={<BsChevronRight size={32} color="blue" />}
+    <Container style={{ minWidth: "90%", marginBottom: "40px" }}>
+      <Slider
+        prevArrow={<BsChevronLeft size={120} color="blue" />}
+        nextArrow={<BsChevronRight size={120} color="blue" />}
+        dots={true}
+        infinite={true}
+        slidesToShow={1}
+        slidesToScroll={1}
       >
         {cardGroups.map((group, index) => (
-          <Carousel.Item key={index}>
-            <Row>
+          <div key={index}>
+            <Row style={{ marginLeft: "90px" }}>
               {group.map((card) => (
-                <Col key={card.Banque_id} md={4}>
+                <Col key={card.Banque_id} xs={12} sm={6} md={6} lg={4}>
                   <Cadre
                     id={card.Banque_id}
                     name={card.Nom_banque}
@@ -39,9 +41,9 @@ function CadreScrollable(props) {
                 </Col>
               ))}
             </Row>
-          </Carousel.Item>
+          </div>
         ))}
-      </Carousel>
+      </Slider>
     </Container>
   );
 }
