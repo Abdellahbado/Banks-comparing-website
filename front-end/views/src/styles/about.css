@@ -1,129 +1,115 @@
-.pic{
-  height: 400px;
-  width: 700px;
-  margin-top: 0px;
-  margin-left: 100px;
+.pic {
+  height: auto;
+  width: 50vw;
   border-radius: 50px;
-  box-shadow: 0px 5px 10px 0px rgba(0, 0, 0, 0.5) ; 
- 
+  box-shadow: 0px 5px 10px 0px rgba(0, 0, 0, 0.5);
+  margin-left: 5%;
 }
-.tit{
-  font-size: 120px;
-  margin-top:  60px; 
-  color: #0027F6;
-  margin-left: 40px;
-  font-family: fantasy;
-}
-.head{
-  margin-top: 100px;
-  margin-left: 100px;
-  margin-right: 100px;
-  display: flex;
-  margin-top: 10px;
-  background-color: rgb(229, 243, 235);
-  border-radius: 50px;
-  opacity:0.9 ;
 
-  
+.tit {
+  font-size: 7vw;
+  margin-top: 5vw;
+  color: #fff;
+
+  margin-left: 5vw;
+}
+
+.head {
+  margin-top: 5vw;
+  margin-left: 5vw;
+  margin-right: 5vw;
+  display: flex;
+  background-color: rgb(13, 32, 89);
+  border-radius: 5vw;
 }
 
 .objet {
+  background-color: rgb(13, 32, 89);
+  border-radius: 4vw;
+  width: 90%; /* or any other width */
+  margin: 5vw auto;
+}
 
-  background-color: rgb(229, 243, 235);
-  border-radius: 40px;
-  width: 1100px; /* or any other width */
-  margin: 0 auto;
-  margin-top: 20px;
+.notr {
+  padding-top: 5vw;
+  padding-left: 20vw;
+  font-size: 5vw;
+  color: #fff;
+}
 
+.para {
+  padding: 5vw;
+  font-size: 2vw;
+  font-family: bold;
+  color: #c5c5c5;
 }
-.notr{
-  padding-top: 50px;
-  padding-left: 220px;
-  font-family: fantasy;
-  font-size: 50px;
-  color: #0027F6;
-}
-.para{
-  margin: 50px;
-  font-size: 25px;
-  font-family: serif;
-}
+
 .g3 {
-height: 1200px;
-background-color: rgb(229, 243, 235);
-border: #F0FFFF solid;
-border-radius: 50px;
-width: 1100px;
-margin: 0 auto;
-margin-top: 100px;
+  background-color: rgb(13, 32, 89);
+  border: 0.5vw solid #f0ffff;
+  border-radius: 5vw;
+  width: 90%;
+  margin: 5vw auto;
 }
-.personne{
-  margin-top: 50px;
-  margin-left: 50px;
-  width: 300px;
-  height: 400px;
-  background-color: #FFFFFF;
-  border-radius: 50px 0 50px 0 ;
+
+.personne {
+  margin-top: 5vw;
+  text-align: center;
+  margin-right: 1vw;
+  width: 25vw;
+  height: 30vw;
+  border: solid 1px rgb(13, 32, 89);
+  background-color: #ffffff;
+  border-radius: 10px;
   color: black;
-  box-shadow: 0px 5px 10px 0px rgba(0, 0, 0, 0.5) ; 
-  transition: margin-top 1s ;
-
+  box-shadow: inset 0px 5px 10px 0px rgba(0, 0, 0, 0.5);
+  transition: margin-top 1s;
+  background-image: linear-gradient(to top, rgb(13, 32, 89) 100%, #fff 10%);
+  background-origin: border-box;
+  background-clip: content-box;
 }
-.data{
- padding-top: 30px;
- padding-left: 50px;
-  font-size: 17px;
-  font-family: fantasy ;
 
+.data {
+  margin-top: 1vh;
+  text-align: center;
+  font-size: 1.5vw;
+  font-family: serif bold;
+  color: silver;
 }
-.me{
-  width: 100px;
-  height: 100px;
+.data1 {
+  margin-top: 3vw;
+  text-align: center;
+  font-size: 1.5vw;
+  color: silver;
+  font-family: serif bold;
+}
+.me {
+  width: 10vw;
+  height: 10vw;
   border-radius: 50%;
-  margin-left: 100px;
-  margin-top: 0px;
+  margin-top: 0;
 }
-.personne2{
-  margin-top: 50px;
-  margin-left: 50px;
-  width: 300px;
-  height: 400px;
-  background-color: #FFFFFF;
-  border-radius: 0 50px 0 50px ;
-  color:  black;
-  box-shadow: 0px 5px 10px 0px rgba(0, 0, 0, 0.5);
-  transition: margin-top 1s ;
-}
-.equipe{
-  display: flex;
-}
-.personne:hover{
-  border-color: #0027F6;
-  box-shadow: 0 0.7em 0.7em -0.3em #0027F6;
-  transform: translateY(-0.5em);
-  margin-top: 30px ;
 
+.equipe {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
 }
-.personne2:hover{
-  border-color: #0027F6;
-  box-shadow: 0 0.7em 0.7em -0.3em #0027F6;
+
+.personne:hover,
+.personne2:hover {
+  box-shadow: 0 0.7em 0.7em -0.3em #d9e70e;
   transform: translateY(-0.5em);
-  margin-top: 30px ;
+  margin-top: 3vw;
 }
-.personne3{
-  margin-top: 50px;
-  margin-left: 50px;
-  width: 300px;
-  height: 400px;
-  background-color: #FFFFFF;
-  border-radius: 0 50px 0 50px ;
-  color:  black;
-  box-shadow: 0px 5px 10px 0px rgba(0, 0, 0, 0.5);
-  transition: margin-top 1s ;
-}
-.personne3:hover{
-  border-color: goldenrod;
-  box-shadow: 0 0.7em 0.7em -0.3em goldenrod;
-  transform: translateY(-0.5em);
-  margin-top: 30px ;
+
+@media screen and (max-width: 600px) {
+  .data {
+    margin-top: 2px;
+    font-size: 1vw;
+  }
+  .data1 {
+    margin-top: 5px;
+    font-size: 1vw;
+  }
 }

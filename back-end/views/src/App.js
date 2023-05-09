@@ -1,10 +1,10 @@
-import AfficheCadres from "./components/afficher_cadre";
 import NavBarV from "./components/NavbarV";
 import FooterAdmin from "./components/Footer-v";
 import SideBar from "./components/sidebar";
 import { Routes, Route } from "react-router-dom";
 import AffichPres from "./components/affichPres";
 import AffichNews from "./components/affichNews";
+import AfficheCadres from "./components/afficher_cadre";
 
 function App() {
   return (

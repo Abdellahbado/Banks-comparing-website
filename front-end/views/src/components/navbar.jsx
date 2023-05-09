@@ -10,7 +10,6 @@ import { useLocation } from "react-router-dom";
 
 function NavBar(props) {
   const location = useLocation();
-  const isNewsRoute = location.pathname === "/news";
 
   return (
     <Navbar
@@ -55,13 +54,15 @@ function NavBar(props) {
               Qui-sommes-nous
             </Nav.Link>
           </Nav>
-          <Button
-            variant="outline-secondary"
-            onClick={props.onSearchClick}
-            style={{ marginRight: "100px" }}
-          >
-            <img src={logo} width="20" height="20" />
-          </Button>
+          <Link to="/">
+            <Button
+              variant="outline-secondary"
+              onClick={props.onSearchClick}
+              style={{ marginRight: "100px" }}
+            >
+              <img src={logo} width="20" height="20" />
+            </Button>
+          </Link>
         </Navbar.Collapse>
       </Container>
     </Navbar>

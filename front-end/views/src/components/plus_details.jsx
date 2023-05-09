@@ -1,36 +1,36 @@
 import React from "react";
-
+import { useState } from "react";
 import Map from "./map";
 import { Table } from "react-bootstrap";
 import { FaFacebook, FaTwitter, FaInstagram, FaPhone } from "react-icons/fa";
 
 import { Container, Row, Col } from "react-bootstrap";
 import "../styles/plus_details_style.css";
+
 function Details({ banque }) {
   const bank = banque;
 
-//   const bankOpeningTime = bank.Banque.openingTime;
-//   const bankClosingTime = bank.Banque.closingTime;
-//   const currentHour = new Date().getHours();
+  //   const bankOpeningTime = bank.Banque.openingTime;
+  //   const bankClosingTime = bank.Banque.closingTime;
+  //   const currentHour = new Date().getHours();
 
- 
   return (
     <div>
       <Container>
         <Row>
           <Col>
             <h1 className="text-center">{bank.Banque.Nom_banque}</h1>
-
-            <Map lat={36.1849} lng={2.4194} />
-
-            {/* {isBankOpen ? (
-              <h6 style={{ color: "green" }}>
-                La banque est ouverte maintenant
-              </h6>
-            ) : (
-              <h6 style={{ color: "red" }}>La banque est fermée maintenant</h6>
-            )} */}
-
+            <div>
+              <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d51157.703078141065!2d2.9673722486328233!3d36.738014500000006!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x128fad894babbbf9%3A0x653a9332a074fbd1!2sBNP%20Paribas%20Sidi%20Yahia!5e0!3m2!1sen!2sdz!4v1683575621452!5m2!1sen!2sdz"
+                width="1200"
+                height="450"
+                style={{ border: 0 }}
+                allowfullscreen=""
+                loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade"
+              ></iframe>
+            </div>
             {<p>{bank.Banque.descriptions}</p>}
             <h4>Voici quelques prestations:</h4>
             <Table

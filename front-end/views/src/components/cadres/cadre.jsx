@@ -36,7 +36,7 @@ function Cadre(props) {
       <Card
         className="my-card mx-auto mx-md-auto mx-lg-5 "
         style={{
-          width: "13rem",
+          width: "15rem",
           marginBottom: "30px",
         }}
       >

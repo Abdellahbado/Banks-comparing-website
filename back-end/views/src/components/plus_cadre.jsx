@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Card, Button, Offcanvas } from "react-bootstrap";
 import { BsPlus } from "react-icons/bs";
 import "../styles/button.css";
-import FormComponentBanque from "./form_bankque";
+import FormComponentBanque from "./form_banque";
 import axios from "axios";
 // const primaryColor = "#1F3294";
 // const secondaryColor = "#85EC55";
@@ -12,12 +12,7 @@ function PlusCadre(props) {
     // const data hadi resultat t3 modification
     let data;
     try {
-      const response = await axios.post(`http://localhost/admin/${id}`, data, {
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: "Bearer YOUR_ACCESS_TOKEN",
-        },
-      });
+      const response = await axios.post(`http://localhost/admin/${id}`, data);
       console.log(response.data);
     } catch (e) {
       console.error(e);
@@ -26,7 +21,7 @@ function PlusCadre(props) {
   return (
     <>
       <Card
-        className="mx-auto mx-md-auto mx-lg-5 flex-fill"
+        className="mx-auto mx-lg-5 flex-fill"
         style={{
           width: "18rem",
           marginBottom: "30px",
@@ -43,7 +38,7 @@ function PlusCadre(props) {
         >
           <Button
             variant="myButtonVariant"
-            className="h-md-100 h-lg-50 w-50"
+            className="h-md-100 h-lg-50 w-50 d-flex justify-content-center"
             onClick={() => {
               setShowOffcanvas(true);
             }}
@@ -66,17 +61,7 @@ function PlusCadre(props) {
           </Offcanvas.Title>
         </Offcanvas.Header>
         <Offcanvas.Body>
-          <FormComponentBanque />
-          <Button
-            type="submit"
-            className="mb-2 m-2 rounded-3 border border-1 d-flex justify-content-center mx-auto"
-            style={{
-              backgroundColor: "#0027F6",
-              color: "white",
-            }}
-          >
-            Valider
-          </Button>
+          <FormComponentBanque id={props.newBankID} />
         </Offcanvas.Body>
       </Offcanvas>
     </>

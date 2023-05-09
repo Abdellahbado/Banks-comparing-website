@@ -33,9 +33,18 @@ class Banque {
         DB.execute(sql);
     }
 
-    static addPrestation(data) {
-        let sql = `INSERT INTO prestations(pres_id, pres_nom, pres_type, frais, bank_id) VALUES(${data.pres_id} ,  "${data.pres_nom}", "${data.pres_type}", ${data.frais}, ${data.bank_id});`;
-        DB.execute(sql);
+    static async addPrestation(data) {
+        let sql1 = `SELECT MAX(pres_id) AS max FROM prestations;`;
+        let maxPres = await DB.execute(sql1);
+        maxPres = maxPres[0][0].max;
+        let sql2 = `SELECT MAX(Banque_id) AS max FROM Banque;`;
+        let maxBanque = await DB.execute(sql2);
+        maxBanque = maxBanque[0][0].max;
+        let id = maxPres+1;
+        for (let index = 100; index <= maxBanque ; index++) {
+            let sql = `INSERT INTO prestations (pres_id,pres_nom,pres_type,frais,bank_id) VALUES (${id},${data.pres_nom},${data.pres_type},${"-1"},${index});`
+            await DB.execute(sql);          
+        }     
     }
 
     static async upadatePrestation(id,data){
@@ -45,8 +54,33 @@ class Banque {
         }
     }
 
-    static deletePrestation(data){
-        let sql = `DELETE FROM Prestations WHERE pres_id=${data.pres_id} AND bank_id=${data.bank_id}`;
+    static async ajouterBanque(id,data){
+        const bank = data.Banque;
+        const prestations =data.Prestation;
+        console.log(prestations);
+        let sql1 = `SELECT MAX(pres_id) AS max FROM prestations;`;
+        let maxPres = await DB.execute(sql1);
+        maxPres = maxPres[0][0].max;
+        let sql2 = `SELECT MAX(Banque_id) AS max FROM Banque;`;
+        let maxBanque = await DB.execute(sql2);
+        maxBanque = maxBanque[0][0].max;
+
+        let sql = `INSERT INTO Banque (Banque_id,Nom_banque,Siege_social,Telephone,Fax,Logo,Localisation) VALUES (${id},"${bank.Nom_banque}","${bank.Siege_social}",${bank.Telephone},${bank.Fax},"${bank.Logo}","${bank.Localisation}");`
+        await DB.execute(sql);
+
+        let sql3 = `SELECT pres_type FROM prestations WHERE bank_id=100`;
+        let prest =  await DB.execute(sql3);
+        prest = prest[0];
+        console.log(prestations);
+
+        for (let index = 0; index < maxPres; index++) {
+            let sql = `INSERT INTO prestations (pres_id,pres_nom,pres_type,frais,bank_id) VALUES (${prestations.pres_id},"${prestations.pres_nom}",${prest[index].pres_type},${prestations.frais},${id});`;
+            await DB.execute(sql);          
+        };
+    }
+
+    static deletePrestation(presId,bankId){
+        let sql = `DELETE FROM Prestations WHERE pres_id=${presId} AND bank_id=${bankId}`;
         DB.execute(sql);
     }
 
@@ -78,7 +112,7 @@ class Banque {
         }
     }
     static  newsTitles(){
-        let sql = `SELECT news_titres FROM NEWS;`;
+        let sql = `SELECT * FROM NEWS;`;
         return DB.execute(sql);
     }
     static deleteNews(id){

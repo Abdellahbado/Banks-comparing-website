@@ -111,3 +111,35 @@
 20230508	00:15:09	d075fac3-e556-41dd-8ad0-80b925d7a353	Error: Access denied for user 'root'@'localhost' (using password: YES)
 20230508	01:35:58	5f8f51fb-7060-4990-9cf9-5bb7c0c3b9dc	Error: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '[object Object]' at line 1
 20230508	01:35:58	d437bc61-e8b1-4faf-bce8-c7f4f49a61d3	Error: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '[object Object]' at line 1
+20230508	18:21:10	89951283-91ff-46d2-ad15-0b70cdf6f643	Error: Unknown column 'undefined' in 'where clause'
+20230508	22:18:37	3bb91f76-c254-4e22-b5e3-729d6622160f	Error: Unknown column 'undefined' in 'where clause'
+20230508	22:46:25	fef2d861-fae9-4817-b7c5-a66e65f252da	Error: Unknown column 'undefined' in 'where clause'
+20230508	22:46:52	cf5bf710-0d0c-4350-97ed-0d9fa76f7a98	Error: Unknown column 'undefined' in 'where clause'
+20230509	00:40:22	edbd5a4e-a44f-4dad-a8e9-3cca48648c31	Error: Unknown column 'undefined' in 'where clause'
+20230509	02:15:39	aa8f7e1e-d428-4356-b2f1-16661de18373	Error: Unknown column 'undefined' in 'where clause'
+20230509	02:15:43	9c1ca968-c275-46a2-b410-dd6c93e5f932	Error: Unknown column 'undefined' in 'where clause'
+20230509	02:16:08	8d65b2be-c54a-49ce-b37f-a50913909e3a	Error: Unknown column 'undefined' in 'where clause'
+20230509	02:16:09	ca1a0bbb-3f44-4497-8548-8597545a43c7	Error: Unknown column 'undefined' in 'where clause'
+20230509	02:16:10	2b37f19d-f940-4471-a24c-eb8e014e3e50	Error: Unknown column 'undefined' in 'where clause'
+20230509	02:16:35	3823fba1-5e64-49bd-9416-0cb5b14cba33	Error: Unknown column 'undefined' in 'where clause'
+20230509	02:17:49	41ff5b26-cd53-4231-817d-77d2c7b12352	Error: Unknown column 'undefined' in 'where clause'
+20230509	02:18:31	b965e362-7356-407e-b13a-3c3f8d70b8b8	Error: Unknown column 'undefined' in 'where clause'
+20230509	02:18:31	39fffe17-a35c-4d7a-b817-d2e113ef789f	Error: Unknown column 'undefined' in 'where clause'
+20230509	02:18:32	fd0d34f6-5308-4be6-9b86-638292801814	Error: Unknown column 'undefined' in 'where clause'
+20230509	02:19:04	7f4d754c-fcd2-4b0c-a922-e1e04cf9bbb5	Error: Unknown column 'undefined' in 'where clause'
+20230509	02:19:23	4a8be71b-269a-4ee6-9824-c1a7ca3f721a	Error: Unknown column 'undefined' in 'where clause'
+20230509	02:28:33	02449ab2-11fa-47cb-a60f-5e848123b75b	Error: Unknown column 'undefined' in 'where clause'
+20230509	04:12:01	5601aa5c-720f-4588-9b5d-adddfdb01305	Error: Unknown column 'undefined' in 'field list'
+20230509	04:39:17	4327bae9-c3b2-4912-a436-e9a2dff55606	Error: Unknown column 'undefined' in 'field list'
+20230509	04:39:43	255e9a80-cead-444f-b426-9f8f92d02f38	Error: Unknown column 'undefined' in 'field list'
+20230509	06:10:12	79442a41-e646-4bae-bbb5-f92316dfd05b	Error: Unknown column 'undefined' in 'field list'
+20230509	06:36:45	cc935078-ac59-4e05-88fc-14aa737b916e	TypeError: Cannot read properties of undefined (reading 'Nom_banque')
+20230509	06:37:59	894269ec-d032-4a90-b90d-3bb28dd6d0dc	Error: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'smar,OUED SMAR,00000,000,logo,OUED SMAR)' at line 1
+20230509	06:41:50	02143c41-0a62-46d3-8b0f-b69caab89cec	Error: Unknown column 'Localisation' in 'field list'
+20230509	06:44:35	de9b3755-5645-47a8-af1e-252ef121861f	Error: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'et tenue de compte,undefined,120)' at line 1
+20230509	06:46:24	8a9dadd3-5e12-4139-8251-4c348d1b7eda	Error: Unknown column 'jgh' in 'field list'
+20230509	06:49:59	2e65e279-62bb-422b-abee-3a54ca0cd8eb	Error: Duplicate entry '120' for key 'Banque.PRIMARY'
+20230509	06:50:37	07eb1240-d65c-4fad-9912-79795f8c09a8	Error: Duplicate entry '120' for key 'Banque.PRIMARY'
+20230509	07:05:50	195b1ace-f7ec-4bfc-8946-11293b9f133d	Error: ENOENT: no such file or directory, stat '/home/abdallah/Documents/ReactProjects/Projet-2CP/back-end/views/404.html'
+20230509	08:56:33	c412e5fa-1dc2-4e0e-acc7-976be4f378e5	Error: ENOENT: no such file or directory, stat '/home/abdallah/Documents/ReactProjects/Projet-2CP/back-end/views/404.html'
+20230509	08:56:33	07af7f6d-3f3e-4d94-8f88-a9a7f14196d4	Error: ENOENT: no such file or directory, stat '/home/abdallah/Documents/ReactProjects/Projet-2CP/back-end/views/404.html'

@@ -6,6 +6,7 @@ import Footer from "./components/footer";
 import Diaporama from "./components/diaporama";
 import ComparerComplet from "./components/comparer_complet";
 import MySlider from "./components/news_slider";
+import Aboutus from "./components/about";
 
 function App() {
   const searchRef = useRef(null);
@@ -30,6 +31,7 @@ function App() {
         <Route exact path="/" element={<HomePage ref={searchRef} />} />
         <Route exact path="/comparer" element={<ComparerComplet />} />
         <Route exact path="/news" element={<MySlider />} />
+        <Route exact path="/qui-sommes-nous" element={<Aboutus />} />
       </Routes>
       <Footer />
     </>

@@ -27,7 +27,7 @@ function CadreScrollable(props) {
       >
         {cardGroups.map((group, index) => (
           <div key={index}>
-            <Row style={{ marginLeft: "90px" }}>
+            <Row style={{ marginLeft: "60px" }}>
               {group.map((card) => (
                 <Col key={card.Banque_id} xs={12} sm={6} md={6} lg={4}>
                   <Cadre

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import {
   Container,
   Row,
@@ -8,7 +8,6 @@ import {
   Form,
   Card,
   Dropdown,
-  DropdownButton,
 } from "react-bootstrap";
 import "../styles/button.css";
 import { FaPlusCircle, FaTrash } from "react-icons/fa";
@@ -43,6 +42,21 @@ function AffichPres() {
   const [nomP, setNomP] = useState("");
   const [typeP, setTypeP] = useState("");
   const [showModalSupprimer, setShowModalSupprimer] = useState(false);
+
+  const [prest, setPrest] = useState([]);
+  const fetchPres = async () => {
+    try {
+      const response = await axios.get(
+        "http://localhost:3500/admin/prestations/101"
+      );
+      await setPrest(response.data);
+    } catch (e) {
+      console.error(e);
+    }
+  };
+  useEffect(() => {
+    fetchPres();
+  }, []);
   const handleSubmit = async () => {
     const data = { pres_nom: nomP, pres_type: typeP };
     console.log(nomP + " " + typeP);
@@ -132,18 +146,24 @@ function AffichPres() {
                 style={{ maxHeight: "400px", overflowY: "auto" }}
                 variant="custom"
               >
-                {pres.map((item, index) => (
-                  <Dropdown.Item
-                    key={index}
-                    eventKey={item}
-                    onClick={() => {
-                      setSelectedItem(index);
-                      setShowModalSupprimer(true);
-                    }}
-                  >
-                    {item.pres}
+                {prest.length === 0 ? (
+                  <Dropdown.Item>
+                    <p>Loading prestations</p>
                   </Dropdown.Item>
-                ))}
+                ) : (
+                  prest.map((item, index) => (
+                    <Dropdown.Item
+                      key={index}
+                      eventKey={item}
+                      onClick={() => {
+                        setSelectedItem(index);
+                        setShowModalSupprimer(true);
+                      }}
+                    >
+                      {item.pres_nom}
+                    </Dropdown.Item>
+                  ))
+                )}
               </Dropdown.Menu>
             </Dropdown>
           </Col>
@@ -217,7 +237,7 @@ function AffichPres() {
           <Button
             variant="myRedVariant"
             onClick={() => {
-              handleDelete(pres[selectedItem].id);
+              handleDelete(prest[selectedItem].id);
             }}
           >
             Supprimer

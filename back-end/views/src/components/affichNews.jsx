@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import {
   Container,
   Row,
@@ -10,32 +10,10 @@ import {
   Dropdown,
 } from "react-bootstrap";
 import "../styles/button.css";
-import { FaPlusCircle, FaTrash, FaEdit } from "react-icons/fa";
+import { FaPlusCircle, FaTrash } from "react-icons/fa";
 import "../styles/button-red.css";
 import axios from "axios";
 import "../styles/dropdown.css";
-const news = [
-  { news: "news 1", id: 1 },
-  { news: "news 2", id: 2 },
-  { news: "news 3", id: 3 },
-  { news: "news 4", id: 4 },
-  { news: "news 5", id: 5 },
-  { news: "news 6", id: 6 },
-  { news: "news 7", id: 7 },
-  { news: "news 8", id: 8 },
-  { news: "news 9", id: 9 },
-  { news: "news 10", id: 10 },
-  { news: "news 11", id: 11 },
-  { news: "news 12", id: 12 },
-  { news: "news 13", id: 13 },
-  { news: "news 14", id: 14 },
-  { news: "news 15", id: 15 },
-  { news: "news 16", id: 16 },
-  { news: "news 17", id: 17 },
-  { news: "news 18", id: 18 },
-  { news: "news 19", id: 19 },
-  { news: "news 20", id: 20 },
-];
 
 function AffichNews() {
   const [showModal, setShowModal] = useState(false);
@@ -46,13 +24,20 @@ function AffichNews() {
   const [body, setBody] = useState("");
   const [image, setImage] = useState("");
   const [IndexSupp, setIndexSupp] = useState(0);
+  const [news, setNews] = useState([]);
   const fetchNewsTitles = async () => {
     try {
-      const response = axios.get("http://localhsot:3500/admin/news");
+      const response = await axios.get(
+        "http://localhost:3500/admin/news/titres"
+      );
+      setNews(response.data);
     } catch (e) {
       console.error(e);
     }
   };
+  useEffect(() => {
+    fetchNewsTitles();
+  }, []);
 
   const [nomP, setNomP] = useState("");
   const [typeP, setTypeP] = useState("");
@@ -70,11 +55,11 @@ function AffichNews() {
     }
   };
 
-  const handleDelete = async () => {
+  const handleDelete = async (id) => {
     const data = { news_nom: nomP, news_type: typeP };
     console.log(nomP + " " + typeP);
     try {
-      await axios.delete("http://localhost:3500", data);
+      await axios.delete(`http://localhost:3500/admin/news/${id}`);
     } catch (e) {
       console.error(e);
     }
@@ -151,15 +136,21 @@ function AffichNews() {
                 style={{ maxHeight: "400px", overflowY: "auto" }}
                 variant="custom"
               >
-                {news.map((item, index) => (
-                  <Dropdown.Item
-                    key={index}
-                    eventKey={item}
-                    onClick={() => handleClickModifier(item.id)}
-                  >
-                    {item.news}
+                {news.length === 0 ? (
+                  <Dropdown.Item>
+                    <p>Loading prestations</p>
                   </Dropdown.Item>
-                ))}
+                ) : (
+                  news.map((item, index) => (
+                    <Dropdown.Item
+                      key={index}
+                      eventKey={item}
+                      onClick={() => handleClickModifier(item.id)}
+                    >
+                      {item.news_titres}
+                    </Dropdown.Item>
+                  ))
+                )}
               </Dropdown.Menu>
             </Dropdown>
             <Dropdown>
@@ -178,18 +169,24 @@ function AffichNews() {
                 style={{ maxHeight: "400px", overflowY: "auto" }}
                 variant="custom"
               >
-                {news.map((item, index) => (
-                  <Dropdown.Item
-                    key={index}
-                    eventKey={item}
-                    onClick={() => {
-                      setIndexSupp(index);
-                      setShowModalSupprimer(true);
-                    }}
-                  >
-                    {item.news}
+                {news.length === 0 ? (
+                  <Dropdown.Item>
+                    <p>Loading prestations</p>
                   </Dropdown.Item>
-                ))}
+                ) : (
+                  news.map((item, index) => (
+                    <Dropdown.Item
+                      key={index}
+                      eventKey={item}
+                      onClick={() => {
+                        setIndexSupp(index);
+                        setShowModalSupprimer(true);
+                      }}
+                    >
+                      {item.news_titres}
+                    </Dropdown.Item>
+                  ))
+                )}
               </Dropdown.Menu>
             </Dropdown>
           </Col>
@@ -335,8 +332,16 @@ function AffichNews() {
           </Modal.Title>
         </Modal.Header>
         <Modal.Body>
-          Êtes-vous sûr de bien vouloir supprimer {news[IndexSupp].news}?
+          {news.length === 0 ? (
+            <div>Aucune nouvelle disponible.</div>
+          ) : (
+            <div>
+              Êtes-vous sûr de bien vouloir supprimer{" "}
+              {news[IndexSupp].news_titres}?
+            </div>
+          )}
         </Modal.Body>
+
         <Modal.Footer>
           <Button
             variant="secondary"
@@ -346,8 +351,9 @@ function AffichNews() {
           </Button>
           <Button
             variant="myRedVariant"
+            disabled={news.length === 0}
             onClick={() => {
-              handleDelete(news[IndexSupp].id);
+              handleDelete(news[IndexSupp].news_id);
             }}
           >
             Supprimer

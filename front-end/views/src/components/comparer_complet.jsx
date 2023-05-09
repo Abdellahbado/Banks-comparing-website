@@ -15,6 +15,7 @@ import Cadre from "./cadres/cadre_selectionner";
 import Comparer from "./Comparer";
 import "../styles/button.css";
 import axios from "axios";
+import "../styles/about.css";
 
 const banques = [
   {
@@ -138,6 +139,12 @@ function ComparerComplet() {
 
   return (
     <Container>
+      <Container
+        className=" rounded-pill text-white p-3 text-center"
+        style={{ backgroundColor: "#0d2059", marginTop: "40px" }}
+      >
+        <h2>Selectionner deux banques pour commencer la comparaison</h2>
+      </Container>
       <Slider
         prevArrow={<BsChevronLeft size={120} color="blue" />}
         nextArrow={<BsChevronRight size={120} color="blue" />}

@@ -24,7 +24,7 @@ const getPrestations = async (req,res,next) => {
 const ajouterBanque = async (req,res,next) => {
     try {
         let id = req.params.id;
-        await Banques.addBanque(id, req.body);
+        await Banques.ajouterBanque(id, req.body);
         res.send("Banque a été bien ajouté");
     } catch (error) {
         console.log(error);
@@ -88,7 +88,9 @@ const supprimerNews = async (req,res,next) => {
 
 const supprimerPrestation = async (req,res,next) => {
     try {
-        await Banques.deletePrestation(req.body);
+        let presId = req.params.id1;
+        let bankId = req.params.id2;
+        await Banques.deletePrestation(presId,bankId);
         res.send("Prestation a été supprimer");
     } catch (error) {
         console.log(error);
@@ -118,5 +120,4 @@ module.exports = {getBanques,
                   getPrestations,
                   newsTitles,
                   supprimerNews
-}; 
-
+};

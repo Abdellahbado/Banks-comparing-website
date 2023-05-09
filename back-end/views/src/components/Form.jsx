@@ -1,125 +1,138 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import B from "../assets/letter-b.png";
-import { Button } from "react-bootstrap";
+import axios from "axios";
 
-const bank1 = [
-  { nom_pres: "Ouverture compte", valeur: "12" },
-  { nom_pres: "Condia choco", valeur: "2" },
-  {
-    nom_pres:
-      "Prestation banque hallal avec les intérets  Prestation banque hallal avec les intéret",
-    valeur: "39%",
-  },
-  { nom_pres: "Condition4", valeur: "Free 0 " },
-  { nom_pres: "Condition5", valeur: "-1" },
-  { nom_pres: "Imagine prestation ykon fua", valeur: "200" },
-  { nom_pres: "Condition7", valeur: "39%" },
-  { nom_pres: "Condition8", valeur: "100+10%(reduction alea) " },
-  {
-    nom_pres: "La paix complet ta3k gir riyeh a wdi Dz",
-    valeur: "La paix complet ta3k gir riyeh a wdi Dz",
-  },
-];
-
-const FormComponent = ({id}) => {
-  const [formValues, setFormValues] = useState(
-    bank1.reduce(
-      (acc, { nom_pres, valeur }) => ({ ...acc, [nom_pres]: valeur }),
-      {}
-    )
-  );
-
-  const handleFree = (nom_pres) => {
-    setFormValues((prevState) => ({ ...prevState, [nom_pres]: "0" }));
+const FormComponent = ({ id }) => {
+  const [pres, setPres] = useState(null);
+  const fetchData = async () => {
+    try {
+      const response = await axios.get(
+        `http://localhost:3500/admin/prestations/${id}`
+      );
+      setPres(response.data);
+    } catch (error) {
+      console.error(error);
+    }
   };
+  useEffect(() => {
+    fetchData();
+  }, []);
+  const [formValues, setFormValues] = useState({});
 
-  const handleDelete = (nom_pres) => {
-    setFormValues((prevState) => ({ ...prevState, [nom_pres]: "-1" }));
-  };
+  if (pres === null) {
+    return <div>Loading prestations...</div>;
+  } else {
+    const handleFree = (pres_nom) => {
+      setFormValues({ ...formValues, [pres_nom]: "0" });
+    };
 
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    // Send form data to database
-    console.log(formValues);
-  };
+    const handleDelete = (pres_nom) => {
+      setFormValues({ ...formValues, [pres_nom]: "-1" });
+    };
 
-  const handleChange = (event) => {
-    const { name, value } = event.target;
-    setFormValues((prevState) => ({ ...prevState, [name]: value }));
-  };
+    const handleSubmit = async (event) => {
+      event.preventDefault();
+      const updatedBank1 = pres.map((item) => ({
+        ...item,
+        frais: formValues[item.pres_nom] || item.frais,
+      }));
+      console.log(updatedBank1);
+      try {
+        const response = await axios.post(
+          `http://localhost:3500/admin/prestations/${id}`,
+          updatedBank1
+        );
+      } catch (e) {
+        console.error(e);
+      }
+    };
 
-  return (
-    <div className="">
-      <form
-        onSubmit={handleSubmit}
-        className="mx-2"
-        style={{ maxWidth: "100%", width: "100%" }}
-      >
-        {bank1.map(({ nom_pres }) => (
-          <div
-            key={nom_pres}
-            style={{ display: "flex", alignItems: "center", flexWrap: "wrap" }}
-          >
-            <img className="rounded-4 m-2" src={B} width="15px" height="15px" />
-            <label
-              style={{ width: "16%", marginRight: "0px", flex: "1 0 auto" }}
-            >
-              {nom_pres}
-            </label>
-            <input
-              type="text"
-              name={nom_pres}
-              value={formValues[nom_pres]}
-              onChange={handleChange}
-              className="mx-2 mb-2 rounded-2"
-              style={{
-                borderColor: "#0027F6",
-                flex: "1 0 45%",
-                overflow: "hidden",
-              }}
-            />
-            <button
-              type="button"
-              className="mx-2 mb-2 rounded-3 border border-1"
-              style={{
-                //width: "10%",
-                backgroundColor: "#2FB00F",
-                color: "white",
-              }}
-              onClick={() => handleFree(nom_pres)}
-            >
-              Gratuit
-            </button>
-            <button
-              type="button"
-              className="mb-2 rounded-3 border border-1"
-              style={{
-                //width: "10%",
-                backgroundColor: "#E50B0B",
-                color: "white",
-              }}
-              onClick={() => handleDelete(nom_pres)}
-            >
-              Suppr
-            </button>
-          </div>
-        ))}
-        <button
-          type="submit"
-          className="mb-2 m-2 rounded-3 border border-1 d-flex justify-content-center mx-auto"
-          style={{
-            width: "100px",
-            height: "40px",
-            minWidth: "60px",
-            backgroundColor: "#0027F6",
-            color: "white",
-          }}
+    const handleChange = (event) => {
+      const { name, value } = event.target;
+      setFormValues({ ...formValues, [name]: value });
+    };
+
+    return (
+      <div className="d-flex justify-content-center">
+        <form
+          onSubmit={handleSubmit}
+          className="mx-2"
+          style={{ maxWidth: "800px", width: "100%" }}
         >
-          Valider
-        </button>
-      </form>
-    </div>
-  );
+          {pres.map(({ pres_nom, pres_id, frais }) => (
+            <div
+              key={pres_id}
+              style={{
+                display: "flex",
+                alignItems: "center",
+                flexWrap: "wrap",
+              }}
+            >
+              <img className="rounded-4 m-2" src={B} width="15" height="15" />
+              <label
+                style={{ width: "180px", marginLeft: "0px", flex: "1 0 auto" }}
+              >
+                {pres_nom}
+              </label>
+              <input
+                type="text"
+                name={pres_nom}
+                value={
+                  formValues[pres_nom] !== undefined
+                    ? formValues[pres_nom]
+                    : frais
+                }
+                onChange={handleChange}
+                className="mx-2 mb-2 rounded-2"
+                style={{
+                  borderColor: "#0027F6",
+                  flex: "1 0 45%",
+                  overflow: "hidden",
+                }}
+              />
+              <button
+                type="button"
+                className="mx-2 mb-2 rounded-3 border border-1"
+                style={{
+                  width: "75px",
+                  backgroundColor: "#2FB00F",
+                  color: "white",
+                }}
+                onClick={() => handleFree(pres_nom)}
+              >
+                Gratuit
+              </button>
+              <button
+                type="button"
+                className="mb-2 rounded-3 border border-1"
+                style={{
+                  width: "75px",
+                  backgroundColor: "#E50B0B",
+                  color: "white",
+                }}
+                onClick={() => handleDelete(pres_nom)}
+              >
+                Suppr
+              </button>
+            </div>
+          ))}
+          <button
+            type="submit"
+            className="mb-2 m-2 rounded-3 border border-1 d-flex justify-content-center mx-auto"
+            style={{
+              width: "94.72px",
+              //height: "6.5%",
+              backgroundColor: "#0027F6",
+              color: "white",
+            }}
+            onClick={(e) => handleSubmit(e)}
+          >
+            Valider
+          </button>
+        </form>
+      </div>
+    );
+  }
 };
 
 export default FormComponent;

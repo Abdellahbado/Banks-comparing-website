@@ -52,20 +52,6 @@ const SideBar = () => {
             {"News"}
           </div>
         </NavLink>
-        <NavLink
-          to={"/account"}
-          key={4}
-          className="link2"
-          activeclassname="active"
-        >
-          <div className="icon">{<FaUser />}</div>
-          <div
-            style={{ display: isOpen ? "block" : "none" }}
-            className="link_text"
-          >
-            {"Account"}
-          </div>
-        </NavLink>
       </div>
     </div>
   );
