@@ -20,7 +20,7 @@ const SideBar = () => {
             <FaBars onClick={toggle} />
           </div>
         </div>
-        <NavLink to={"/"} key={1} className="link" activeclassname="active">
+        <NavLink to={"/admin/"} key={1} className="link" activeclassname="active">
           <div className="icon">{<FaMoneyBill />}</div>
           <div
             style={{ display: isOpen ? "block" : "none" }}
@@ -30,7 +30,7 @@ const SideBar = () => {
           </div>
         </NavLink>
         <NavLink
-          to={"/prestation"}
+          to={"/admin/prestation"}
           key={2}
           className="link"
           activeclassname="active"
@@ -43,7 +43,12 @@ const SideBar = () => {
             {"Prestations"}
           </div>
         </NavLink>
-        <NavLink to={"/news"} key={3} className="link" activeclassname="active">
+        <NavLink
+          to={"/admin/news"}
+          key={3}
+          className="link"
+          activeclassname="active"
+        >
           <div className="icon">{<FaNewspaper />}</div>
           <div
             style={{ display: isOpen ? "block" : "none" }}

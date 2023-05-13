@@ -31,6 +31,7 @@ function AffichNews() {
         "http://localhost:3500/admin/news/titres"
       );
       setNews(response.data);
+      console.log(news);
     } catch (e) {
       console.error(e);
     }
@@ -171,7 +172,7 @@ function AffichNews() {
               >
                 {news.length === 0 ? (
                   <Dropdown.Item>
-                    <p>Loading prestations</p>
+                    <p>Chargement des news</p>
                   </Dropdown.Item>
                 ) : (
                   news.map((item, index) => (

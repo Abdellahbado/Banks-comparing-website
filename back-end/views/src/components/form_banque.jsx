@@ -78,15 +78,15 @@ function modifyBankObject({
   Telephone,
   Fax,
   Logo,
-  "Localisation d'une agence": localisation,
+  Localisation,
 }) {
   return {
     Nom_banque: Nom,
     Siege_social: Siege,
-    Telephone: Telephone,
-    Fax: Fax,
-    Logo: Logo,
-    Localisation: localisation,
+    Telephone,
+    Fax,
+    Logo,
+    Localisation,
   };
 }
 const FormComponent = ({ id }) => {

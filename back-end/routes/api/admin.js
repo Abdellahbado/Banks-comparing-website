@@ -17,7 +17,7 @@ router
   .put(adminController.modifierBanque)
   .delete(adminController.supprimerBanque);
 
-router.route("/news").get(adminController.newsTitles);
+router.route("/news/titres").get(adminController.newsTitles);
 
 router.route("/news/:id").delete(adminController.supprimerNews);
 

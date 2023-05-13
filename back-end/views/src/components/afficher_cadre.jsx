@@ -23,7 +23,10 @@ const AfficheCadres = () => {
       <div className="mx-md-auto mx-lg-5 px-md-auto px-lg-5">
         <Row className="justify-content-around">
           {banks === null ? (
-            <div>Loading banks ...</div>
+            <div>
+              Chargement des banques (rechargez la page si le problème persiste)
+              ...
+            </div>
           ) : (
             banks.map((bank, id) => (
               <Col

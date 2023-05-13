@@ -1,31 +1,34 @@
-import NavBarV from "./components/NavbarV";
-import FooterAdmin from "./components/Footer-v";
-import SideBar from "./components/sidebar";
-import { Routes, Route } from "react-router-dom";
-import AffichPres from "./components/affichPres";
-import AffichNews from "./components/affichNews";
-import AfficheCadres from "./components/afficher_cadre";
-
+import {
+  Routes,
+  Route,
+  useLocation,
+  useNavigate,
+  Navigate,
+} from "react-router-dom";
+import AdminPage from "./components/admin_page";
+import Login from "./components/Login";
 function App() {
+  const navigate = useNavigate();
+  const isAuthenticated = localStorage.getItem("isAuthenticated") === "true";
+  // if (pathname !== "/login") {
+  //   const isAuthenticated = localStorage.getItem("isAuthenticated") === "true";
+
+  //   if (!isAuthenticated) {
+  //     navigate("/login");
+  //   }
+  // }
+
+  if (!isAuthenticated) {
+    navigate("/login");
+  }
+
   return (
-    <>
-      <NavBarV />
-      <SideBar />
+    <div>
       <Routes>
-        <Route
-          exact
-          path="/"
-          element={
-            <div style={{ marginLeft: "50px" }}>
-              <AfficheCadres />
-            </div>
-          }
-        />
-        <Route exact path="/prestation" element={<AffichPres />} />
-        <Route exact path="/news" element={<AffichNews />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/admin/*" element={<AdminPage />} />
       </Routes>
-      <FooterAdmin />
-    </>
+    </div>
   );
 }
 

@@ -148,7 +148,7 @@ function AffichPres() {
               >
                 {prest.length === 0 ? (
                   <Dropdown.Item>
-                    <p>Loading prestations</p>
+                    <p>Chargement des prestations...</p>
                   </Dropdown.Item>
                 ) : (
                   prest.map((item, index) => (
@@ -225,7 +225,7 @@ function AffichPres() {
           </Modal.Title>
         </Modal.Header>
         <Modal.Body>
-          Êtes-vous sûr de bien vouloir supprimer {pres[selectedItem].pres}?
+          Êtes-vous sûr de bien vouloir supprimer?
         </Modal.Body>
         <Modal.Footer>
           <Button

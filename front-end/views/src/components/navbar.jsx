@@ -41,16 +41,36 @@ function NavBar(props) {
             navbarScroll
             variant="tabs"
           >
-            <Nav.Link as={Link} to="/" className="mx-4">
+            <Nav.Link
+              as={Link}
+              to="/"
+              className="mx-4"
+              activeClassName="text-primary"
+            >
               Accueil
             </Nav.Link>
-            <Nav.Link as={Link} to="/comparer" className="mx-4">
+            <Nav.Link
+              as={Link}
+              to="/comparer"
+              className="mx-4"
+              activeClassName="text-primary"
+            >
               Comparer
             </Nav.Link>
-            <Nav.Link as={Link} to="/news" className="mx-4">
+            <Nav.Link
+              as={Link}
+              to="/news"
+              className="mx-4"
+              activeClassName="text-primary"
+            >
               News
             </Nav.Link>
-            <Nav.Link as={Link} to="/qui-sommes-nous" className="mx-4">
+            <Nav.Link
+              as={Link}
+              to="/qui-sommes-nous"
+              className="mx-4"
+              activeClassName="text-primary"
+            >
               Qui-sommes-nous
             </Nav.Link>
           </Nav>
