@@ -10,8 +10,11 @@ function Cadre(props) {
 
   const handleDelete = async (id) => {
     try {
-      const response = await axios.delete(`http://localhost/admin/${id}`);
+      const response = await axios.delete(
+        `http://localhost:3500/admin/bank/${id}`
+      );
       console.log(response.data);
+      window.location.reload();
     } catch (e) {
       console.error(e);
     }

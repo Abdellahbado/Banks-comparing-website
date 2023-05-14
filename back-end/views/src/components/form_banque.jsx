@@ -127,13 +127,21 @@ const FormComponent = ({ id }) => {
 
       const banks = updatedBank1.slice(0, 4);
       const prestations = updatedBank1.splice(4);
+      const bankk = modifyBankObject(formValues);
+      const { prestation1, prestation2, ...restPrestations } = prestations;
       const newBank = {
-        Banque: modifyBankObject(formValues),
-        Prestation: prestations,
+        Banque: bankk,
+        Prestation: {
+          ...restPrestations,
+        },
       };
-      console.log(newBank);
+      console.log(id);
       try {
         await axios.post(`http://localhost:3500/admin/bank/${id}`, newBank);
+        console.log(updatedBank1);
+        console.log(banks);
+        console.log(prestations);
+        window.location.reload();
       } catch (e) {
         console.error(e);
       }
@@ -163,6 +171,9 @@ const FormComponent = ({ id }) => {
           style={{ maxWidth: "900px", width: "100%" }}
           encType="multipart/form-data"
         >
+          <p>0 pour les prestations gratuits, -1 si la prestation n'exsite pas</p>
+          <p>Ne laissez pas un champ vide s'il vous plait</p>
+
           {pres.map(({ pres_nom, frais }) => (
             <div
               key={pres_nom}

@@ -22,7 +22,7 @@ function Details({ banque }) {
             <h1 className="text-center">{bank.Banque.Nom_banque}</h1>
             <div>
               <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d51157.703078141065!2d2.9673722486328233!3d36.738014500000006!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x128fad894babbbf9%3A0x653a9332a074fbd1!2sBNP%20Paribas%20Sidi%20Yahia!5e0!3m2!1sen!2sdz!4v1683575621452!5m2!1sen!2sdz"
+                src={bank.Banque.Localisation}
                 width="1200"
                 height="450"
                 style={{ border: 0 }}

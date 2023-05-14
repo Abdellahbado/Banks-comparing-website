@@ -19,13 +19,13 @@ function App() {
   // }
 
   if (!isAuthenticated) {
-    navigate("/login");
+    navigate("/");
   }
 
   return (
     <div>
       <Routes>
-        <Route path="/login" element={<Login />} />
+        <Route path="/" element={<Login />} />
         <Route path="/admin/*" element={<AdminPage />} />
       </Routes>
     </div>

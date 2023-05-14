@@ -25,10 +25,12 @@ class Banque {
     let sql = `UPDATE Banque SET Nom_banque="${data.Nom_banque}", Siege_social="${data.Siege_social}", Telephone=${data.Telephone}, Fax=${data.Fax} WHERE Banque_id=${id};`;
     DB.execute(sql);
   }
-
-  static deleteBanque(id) {
+  
+  static async deleteBanque(id) {
     let sql = `DELETE FROM Banque WHERE Banque_id=${id}`;
-    DB.execute(sql);
+    await DB.execute(sql);
+    let sql1 = `DELETE FROM prestations WHERE bank_id=${id}`;
+    await DB.execute(sql1);
   }
 
   static async addPrestation(data) {
@@ -57,28 +59,28 @@ class Banque {
   static async ajouterBanque(id, data) {
     const bank = data.Banque;
     const prestations = data.Prestation;
-    console.log(prestations);
-    let sql1 = `SELECT MAX(pres_id) AS max FROM prestations;`;
-    let maxPres = await DB.execute(sql1);
-    maxPres = maxPres[0][0].max;
-    let sql2 = `SELECT MAX(Banque_id) AS max FROM Banque;`;
-    let maxBanque = await DB.execute(sql2);
-    maxBanque = maxBanque[0][0].max;
-
-    let sql = `INSERT INTO Banque (Banque_id,Nom_banque,Siege_social,Telephone,Fax,Logo,Localisation) VALUES (${id},"${bank.Nom_banque}","${bank.Siege_social}",${bank.Telephone},${bank.Fax},"${bank.Logo}","${bank.Localisation}");`;
-    await DB.execute(sql);
 
     let sql3 = `SELECT pres_type FROM prestations WHERE bank_id=100`;
     let prest = await DB.execute(sql3);
     prest = prest[0];
-    console.log(prestations);
 
-    for (let index = 0; index < maxPres; index++) {
-      let sql = `INSERT INTO prestations (pres_id,pres_nom,pres_type,frais,bank_id) VALUES (${prestations.pres_id},"${prestations.pres_nom}",${prest[index].pres_type},${prestations.frais},${id});`;
+    let sql1 = `SELECT MAX(pres_id) AS max FROM prestations;`;
+    let maxPres = await DB.execute(sql1);
+    maxPres = maxPres[0][0].max;
+
+    let sql2 = `SELECT MAX(Banque_id) AS max FROM Banque;`;
+    let maxBanque = await DB.execute(sql2);
+    maxBanque = maxBanque[0][0].max;
+
+    let sql = `INSERT INTO Banque (Banque_id,Nom_banque,Siege_social,Telephone,Fax,Logo,Localisation) VALUES (${id},"${ bank.Nom_banque}","${bank.Siege_social}",${bank.Telephone},${bank.Fax},"${prestations[0].frais}","${prestations[1].frais}");`;
+    await DB.execute(sql);
+
+
+    for (let index = 2; index < maxPres; index++) { 
+      let sql = `INSERT INTO prestations (pres_id,pres_nom,pres_type,frais,bank_id) VALUES (${prestations[index].pres_id},"${prestations[index].pres_nom}","${prest[index-2].pres_type}",${prestations[index].frais},${id});`;
       await DB.execute(sql);
     }
   }
-
   static deletePrestation(presId, bankId) {
     let sql = `DELETE FROM Prestations WHERE pres_id=${presId} AND bank_id=${bankId}`;
     DB.execute(sql);
