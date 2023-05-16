@@ -48,7 +48,7 @@ function AffichNews() {
       news_titres: title,
       news_sous_titres: subtitle,
       news_contenu: body,
-      news_images: image,
+      news_image: image,
     };
     try {
       await axios.post(`http://localhost:3500/admin/news/00`, data);
@@ -66,13 +66,29 @@ function AffichNews() {
     try {
       await axios.delete(`http://localhost:3500/admin/news/${id}`);
       window.location.reload();
-      } catch (e) {
+    } catch (e) {
       console.error(e);
     }
   };
 
   const handleClickModifier = (id) => {
+    setIdNewsSupr(id);
     setShowModalModifier(true);
+  };
+
+  const handleSumbitModifier = async (id) => {
+    const data = {
+      news_titres: title,
+      news_sous_titres: subtitle,
+      news_contenu: body,
+      news_image: image,
+    };
+    try {
+      await axios.put(`http://localhost:3500/admin/news/${id}`, data);
+      window.location.reload();
+    } catch (e) {
+      console.error(e);
+    }
   };
 
   return (
@@ -151,7 +167,7 @@ function AffichNews() {
                     <Dropdown.Item
                       key={index}
                       eventKey={item}
-                      onClick={() => handleClickModifier(item.id)}
+                      onClick={() => handleClickModifier(item.news_id)}
                     >
                       {item.news_titres}
                     </Dropdown.Item>
@@ -318,7 +334,7 @@ function AffichNews() {
           </Button>
           <Button
             variant="myButtonVariant"
-            onClick={handleSubmit}
+            onClick={() => handleSumbitModifier(idNewsSupr)}
             type="submit"
           >
             Soumettre
@@ -356,7 +372,6 @@ function AffichNews() {
             variant="myRedVariant"
             disabled={news.length === 0}
             onClick={() => {
-              console.log(idNewsSupr);
               handleDelete(idNewsSupr);
             }}
           >

@@ -221,3 +221,32 @@
 20230515	16:24:13	210ae6b7-a67c-4a79-b53f-ec720cb6cb1e	Error: ENOENT: no such file or directory, stat '/home/abdallah/Documents/ReactProjects/Projet-2CP/back-end/views/404.html'
 20230516	10:40:34	e736dfea-1b8e-4e50-bfca-bfc4fadefdfd	Error: Unknown column 'news_date' in 'field list'
 20230516	10:40:34	e3206a78-6720-4aa0-b10f-42f4460cabb8	Error: Unknown column 'news_date' in 'field list'
+20230516	14:28:32	27646e68-c031-4a65-acf3-5a744c1339ab	Error: Unknown column 'news_date' in 'field list'
+20230516	14:28:32	2baf7020-1f29-4f86-a590-8a9b8a8f15ad	Error: Unknown column 'news_date' in 'field list'
+20230516	14:30:53	4121ca60-994d-4c98-85c6-24fb3ead198d	Error: Unknown column 'news_date' in 'field list'
+20230516	14:30:53	6633fc33-f545-4b0f-bc59-2f1d30dc0ddd	Error: Unknown column 'news_date' in 'field list'
+20230516	15:09:56	a8c897de-08d7-4565-9ea8-856129a19b74	Error: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ', news_sous_titres = , news_contenu = , news_image = undefined
+    WHERE news_id' at line 2
+20230516	15:09:56	7ae4ff8e-19c4-4a27-a66d-1262914995ec	Error: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ', news_sous_titres = , news_contenu = , news_image = undefined
+    WHERE news_id' at line 2
+20230516	15:09:56	8835d056-e957-4353-8f4a-927d3c1c5e8a	Error: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ', news_sous_titres = , news_contenu = , news_image = undefined
+    WHERE news_id' at line 2
+20230516	15:09:56	69ced388-a2b1-48ec-b112-89de9bf087ab	Error: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ', news_sous_titres = , news_contenu = , news_image = undefined
+    WHERE news_id' at line 2
+20230516	15:14:45	19e96cad-e4d3-4724-b7ee-10af2727ee93	Error: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'brk, news_sous_titres = kbnbdujehd, news_contenu = ghfeugfeu, news_image = undef' at line 2
+20230516	15:28:35	41292089-0272-4bf8-ac5a-f01d89ecc7e6	Error: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'prestation,dgzyazgsy,-1,100)' at line 1
+20230516	15:28:36	70bc882e-3249-4348-8a03-122af5c88695	Error: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'prestation,dgzyazgsy,-1,100)' at line 1
+20230516	15:46:00	15daf3be-6a0d-4bd6-bac2-f84936d49b38	Error: Unknown column 'news_date' in 'field list'
+20230516	15:46:00	b3606e54-ae16-4873-8db8-7228dc15f2b7	Error: Unknown column 'news_date' in 'field list'
+20230516	15:47:08	e7c04b01-df05-4ded-9e67-fb3fbc15375a	Error: Unknown column 'news_date' in 'field list'
+20230516	15:47:08	e00e8a6e-fa63-4b1e-99d1-76ea8b8fcdc8	Error: Unknown column 'news_date' in 'field list'
+20230516	15:48:40	96a8d442-b407-4289-a8c9-bf3464950458	Error: Data too long for column 'news_titres' at row 1
+20230516	15:49:05	71a508d8-7667-48b5-8cfc-38e31ef93c7b	Error: Data too long for column 'news_titres' at row 1
+20230516	16:09:09	cc1b1f63-0bc2-4769-9acf-4710166e3333	Error: Unknown column 'news_date' in 'field list'
+20230516	16:09:09	498d057a-4d54-46be-905a-4df61a6ff96e	Error: Unknown column 'news_date' in 'field list'
+20230516	16:09:36	160c2f7f-c473-4b3b-8789-b76b799e2130	Error: Unknown column 'news_date' in 'field list'
+20230516	16:09:36	b4ab5f8c-9d21-4e6b-8c75-b4603b13a24d	Error: Unknown column 'news_date' in 'field list'
+20230516	16:10:00	f6e59d14-f445-4dd6-80a5-718c4cecf2ef	Error: ENOENT: no such file or directory, stat '/home/abdallah/Documents/ReactProjects/Projet-2CP/front-end/views/index.html'
+20230516	16:10:00	0a30ec38-3a15-4589-8171-2da8ab26eb95	Error: ENOENT: no such file or directory, stat '/home/abdallah/Documents/ReactProjects/Projet-2CP/front-end/views/index.html'
+20230516	16:11:52	8f175b6e-c36a-4db9-876a-868733d075a7	Error: Unknown column 'news_date' in 'field list'
+20230516	16:11:52	49a11091-e729-4877-a88f-2b232bcc6a7e	Error: Unknown column 'news_date' in 'field list'

@@ -78,7 +78,7 @@ class Banque {
     }
 
     static getNews(){
-        let sql = `SELECT news_id,news_titres,news_sous_titres,news_date FROM  NEWS;`;
+        let sql = `SELECT * FROM  NEWS;`;
         return DB.execute(sql);
     }
 

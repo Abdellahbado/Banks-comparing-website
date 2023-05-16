@@ -14,28 +14,6 @@ import { FaPlusCircle, FaTrash } from "react-icons/fa";
 import "../styles/button-red.css";
 import axios from "axios";
 import "../styles/dropdown.css";
-const pres = [
-  { pres: "pres 1", id: 1 },
-  { pres: "pres 2", id: 2 },
-  { pres: "pres 3", id: 3 },
-  { pres: "pres 4", id: 4 },
-  { pres: "pres 5", id: 5 },
-  { pres: "pres 6", id: 6 },
-  { pres: "pres 7", id: 7 },
-  { pres: "pres 8", id: 8 },
-  { pres: "pres 9", id: 9 },
-  { pres: "pres 10", id: 10 },
-  { pres: "pres 11", id: 11 },
-  { pres: "pres 12", id: 12 },
-  { pres: "pres 13", id: 13 },
-  { pres: "pres 14", id: 14 },
-  { pres: "pres 15", id: 15 },
-  { pres: "pres 16", id: 16 },
-  { pres: "pres 17", id: 17 },
-  { pres: "pres 18", id: 18 },
-  { pres: "pres 19", id: 19 },
-  { pres: "pres 20", id: 20 },
-];
 
 function AffichPres() {
   const [showModal, setShowModal] = useState(false);
@@ -61,7 +39,8 @@ function AffichPres() {
     const data = { pres_nom: nomP, pres_type: typeP };
     console.log(nomP + " " + typeP);
     try {
-      await axios.post("http://localhost:3500", data);
+      await axios.post("http://localhost:3500/admin/prestations/00", data);
+      window.location.reload();
     } catch (e) {
       console.error(e);
     }
@@ -70,11 +49,11 @@ function AffichPres() {
   const handleDropdownSelect = (eventKey) => {
     setSelectedItem(eventKey);
   };
-  const handleDelete = async () => {
+  const handleDelete = async (id) => {
     const data = { pres_nom: nomP, pres_type: typeP };
-    console.log(nomP + " " + typeP);
     try {
-      await axios.delete("http://localhost:3500", data);
+      await axios.delete(`http://localhost:3500/admin/prestations/${id}`, data);
+      window.location.reload();
     } catch (e) {
       console.error(e);
     }
@@ -156,7 +135,7 @@ function AffichPres() {
                       key={index}
                       eventKey={item}
                       onClick={() => {
-                        setSelectedItem(index);
+                        setSelectedItem(item.pres_id);
                         setShowModalSupprimer(true);
                       }}
                     >
@@ -224,9 +203,7 @@ function AffichPres() {
             Confirmer la suppression
           </Modal.Title>
         </Modal.Header>
-        <Modal.Body>
-          Êtes-vous sûr de bien vouloir supprimer?
-        </Modal.Body>
+        <Modal.Body>Êtes-vous sûr de bien vouloir supprimer?</Modal.Body>
         <Modal.Footer>
           <Button
             variant="secondary"
@@ -237,7 +214,7 @@ function AffichPres() {
           <Button
             variant="myRedVariant"
             onClick={() => {
-              handleDelete(prest[selectedItem].id);
+              handleDelete(selectedItem);
             }}
           >
             Supprimer

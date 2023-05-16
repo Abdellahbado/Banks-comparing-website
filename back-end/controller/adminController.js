@@ -3,7 +3,6 @@ const Banques = require("../model/Bank");
  const getBanques =  async (req,res,next) =>  {
         try {
             const [Banks, _] = await Banques.getBanks();
-            console.log(Banks);
             res.status(200).json(Banks);
         } catch (error) {
             console.log(error);
@@ -37,6 +36,17 @@ const ajouterPrestation = async (req,res,next) => {
     try {
         await Banques.addPrestation(req.body);
         res.send("La prestation a été bien ajouté");
+    } catch (error) {
+        console.log(error);
+        next(error);
+    }
+}
+
+const supprimerPrestation = async (req,res,next) => {
+    try {
+        let id = req.params.id;
+        await Banques.deletePrestation(id);
+        res.send("La prestation a été bien supprimer");
     } catch (error) {
         console.log(error);
         next(error);
@@ -87,6 +97,8 @@ const supprimerNews = async (req,res,next) => {
     }
 }
 
+
+/*
 const supprimerPrestation = async (req,res,next) => {
     try {
         let presId = req.params.id1;
@@ -97,7 +109,7 @@ const supprimerPrestation = async (req,res,next) => {
         console.log(error);
         next(error);
     }
-}
+}*/
 
 const newsTitles = async (req,res,next) => {
     try {
@@ -110,9 +122,31 @@ const newsTitles = async (req,res,next) => {
     }
 }
 
+const getNews = async (req,res,next) =>{
+    try {
+        let [news,_] = await Banques.getNews();
+        res.status(200).json(news);
+    } catch (error) {
+        console.log(error);
+    }
+}
+
 const AjouterNews = async (req,res,next) => {
     try {
         await Banques.addNews(req.body);
+        res.sendStatus(200);
+        
+    } catch (error) {
+        console.log(error);
+        next(error);
+    }
+}
+
+const modifierNews = async (req,res,next) => {
+    try {
+        let id = req.params.id;
+        let data = req.body;
+        await Banques.updateNews(data,id);
         res.sendStatus(200);
         
     } catch (error) {
@@ -132,5 +166,7 @@ module.exports = {getBanques,
                   getPrestations,
                   newsTitles,
                   supprimerNews,
-                  AjouterNews
+                  AjouterNews,
+                  modifierNews,
+                  getNews
 };

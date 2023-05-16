@@ -43,11 +43,14 @@ class Banque {
     maxBanque = maxBanque[0][0].max;
     let id = maxPres + 1;
     for (let index = 100; index <= maxBanque; index++) {
-      let sql = `INSERT INTO prestations (pres_id,pres_nom,pres_type,frais,bank_id) VALUES (${id},${
-        data.pres_nom
-      },${data.pres_type},${"-1"},${index});`;
+      let sql = `INSERT INTO prestations (pres_id,pres_nom,pres_type,frais,bank_id) VALUES (${id},"${data.pres_nom}","${data.pres_type}","${-1}",${index});`;
       await DB.execute(sql);
     }
+  }
+
+  static async deletePrestation(id){
+    let sql = `DELETE FROM prestations WHERE pres_id=${id};`;
+    await DB.execute(sql);
   }
 
   static async upadatePrestation(id, data) {
@@ -86,10 +89,6 @@ class Banque {
       await DB.execute(sql);
     }
   }
-  static deletePrestation(presId, bankId) {
-    let sql = `DELETE FROM Prestations WHERE pres_id=${presId} AND bank_id=${bankId}`;
-    DB.execute(sql);
-  }
 
   static getById(id) {
     let sql = `SELECT * FROM Banque WHERE Banque_id = ${id};`;
@@ -121,13 +120,25 @@ class Banque {
     let sql = `SELECT news_id,news_titres FROM NEWS;`;
     return DB.execute(sql);
   }
+
+  static getNews() {
+    let sql = `SELECT * FROM NEWS;`;
+    return DB.execute(sql);
+  }
+
   static deleteNews(id) {
     let sql = `DELETE FROM NEWS WHERE news_id=${id}`;
     DB.execute(sql);
   }
 
-  static async addNews(data){
+  static async updateNews(data,id){
+    let sql = `UPDATE NEWS
+    SET news_titres = "${data.news_titres}", news_sous_titres = "${data.news_sous_titres}", news_contenu = "${data.news_contenu}", news_image = "${data.news_image}"
+    WHERE news_id=${id};`;
+    await DB.execute(sql);
+  }
 
+  static async addNews(data){
 
       let sql1 = `SELECT MAX(news_id) AS max FROM NEWS;`;
       let maxNews = await DB.execute(sql1);
