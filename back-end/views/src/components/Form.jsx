@@ -20,7 +20,7 @@ const FormComponent = ({ id }) => {
   const [formValues, setFormValues] = useState({});
 
   if (pres === null) {
-    return <div>Loading prestations...</div>;
+    return <div>Chargement des prestations...</div>;
   } else {
     const handleFree = (pres_nom) => {
       setFormValues({ ...formValues, [pres_nom]: "0" });
@@ -38,10 +38,11 @@ const FormComponent = ({ id }) => {
       }));
       console.log(updatedBank1);
       try {
-        const response = await axios.post(
+        const response = await axios.put(
           `http://localhost:3500/admin/prestations/${id}`,
           updatedBank1
         );
+        window.location.reload();
       } catch (e) {
         console.error(e);
       }

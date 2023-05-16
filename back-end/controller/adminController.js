@@ -3,6 +3,7 @@ const Banques = require("../model/Bank");
  const getBanques =  async (req,res,next) =>  {
         try {
             const [Banks, _] = await Banques.getBanks();
+            console.log(Banks);
             res.status(200).json(Banks);
         } catch (error) {
             console.log(error);
@@ -109,6 +110,17 @@ const newsTitles = async (req,res,next) => {
     }
 }
 
+const AjouterNews = async (req,res,next) => {
+    try {
+        await Banques.addNews(req.body);
+        res.sendStatus(200);
+        
+    } catch (error) {
+        console.log(error);
+        next(error);
+    }
+}
+
 
 module.exports = {getBanques,
                   ajouterBanque,
@@ -119,5 +131,6 @@ module.exports = {getBanques,
                   supprimerPrestation,
                   getPrestations,
                   newsTitles,
-                  supprimerNews
+                  supprimerNews,
+                  AjouterNews
 };

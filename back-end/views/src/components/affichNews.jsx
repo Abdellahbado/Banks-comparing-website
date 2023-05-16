@@ -23,7 +23,7 @@ function AffichNews() {
   const [subtitle, setSubtitle] = useState("");
   const [body, setBody] = useState("");
   const [image, setImage] = useState("");
-  const [IndexSupp, setIndexSupp] = useState(0);
+  const [idNewsSupr, setIdNewsSupr] = useState(0);
   const [news, setNews] = useState([]);
   const fetchNewsTitles = async () => {
     try {
@@ -43,25 +43,30 @@ function AffichNews() {
   const [nomP, setNomP] = useState("");
   const [typeP, setTypeP] = useState("");
   // the call for this in the modal gotta change
-  const handleSubmit = async (id) => {
+  const handleSubmit = async () => {
     const data = {
-      news_title: title,
-      news_subtitle: subtitle,
-      news_body: body,
+      news_titres: title,
+      news_sous_titres: subtitle,
+      news_contenu: body,
+      news_images: image,
     };
     try {
-      await axios.post(`http://localhost:3500/admin/news/${id} `, data);
+      await axios.post(`http://localhost:3500/admin/news/00`, data);
+      window.location.reload();
     } catch (e) {
       console.error(e);
     }
   };
-
+  const handleDeleteDropDown = (id) => {
+    setIdNewsSupr(id);
+    setShowModalSupprimer(true);
+  };
   const handleDelete = async (id) => {
-    const data = { news_nom: nomP, news_type: typeP };
     console.log(nomP + " " + typeP);
     try {
       await axios.delete(`http://localhost:3500/admin/news/${id}`);
-    } catch (e) {
+      window.location.reload();
+      } catch (e) {
       console.error(e);
     }
   };
@@ -180,8 +185,8 @@ function AffichNews() {
                       key={index}
                       eventKey={item}
                       onClick={() => {
-                        setIndexSupp(index);
-                        setShowModalSupprimer(true);
+                        handleDeleteDropDown(item.news_id);
+                        console.log(idNewsSupr);
                       }}
                     >
                       {item.news_titres}
@@ -336,10 +341,7 @@ function AffichNews() {
           {news.length === 0 ? (
             <div>Aucune nouvelle disponible.</div>
           ) : (
-            <div>
-              Êtes-vous sûr de bien vouloir supprimer{" "}
-              {news[IndexSupp].news_titres}?
-            </div>
+            <div>Êtes-vous sûr de bien vouloir supprimer </div>
           )}
         </Modal.Body>
 
@@ -354,7 +356,8 @@ function AffichNews() {
             variant="myRedVariant"
             disabled={news.length === 0}
             onClick={() => {
-              handleDelete(news[IndexSupp].news_id);
+              console.log(idNewsSupr);
+              handleDelete(idNewsSupr);
             }}
           >
             Supprimer

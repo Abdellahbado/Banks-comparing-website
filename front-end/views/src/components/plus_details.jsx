@@ -9,7 +9,7 @@ import "../styles/plus_details_style.css";
 
 function Details({ banque }) {
   const bank = banque;
-
+  console.log(bank.Banque.Localisation);
   //   const bankOpeningTime = bank.Banque.openingTime;
   //   const bankClosingTime = bank.Banque.closingTime;
   //   const currentHour = new Date().getHours();

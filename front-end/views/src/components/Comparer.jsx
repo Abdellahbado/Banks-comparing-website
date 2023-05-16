@@ -80,8 +80,12 @@ function Comparer(props) {
             >
               <Card.Img
                 variant="top"
-                style={{ backgroundColor: "rgba(0, 39, 246, 0.1)" }}
-                src="https://mabanque.bnpparibas/rsc/contrib/script/cookielaw/consent/eca11097-be94-4209-912e-825b1c49288d/b3b62f33-0cda-42c9-88b7-620ae7e562a1/logos/static/ot_logo.jpg"
+                src={props.banques[0].Logo}
+                style={{
+                  height: "100px",
+                  overflow: "hidden",
+                  backgroundColor: "rgba(0, 39, 246, 0.1)",
+                }}
               />
               <Card.Body>
                 <Card.Title
@@ -134,8 +138,12 @@ function Comparer(props) {
             >
               <Card.Img
                 variant="top"
-                style={{ backgroundColor: "rgba(0, 39, 246, 0.1)" }}
-                src="https://mabanque.bnpparibas/rsc/contrib/script/cookielaw/consent/eca11097-be94-4209-912e-825b1c49288d/b3b62f33-0cda-42c9-88b7-620ae7e562a1/logos/static/ot_logo.jpg"
+                src={props.banques[1].Logo}
+                style={{
+                  height: "100px",
+                  overflow: "hidden",
+                  backgroundColor: "rgba(0, 39, 246, 0.1)",
+                }}
               />
               <Card.Body>
                 <Card.Title

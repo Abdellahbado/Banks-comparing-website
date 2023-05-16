@@ -1,16 +1,12 @@
 import { useRef, useState, useEffect } from "react";
-import useAuth from "../hooks/useAuth";
-import { Link, useNavigate, useLocation } from "react-router-dom";
+import {  useNavigate } from "react-router-dom";
 import "../index.css";
 import axios from "../api/axios";
 const LOGIN_URL = "/auth";
 
 const Login = () => {
-  const { setAuth } = useAuth();
 
   const navigate = useNavigate();
-  const location = useLocation();
-  //const from = location.state?.from?.pathname || "/";
 
   const userRef = useRef();
   const errRef = useRef();
@@ -34,7 +30,7 @@ const Login = () => {
       const response = await axios.post(LOGIN_URL, { user: user, pwd: pwd });
       console.log(response?.data);
       //console.log(JSON.stringify(response));
-      const accessToken = response?.data?.accessToken;
+      //const accessToken = response?.data?.accessToken;
       //setAuth({ user, pwd, accessToken });
       setUser("");
       setPwd("");

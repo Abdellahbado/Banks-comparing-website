@@ -143,3 +143,81 @@
 20230509	07:05:50	195b1ace-f7ec-4bfc-8946-11293b9f133d	Error: ENOENT: no such file or directory, stat '/home/abdallah/Documents/ReactProjects/Projet-2CP/back-end/views/404.html'
 20230509	08:56:33	c412e5fa-1dc2-4e0e-acc7-976be4f378e5	Error: ENOENT: no such file or directory, stat '/home/abdallah/Documents/ReactProjects/Projet-2CP/back-end/views/404.html'
 20230509	08:56:33	07af7f6d-3f3e-4d94-8f88-a9a7f14196d4	Error: ENOENT: no such file or directory, stat '/home/abdallah/Documents/ReactProjects/Projet-2CP/back-end/views/404.html'
+20230510	11:04:23	c2a74c48-3a7b-4161-ac61-e83e2fb16a06	Error: Unknown column 'bb' in 'field list'
+20230510	11:07:24	73b80753-8a0f-404c-a770-27aed0c0069d	Error: Unknown column 'b' in 'field list'
+20230512	15:47:27	9cfa7831-0e44-46c8-acc6-d5680e558d88	Error: ENOENT: no such file or directory, stat '/home/abdallah/Documents/ReactProjects/Projet-2CP/back-end/views/404.html'
+20230512	15:47:27	581f11e5-2cf2-47a2-a0ed-4593ece377d8	Error: ENOENT: no such file or directory, stat '/home/abdallah/Documents/ReactProjects/Projet-2CP/back-end/views/404.html'
+20230512	22:43:38	d13a30e7-8186-47f2-8e43-462c09449eee	Error: ENOENT: no such file or directory, stat '/home/abdallah/Documents/ReactProjects/Projet-2CP/back-end/views/404.html'
+20230512	22:43:38	0e2d7cc3-a65b-4c33-bce8-c80e14768495	Error: ENOENT: no such file or directory, stat '/home/abdallah/Documents/ReactProjects/Projet-2CP/back-end/views/404.html'
+20230512	22:43:42	86942b2e-c06b-4945-82ba-6a040f933c55	Error: ENOENT: no such file or directory, stat '/home/abdallah/Documents/ReactProjects/Projet-2CP/back-end/views/404.html'
+20230512	22:43:42	d008617a-ddee-442d-9e68-51848c3150ef	Error: ENOENT: no such file or directory, stat '/home/abdallah/Documents/ReactProjects/Projet-2CP/back-end/views/404.html'
+20230512	23:14:49	fcb49251-edb6-4f82-a156-5815c790b3f8	Error: ENOENT: no such file or directory, stat '/home/abdallah/Documents/ReactProjects/Projet-2CP/back-end/views/404.html'
+20230512	23:14:49	5f88c1eb-1f41-4db8-8c0d-a65471ef7b75	Error: ENOENT: no such file or directory, stat '/home/abdallah/Documents/ReactProjects/Projet-2CP/back-end/views/404.html'
+20230512	23:17:24	94f54276-986a-4be7-95ab-200e05bb4cf3	Error: ENOENT: no such file or directory, stat '/home/abdallah/Documents/ReactProjects/Projet-2CP/back-end/views/404.html'
+20230512	23:17:26	06108524-472b-4e80-a611-c02c42617566	Error: ENOENT: no such file or directory, stat '/home/abdallah/Documents/ReactProjects/Projet-2CP/back-end/views/404.html'
+20230512	23:19:07	27884207-905a-4be4-98e5-f84744c3e297	Error: ENOENT: no such file or directory, stat '/home/abdallah/Documents/ReactProjects/Projet-2CP/back-end/views/404.html'
+20230514	15:03:20	40a65cb4-fac0-44cf-bd3f-10550b8da2cb	Error: Unknown column 'undefined' in 'field list'
+20230514	15:03:46	0a57c56b-d2a4-4caa-ac6a-fa37bdcd70d8	Error: Duplicate entry '120' for key 'Banque.PRIMARY'
+20230514	15:06:49	02c0f63b-e0e2-4599-9935-98256510fcfb	Error: Duplicate entry '120' for key 'Banque.PRIMARY'
+20230514	15:07:55	cc8a3029-0120-4a54-818a-8b815fe81e83	Error: Duplicate entry '120' for key 'Banque.PRIMARY'
+20230514	15:09:50	935a48fd-b996-42b5-b319-9d3ba0abd345	Error: Duplicate entry '120' for key 'Banque.PRIMARY'
+20230514	15:11:24	c6638d70-6060-4ca0-9607-6a3a04d13499	Error: Duplicate entry '120' for key 'Banque.PRIMARY'
+20230514	15:14:11	ff6269c4-0e62-48a1-a912-92a541ca1432	Error: Unknown column 'undefined' in 'field list'
+20230514	15:15:37	e6f84271-6c4a-48b5-b90d-22daf1325a55	Error: Duplicate entry '121' for key 'Banque.PRIMARY'
+20230514	15:17:45	0cdf21d7-5a01-4d9a-8e11-981d9790f8c9	Error: Unknown column 'undefined' in 'field list'
+20230514	15:22:28	e0b5d942-86d6-462f-a797-a828e34ac9a7	Error: Duplicate entry '122' for key 'Banque.PRIMARY'
+20230514	15:22:53	1990c417-1976-48db-bb1c-6e9fb6789a72	Error: Unknown column 'undefined' in 'field list'
+20230514	15:36:54	f47c5af2-784d-407b-91f3-a69921d4d9ec	Error: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ',121)' at line 1
+20230514	15:42:56	f0e10d69-410b-41a2-b6cc-5a277cd6ff35	Error: Duplicate entry '121' for key 'Banque.PRIMARY'
+20230514	15:43:44	75abe1fc-e52c-4a66-80b4-850a38a88890	TypeError: Cannot read properties of undefined (reading 'pres_type')
+20230514	15:50:58	87046386-9004-406b-826c-0aebf4e0ea81	Error: Unknown column 'undefined' in 'field list'
+20230514	15:52:49	de1a5442-ecff-48ec-8503-a9b3238661a9	Error: Duplicate entry '123' for key 'Banque.PRIMARY'
+20230514	15:58:43	04a618c8-3bd6-4c4c-8540-d83b2ab26e1e	Error: Duplicate entry '123' for key 'Banque.PRIMARY'
+20230514	16:01:55	2b50b358-4380-4ae6-b8c5-ffb29cd347db	TypeError: Cannot read properties of undefined (reading 'Nom_banque')
+20230514	16:01:58	1789140f-5dcd-47b6-88a8-a3a8af47f0c6	TypeError: Cannot read properties of undefined (reading 'Nom_banque')
+20230514	16:02:49	d5680322-acd8-411d-ba41-d9cf5b029fcf	TypeError: Cannot read properties of undefined (reading 'Nom_banque')
+20230514	16:04:54	5cad689b-de53-4fda-acdd-51fd1a181984	Error: Duplicate entry '123' for key 'Banque.PRIMARY'
+20230514	16:07:26	55544e0b-6574-4fe9-8420-022bc6825b77	Error: Duplicate entry '123' for key 'Banque.PRIMARY'
+20230514	16:08:57	8d3b0495-954d-4d86-8604-257e0aa1cf45	Error: Unknown column 'undefined' in 'field list'
+20230514	16:09:17	d51c2cb2-f84c-436e-a963-c730002b6e01	Error: Duplicate entry '123' for key 'Banque.PRIMARY'
+20230514	16:10:35	7e8a656b-4bd2-43ec-b943-f6926c215422	TypeError: Cannot read properties of undefined (reading 'Nom_banque')
+20230514	16:11:24	0cd1f4fe-fea1-48b2-b256-fb342ddef081	TypeError: Cannot read properties of undefined (reading 'Nom_banque')
+20230514	16:11:48	718e229b-7ac9-4df0-aca5-f6ece3d6a459	Error: Unknown column 'undefined' in 'field list'
+20230514	16:19:31	6334c01e-32a7-43d9-875c-7c2ca6814fa3	Error: Unknown column 'undefined' in 'field list'
+20230514	16:21:15	127ec021-abeb-46cd-a5c5-47bb199a0e02	Error: Duplicate entry '123' for key 'Banque.PRIMARY'
+20230514	18:11:05	eed1e950-8ca1-41a4-906a-76070ec1aab9	Error: Cannot delete or update a parent row: a foreign key constraint fails (`PROJET_2CP_TEAM02`.`prestations`, CONSTRAINT `prestations_ibfk_1` FOREIGN KEY (`bank_id`) REFERENCES `Banque` (`Banque_id`))
+20230514	18:11:14	97cbe0b8-3d4e-492d-84e1-4d32a2ce3c99	Error: Cannot delete or update a parent row: a foreign key constraint fails (`PROJET_2CP_TEAM02`.`prestations`, CONSTRAINT `prestations_ibfk_1` FOREIGN KEY (`bank_id`) REFERENCES `Banque` (`Banque_id`))
+20230515	09:04:46	2134eb14-d2b7-4af6-9efc-bbe596adfd8f	Error: Duplicate entry '123' for key 'Banque.PRIMARY'
+20230515	09:14:13	d93f2b18-6678-48f5-b15f-25ec7cc4a131	Error: Cannot delete or update a parent row: a foreign key constraint fails (`PROJET_2CP_TEAM02`.`prestations`, CONSTRAINT `prestations_ibfk_1` FOREIGN KEY (`bank_id`) REFERENCES `Banque` (`Banque_id`))
+20230515	09:15:06	4486baae-4a4b-4dc7-8cf7-6e96a50ff5db	Error: Duplicate entry '123' for key 'Banque.PRIMARY'
+20230515	09:20:29	1d295f7e-4fd7-4b08-bf85-efa56e496f3b	Error: Duplicate entry '123' for key 'Banque.PRIMARY'
+20230515	09:21:10	0f888f66-ee70-4758-ad7f-120a711fcf0a	Error: Duplicate entry '123' for key 'Banque.PRIMARY'
+20230515	09:22:22	9c025177-09f8-4957-a7d1-681c1a81f222	Error: Cannot add or update a child row: a foreign key constraint fails (`PROJET_2CP_TEAM02`.`prestations`, CONSTRAINT `prestations_ibfk_1` FOREIGN KEY (`bank_id`) REFERENCES `Banque` (`Banque_id`))
+20230515	09:22:48	d4ebc584-9b1d-4a3b-907f-d66b67e56fcf	Error: Duplicate entry '124' for key 'Banque.PRIMARY'
+20230515	09:23:16	2655d2ad-b9eb-4b3b-a34e-8f6fff4dbf2d	Error: Duplicate entry '124' for key 'Banque.PRIMARY'
+20230515	09:23:42	10802a75-f7a7-4e40-b200-314a00d20459	Error: Duplicate entry '124' for key 'Banque.PRIMARY'
+20230515	09:25:15	98377425-27f9-4d51-a54a-665bfa61f3a6	Error: Cannot add or update a child row: a foreign key constraint fails (`PROJET_2CP_TEAM02`.`prestations`, CONSTRAINT `prestations_ibfk_1` FOREIGN KEY (`bank_id`) REFERENCES `Banque` (`Banque_id`))
+20230515	09:25:40	e9fcc399-ae2e-4840-b524-2af3b3b2c6a2	Error: Cannot add or update a child row: a foreign key constraint fails (`PROJET_2CP_TEAM02`.`prestations`, CONSTRAINT `prestations_ibfk_1` FOREIGN KEY (`bank_id`) REFERENCES `Banque` (`Banque_id`))
+20230515	09:27:11	9b6b21dc-fe8d-4a0d-b258-ddd3fcd8c64f	Error: Unknown column 'undefined' in 'field list'
+20230515	09:28:43	4d0dedb0-ae05-44ae-859d-3fe334516a83	Error: ENOENT: no such file or directory, stat '/home/abdallah/Documents/ReactProjects/Projet-2CP/back-end/views/404.html'
+20230515	09:29:24	c8af68c9-3d3c-4ad1-8a9b-82bc953ca0da	Error: ENOENT: no such file or directory, stat '/home/abdallah/Documents/ReactProjects/Projet-2CP/back-end/views/404.html'
+20230515	09:37:08	27b4a3e9-add3-4115-8fb8-dcc70a7768db	Error: Cannot delete or update a parent row: a foreign key constraint fails (`PROJET_2CP_TEAM02`.`prestations`, CONSTRAINT `prestations_ibfk_1` FOREIGN KEY (`bank_id`) REFERENCES `Banque` (`Banque_id`))
+20230515	09:37:49	1638f900-6210-4eee-b89c-7390100c6064	Error: Cannot delete or update a parent row: a foreign key constraint fails (`PROJET_2CP_TEAM02`.`prestations`, CONSTRAINT `prestations_ibfk_1` FOREIGN KEY (`bank_id`) REFERENCES `Banque` (`Banque_id`))
+20230515	09:38:32	535b1b50-9f12-4302-b473-98c2ea09a051	Error: Cannot delete or update a parent row: a foreign key constraint fails (`PROJET_2CP_TEAM02`.`prestations`, CONSTRAINT `prestations_ibfk_1` FOREIGN KEY (`bank_id`) REFERENCES `Banque` (`Banque_id`))
+20230515	09:38:54	b98871a4-288e-4000-9071-fee27a6a3350	Error: Cannot delete or update a parent row: a foreign key constraint fails (`PROJET_2CP_TEAM02`.`prestations`, CONSTRAINT `prestations_ibfk_1` FOREIGN KEY (`bank_id`) REFERENCES `Banque` (`Banque_id`))
+20230515	09:41:04	92d67680-2f9e-42ba-a049-8850301dc71e	Error: Cannot delete or update a parent row: a foreign key constraint fails (`PROJET_2CP_TEAM02`.`prestations`, CONSTRAINT `prestations_ibfk_1` FOREIGN KEY (`bank_id`) REFERENCES `Banque` (`Banque_id`))
+20230515	09:43:21	ab5cd2a8-7edf-4794-8a32-3e9cde5c4bde	Error: Cannot add or update a child row: a foreign key constraint fails (`PROJET_2CP_TEAM02`.`prestations`, CONSTRAINT `prestations_ibfk_1` FOREIGN KEY (`bank_id`) REFERENCES `Banque` (`Banque_id`))
+20230515	09:47:37	ec07a03b-f331-4f4c-a3ee-7b79d9152f65	Error: Cannot add or update a child row: a foreign key constraint fails (`PROJET_2CP_TEAM02`.`prestations`, CONSTRAINT `prestations_ibfk_1` FOREIGN KEY (`bank_id`) REFERENCES `Banque` (`Banque_id`))
+20230515	09:52:50	5787bef4-2c87-43fb-a405-10673f263e59	Error: Cannot add or update a child row: a foreign key constraint fails (`PROJET_2CP_TEAM02`.`prestations`, CONSTRAINT `prestations_ibfk_1` FOREIGN KEY (`bank_id`) REFERENCES `Banque` (`Banque_id`))
+20230515	09:54:39	95a2ff9b-04b4-4647-8cdc-f77ef5236929	Error: Duplicate entry '121' for key 'Banque.PRIMARY'
+20230515	09:57:04	13f8579a-75ed-43e9-9b5c-dca14cd57be3	Error: Duplicate entry '119' for key 'Banque.PRIMARY'
+20230515	09:58:04	88fb11f0-e7af-479b-bb2a-fc69b9f0f083	Error: Duplicate entry '119' for key 'Banque.PRIMARY'
+20230515	09:59:10	6c554732-4b09-43e4-b058-4d5a6aeb0fa5	ReferenceError: id_bank is not defined
+20230515	09:59:58	532775b8-d2d0-46d0-acc4-03a683d38fa4	Error: Unknown column 'undefined' in 'field list'
+20230515	10:00:18	641780ee-b0f1-413f-87a2-d5e3b3048aef	Error: Unknown column 'undefined' in 'field list'
+20230515	10:04:54	c057ee9e-ca82-4c9a-8a91-963f03952b4e	Error: Unknown column 'undefined' in 'field list'
+20230515	10:06:46	3479dde2-9c00-4ace-a8b5-cc3b0dbadaa1	Error: ENOENT: no such file or directory, stat '/home/abdallah/Documents/ReactProjects/Projet-2CP/back-end/views/404.html'
+20230515	10:13:03	cb75b7e2-d38b-4cb7-8e1c-9fb627840e29	Error: ENOENT: no such file or directory, stat '/home/abdallah/Documents/ReactProjects/Projet-2CP/back-end/views/404.html'
+20230515	16:24:13	210ae6b7-a67c-4a79-b53f-ec720cb6cb1e	Error: ENOENT: no such file or directory, stat '/home/abdallah/Documents/ReactProjects/Projet-2CP/back-end/views/404.html'
+20230516	10:40:34	e736dfea-1b8e-4e50-bfca-bfc4fadefdfd	Error: Unknown column 'news_date' in 'field list'
+20230516	10:40:34	e3206a78-6720-4aa0-b10f-42f4460cabb8	Error: Unknown column 'news_date' in 'field list'

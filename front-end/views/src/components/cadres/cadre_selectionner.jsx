@@ -17,7 +17,8 @@ function Cadre(props) {
       >
         <Card.Img
           variant="top"
-          src="https://mabanque.bnpparibas/rsc/contrib/script/cookielaw/consent/eca11097-be94-4209-912e-825b1c49288d/b3b62f33-0cda-42c9-88b7-620ae7e562a1/logos/static/ot_logo.jpg"
+          src={props.img}
+          style={{ height: "100px", overflow: "hidden" }}
         />
 
         <Card.Body>

@@ -131,13 +131,11 @@ const FormComponent = ({ id }) => {
       const { prestation1, prestation2, ...restPrestations } = prestations;
       const newBank = {
         Banque: bankk,
-        Prestation: {
-          ...restPrestations,
-        },
+        Prestation: prestations,
       };
       console.log(id);
       try {
-        await axios.post(`http://localhost:3500/admin/bank/${id}`, newBank);
+        await axios.post("http://localhost:3500/admin/bank/00", newBank);
         console.log(updatedBank1);
         console.log(banks);
         console.log(prestations);
@@ -171,7 +169,9 @@ const FormComponent = ({ id }) => {
           style={{ maxWidth: "900px", width: "100%" }}
           encType="multipart/form-data"
         >
-          <p>0 pour les prestations gratuits, -1 si la prestation n'exsite pas</p>
+          <p>
+            0 pour les prestations gratuites, -1 si la prestation n'exsite pas
+          </p>
           <p>Ne laissez pas un champ vide s'il vous plait</p>
 
           {pres.map(({ pres_nom, frais }) => (

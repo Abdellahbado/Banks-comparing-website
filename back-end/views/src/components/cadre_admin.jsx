@@ -29,12 +29,7 @@ function Cadre(props) {
     // const data hadi resultat t3 modification
     let data;
     try {
-      const response = await axios.post(`http://localhost/admin/${id}`, data, {
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: "Bearer YOUR_ACCESS_TOKEN",
-        },
-      });
+      const response = await axios.post(`http://localhost/admin/${id}`, data);
       console.log(response.data);
     } catch (e) {
       console.error(e);
