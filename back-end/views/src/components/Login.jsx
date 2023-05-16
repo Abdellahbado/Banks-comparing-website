@@ -1,11 +1,10 @@
 import { useRef, useState, useEffect } from "react";
-import {  useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import "../index.css";
 import axios from "../api/axios";
 const LOGIN_URL = "/auth";
 
 const Login = () => {
-
   const navigate = useNavigate();
 
   const userRef = useRef();
@@ -51,11 +50,13 @@ const Login = () => {
   };
 
   return (
-    <div class="body">
+    
+    <div class="cont">
+     
       <section
         style={{
           display: "flex",
-          flexDirection: "column",
+          flexDirection: "column ",
           alignItems: "center",
         }}
       >
@@ -89,10 +90,11 @@ const Login = () => {
             required
             placeholder="Veuillez ente votre mot de passe "
           />
-          <button> Se connecter</button>
+          <button className="fanc"> Se connecter</button>
         </form>
       </section>
     </div>
+ 
   );
 };
 
