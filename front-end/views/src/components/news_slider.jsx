@@ -98,7 +98,7 @@ function MySlider() {
         subTitle={selectedNew.news_sous_titres}
         description={selectedNew.news_contenu}
       />
-      <h5 style={{ marginLeft: "20px" }}> Latest news: </h5>
+      <h5 style={{ marginLeft: "20px" }}> News récentes: </h5>
       <Slider
         {...settings}
         prevArrow={<BsChevronLeft size={120} color="blue" />}
