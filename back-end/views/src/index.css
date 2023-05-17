@@ -13,6 +13,7 @@ html {
 }
 
 .cont {
+  margin: 0;
   height: 100vh;
   background-image: linear-gradient(to right, #101d40, #fff);
 }
@@ -43,7 +44,6 @@ section {
   /* existing styles */
   margin: 0 auto; /* centers the section horizontally */
   background-color: #fff;
-
   box-shadow: 5px 5px 5px 5px rgb(0, 0, 0, 0.5);
 
   border-radius: 50px;
